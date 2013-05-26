@@ -11,6 +11,7 @@ public class SCItems {
 	public static void load(SCConfig conf) {
 		try {
 			itemReedLeaves = new ItemReedLeaves(conf.getItemID("itemReedLeaves", 2400));
+			
 		}catch (Exception e){
 			System.err.println("Error when loading itemIDs from config . " + e );
 		}

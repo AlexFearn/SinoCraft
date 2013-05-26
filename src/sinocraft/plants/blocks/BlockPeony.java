@@ -25,7 +25,7 @@ public class BlockPeony extends BlockFlower
 		
 		blockID = Id;
 		setStepSound(soundGrassFootstep);
-		setUnlocalizedName("牡丹");
+		setUnlocalizedName("peony");
 	}
 	
 	@Override
@@ -53,7 +53,7 @@ public class BlockPeony extends BlockFlower
 	@Override
 	public int getRenderType()
 	{
-		return 1; //使用交叉渲染
+		return 1; 
 	}
 	
 	@Override
@@ -66,6 +66,6 @@ public class BlockPeony extends BlockFlower
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister i)
 	{
-		blockIcon = i.registerIcon("SinoCraft:BlockPeony"); //1.5对材质的使用做了更改
+		blockIcon = i.registerIcon("SinoCraft:BlockPeony");
 	}
 }

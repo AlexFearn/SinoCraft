@@ -16,6 +16,7 @@ public class ItemReedLeaves extends Item
 		
 		itemID = Id;
 		setCreativeTab(CreativeTabs.tabDecorations);
+		this.setUnlocalizedName("reedLeaves");
 	}
 	
 	@Override

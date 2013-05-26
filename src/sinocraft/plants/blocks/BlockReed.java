@@ -24,7 +24,7 @@ public class BlockReed extends BlockFlower implements IPlantable
 		
 		blockID = Id;
 		setStepSound(soundGrassFootstep);
-		setUnlocalizedName("«έ");
+		this.setUnlocalizedName("reed");
 	}
 	
 	@Override

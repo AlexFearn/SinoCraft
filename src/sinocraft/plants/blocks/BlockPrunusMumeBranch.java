@@ -27,6 +27,7 @@ public class BlockPrunusMumeBranch extends Block
 		blockID = Id;
 		setCreativeTab(CreativeTabs.tabDecorations);
 		setTickRandomly(true);
+		this.setUnlocalizedName("prunusMumeBranch");
 	}
 	
 	@Override
@@ -48,8 +49,8 @@ public class BlockPrunusMumeBranch extends Block
 	}
 	
 	/**
-	 * 出错语句，本意为检测方块周围9*9的区域是否有树干，没有则破坏方块
-	 * 暂时使用泥土代替木头
+	 * 锟斤拷锟斤拷锟斤拷洌拷锟斤拷锟轿拷锟解方锟斤拷锟斤拷围9*9锟斤拷锟斤拷锟斤拷锟角凤拷锟斤拷锟斤拷锟缴ｏ拷没锟斤拷锟斤拷锟狡伙拷锟斤拷锟斤拷
+	 * 锟斤拷时使锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷木头
 	 */
 	@SideOnly(Side.SERVER)
 	@Override

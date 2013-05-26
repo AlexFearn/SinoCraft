@@ -26,7 +26,7 @@ public class BlockChrysanthemum extends BlockFlower implements IPlantable
 		
 		blockID = Id;
 		setStepSound(soundGrassFootstep);
-		setUnlocalizedName("¾Õ»¨");
+		setUnlocalizedName("chrysanthemum");
 	}
 	
 	@Override
@@ -54,7 +54,7 @@ public class BlockChrysanthemum extends BlockFlower implements IPlantable
 	@Override
 	public int getRenderType()
 	{
-		return 1; //Ê¹ÓÃ½»²æäÖÈ¾
+		return 1; //Ê¹ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ï¿½È¾
 	}
 
 	@Override
@@ -67,6 +67,6 @@ public class BlockChrysanthemum extends BlockFlower implements IPlantable
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister i)
 	{
-		blockIcon = i.registerIcon("SinoCraft:BlockChrysanthemum"); //1.5¶Ô²ÄÖÊµÄÊ¹ÓÃ×öÁË¸ü¸Ä
+		blockIcon = i.registerIcon("SinoCraft:BlockChrysanthemum"); //1.5ï¿½Ô²ï¿½ï¿½Êµï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½Ë¸ï¿½ï¿½
 	}
 }

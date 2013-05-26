@@ -40,7 +40,7 @@ public class SinoCraft
 	@Init
 	public void init(FMLInitializationEvent e)
 	{
-	
+		
 		SCBlocks.load(config);
 		SCItems.load(config);
 		
