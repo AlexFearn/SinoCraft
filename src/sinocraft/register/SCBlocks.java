@@ -1,5 +1,6 @@
 package sinocraft.register;
 
+import sinocraft.SinoCraft;
 import sinocraft.plants.blocks.BlockChrysanthemum;
 import sinocraft.plants.blocks.BlockPeony;
 import sinocraft.plants.blocks.BlockPrunusMumeBranch;
@@ -8,6 +9,11 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.src.ModLoader;
 
+/**
+ *  加载MOD内所有的基础方块
+ * @author HopeAsd
+ *
+ */
 public class SCBlocks {
 	public static Block blockPeony, blockChrysanthemum, blockPrunusMumeBranch,
 			blockReed;
@@ -21,7 +27,7 @@ public class SCBlocks {
 			
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			SinoCraft.log.warning("Error when loading blockIDs from config . " + e);
 		}
 		
 		ModLoader.registerBlock(blockPeony);

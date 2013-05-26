@@ -5,6 +5,11 @@ import java.io.IOException;
 
 import net.minecraftforge.common.Configuration;
 
+/**
+ *  MOD的config类  便于调整设置
+ * @author HopeAsd
+ *
+ */
 public class SCConfig {
 	private static Configuration config;
 
