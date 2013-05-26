@@ -1,4 +1,4 @@
-package sinocraft.register;
+package sinocraft.core.register;
 
 import java.io.File;
 import java.io.IOException;

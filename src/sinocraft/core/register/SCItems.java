@@ -1,4 +1,4 @@
-package sinocraft.register;
+package sinocraft.core.register;
 
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import sinocraft.SinoCraft;
@@ -8,7 +8,7 @@ import net.minecraft.item.Item;
 
 
 /**
- * MOD中的基础Item加载类
+ * MOD中的基础Item注册类
  * @author HopeAsd
  *
  */

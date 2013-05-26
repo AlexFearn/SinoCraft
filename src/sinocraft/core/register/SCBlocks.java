@@ -1,4 +1,4 @@
-package sinocraft.register;
+package sinocraft.core.register;
 
 import sinocraft.SinoCraft;
 import sinocraft.plants.blocks.BlockChrysanthemum;
@@ -10,7 +10,7 @@ import net.minecraft.block.Block;
 import net.minecraft.src.ModLoader;
 
 /**
- *  加载MOD内所有的基础方块
+ *  注册MOD内所有的基础方块
  * @author HopeAsd
  *
  */
@@ -20,7 +20,7 @@ public class SCBlocks {
 
 	public static void load(SCConfig conf) {
 		try {
-			blockPeony = new BlockPeony(conf.getBlockID("blockReed", 501));
+			blockPeony = new BlockPeony(conf.getBlockID("blockPeony", 501));
 			blockChrysanthemum = new BlockChrysanthemum(conf.getBlockID("blockChrysanthemum",502));
 			blockPrunusMumeBranch = new BlockPrunusMumeBranch(conf.getBlockID("blockPrunusMumeBranch",503));
 			blockReed = new BlockReed (conf.getBlockID("blockReed",504));
