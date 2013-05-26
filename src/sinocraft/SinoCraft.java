@@ -2,6 +2,11 @@ package sinocraft;
 
 import java.util.logging.Logger;
 
+import cbproject.core.misc.CBCCreativeTab;
+
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraftforge.common.Configuration;
+
 import sinocraft.proxy.ServerProxy;
 import sinocraft.register.SCBlocks;
 import sinocraft.register.SCConfig;
@@ -17,6 +22,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 
 @Mod(modid = "SinoCraft", name = "SinoCraft", version = "1.0.0.0")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
@@ -27,10 +33,12 @@ import cpw.mods.fml.common.network.NetworkMod;
 	 */
 public class SinoCraft
 {
-
-	public static SCConfig config;
 	
 	public static Logger log = FMLLog.getLogger();
+	
+	public static SCConfig config;
+	
+	public static CreativeTabs sct = new SCCreativeTab("SC");
 	
 	@Instance("SinoCraft")
 	public static SinoCraft instance;
@@ -40,8 +48,8 @@ public class SinoCraft
 	
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event){
-		config=new SCConfig(event.getSuggestedConfigurationFile());
-		
+		config = new SCConfig(event.getSuggestedConfigurationFile());
+
 		proxy.preLoad(event);
 	}
 	
@@ -50,7 +58,11 @@ public class SinoCraft
 	{
 		
 		SCBlocks.load(config);
+		
 		SCItems.load(config);
+		
+		LanguageRegistry.instance().addStringLocalization("itemGroup.SC", "SinoCraft");
+		LanguageRegistry.instance().addStringLocalization("itemGroup.SC", "zh_CN", "龙腾东方：中华文化");
 		
 		proxy.load(e);
 	}
