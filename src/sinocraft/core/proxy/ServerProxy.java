@@ -7,22 +7,27 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 public class ServerProxy
 {
-	public void preLoad(FMLPreInitializationEvent event){
+	public void preLoad(FMLPreInitializationEvent event)
+	{
 		
 	}
 	
-	public void load(FMLInitializationEvent event){
+	public void load(FMLInitializationEvent event)
+	{
 		
 	}
 	
-	public void postLoad(FMLPostInitializationEvent event){
+	public void postLoad(FMLPostInitializationEvent event)
+	{
 		
 	}
 	
-	public static boolean isRendering(){
+	public static boolean isRendering()
+	{
 		return !isSimulating();
 	}
-	private static boolean isSimulating() {
+	private static boolean isSimulating()
+	{
 		return !FMLCommonHandler.instance().getEffectiveSide().isClient();
 	}
 	

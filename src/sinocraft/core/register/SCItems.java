@@ -12,13 +12,18 @@ import net.minecraft.item.Item;
  * @author HopeAsd
  *
  */
-public class SCItems {
+public class SCItems
+{
 	public static Item itemReedLeaves;
-	public static void load(SCConfig conf) {
-		try {
+	public static void load(SCConfig conf)
+	{
+		try
+		{
 			itemReedLeaves = new ItemReedLeaves(conf.getItemID("itemReedLeaves", 2400));
 			
-		}catch (Exception e){
+		}
+		catch (Exception e)
+		{
 			SinoCraft.log.warning("Error when loading itemIDs from config . " + e);
 		}
 		addItemRecipes();
@@ -29,9 +34,10 @@ public class SCItems {
 		LanguageRegistry.instance().addNameForObject(itemReedLeaves,
 				"en_US", "ReedLeaves");
 	}
-	private static void addItemRecipes() {
+	
+	private static void addItemRecipes()
+	{
 		
 		
 	}
-
 }

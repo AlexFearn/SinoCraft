@@ -41,12 +41,13 @@ public class SinoCraft
 	@Instance("SinoCraft")
 	public static SinoCraft instance;
 	
-	@SidedProxy(clientSide = "sinocraft.proxy.ClientProxy", serverSide = "sinocraft.proxy.ServerProxy")
+	@SidedProxy(clientSide = "sinocraft.core.proxy.ClientProxy", serverSide = "sinocraft.core.proxy.ServerProxy")
 	public static ServerProxy proxy;
 	
 	@PreInit
-	public void preInit(FMLPreInitializationEvent event){
-		config=new SCConfig(event.getSuggestedConfigurationFile());
+	public void preInit(FMLPreInitializationEvent event)
+	{
+		config = new SCConfig(event.getSuggestedConfigurationFile());
 		
 		proxy.preLoad(event);
 	}
@@ -65,7 +66,8 @@ public class SinoCraft
 	}
 	
 	@PostInit
-	public void postInit(FMLPostInitializationEvent event){
+	public void postInit(FMLPostInitializationEvent event)
+	{
 		config.SaveConfig();
 		proxy.postLoad(event);
 	}

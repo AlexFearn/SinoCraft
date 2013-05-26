@@ -8,17 +8,20 @@ public class ClientProxy extends ServerProxy
 {	
 	
 	@Override
-	public void preLoad(FMLPreInitializationEvent event){
+	public void preLoad(FMLPreInitializationEvent event)
+	{
 		
 	}
 	
 	@Override
-	public void load(FMLInitializationEvent event){
+	public void load(FMLInitializationEvent event)
+	{
 		
 	}
 	
 	@Override
-	public void postLoad(FMLPostInitializationEvent event){
+	public void postLoad(FMLPostInitializationEvent event)
+	{
 		
 	}
 }

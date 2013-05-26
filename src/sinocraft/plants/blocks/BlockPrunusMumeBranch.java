@@ -27,7 +27,7 @@ public class BlockPrunusMumeBranch extends Block
 		blockID = Id;
 		setCreativeTab(CreativeTabs.tabDecorations);
 		setTickRandomly(true);
-		this.setUnlocalizedName("prunusMumeBranch");
+		this.setUnlocalizedName("prunusmumebranch");
 	}
 	
 	@Override

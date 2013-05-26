@@ -14,19 +14,25 @@ import net.minecraft.src.ModLoader;
  * @author HopeAsd
  *
  */
-public class SCBlocks {
-	public static Block blockPeony, blockChrysanthemum, blockPrunusMumeBranch,
-			blockReed;
 
-	public static void load(SCConfig conf) {
-		try {
+public class SCBlocks
+{
+	public static Block blockPeony;
+	public static Block blockChrysanthemum;
+	public static Block blockPrunusMumeBranch;
+	public static Block blockReed;
+
+	public static void load(SCConfig conf)
+	{
+		try
+		{
 			blockPeony = new BlockPeony(conf.getBlockID("blockPeony", 501));
 			blockChrysanthemum = new BlockChrysanthemum(conf.getBlockID("blockChrysanthemum",502));
 			blockPrunusMumeBranch = new BlockPrunusMumeBranch(conf.getBlockID("blockPrunusMumeBranch",503));
 			blockReed = new BlockReed (conf.getBlockID("blockReed",504));
-			
-
-		} catch (Exception e) {
+		}
+		catch (Exception e)
+		{
 			SinoCraft.log.warning("Error when loading blockIDs from config . " + e);
 		}
 		
@@ -51,7 +57,7 @@ public class SCBlocks {
 		LanguageRegistry.instance().addNameForObject(blockChrysanthemum,
 				"en_US", "Chrysanthemum");
 		LanguageRegistry.instance().addNameForObject(blockPrunusMumeBranch,
-				"en_US", "PrunusMumeBranch");
+				"en_US", "Prunus Mume Branch");
 		LanguageRegistry.instance().addNameForObject(blockReed,
 				"en_US", "Reed");
 		return;
