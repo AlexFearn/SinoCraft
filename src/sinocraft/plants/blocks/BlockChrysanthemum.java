@@ -54,7 +54,7 @@ public class BlockChrysanthemum extends BlockFlower implements IPlantable
 	@Override
 	public int getRenderType()
 	{
-		return 1; //ʹ�ý�����Ⱦ
+		return 1; 
 	}
 
 	@Override
@@ -67,6 +67,6 @@ public class BlockChrysanthemum extends BlockFlower implements IPlantable
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister i)
 	{
-		blockIcon = i.registerIcon("SinoCraft:BlockChrysanthemum"); //1.5�Բ��ʵ�ʹ�����˸��
+		blockIcon = i.registerIcon("SinoCraft:BlockChrysanthemum"); 
 	}
 }

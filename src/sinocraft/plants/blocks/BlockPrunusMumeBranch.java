@@ -48,10 +48,7 @@ public class BlockPrunusMumeBranch extends Block
 		return false;
 	}
 	
-	/**
-	 * ������䣬����Ϊ��ⷽ����Χ9*9�������Ƿ������ɣ�û�����ƻ�����
-	 * ��ʱʹ����������ľͷ
-	 */
+	
 	@SideOnly(Side.SERVER)
 	@Override
 	public void updateTick(World world, int x, int z, int y, Random random)
