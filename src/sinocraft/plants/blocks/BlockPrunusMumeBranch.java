@@ -2,30 +2,23 @@ package sinocraft.plants.blocks;
 
 import java.util.Random;
 
-import org.omg.CORBA.PUBLIC_MEMBER;
+import sinocraft.SinoCraft;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockDirt;
-import net.minecraft.block.BlockLeaves;
-import net.minecraft.block.BlockWood;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 
 public class BlockPrunusMumeBranch extends Block
 {
-	public static int blockID;
 	
 	public BlockPrunusMumeBranch(int Id)
 	{
 		super(Id, Material.leaves);
 		
-		blockID = Id;
-		setCreativeTab(CreativeTabs.tabDecorations);
+		this.setCreativeTab(SinoCraft.sct);
 		setTickRandomly(true);
 		this.setUnlocalizedName("prunusmumebranch");
 	}

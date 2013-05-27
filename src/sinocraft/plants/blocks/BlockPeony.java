@@ -1,31 +1,25 @@
 package sinocraft.plants.blocks;
 
 import java.util.Random;
+
+import sinocraft.SinoCraft;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.BlockBed;
-import net.minecraft.block.BlockCactus;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.client.renderer.texture.TextureMap;
-import net.minecraft.item.ItemPiston;
-import net.minecraft.src.ModLoader;
-import net.minecraft.util.Icon;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 
 public class BlockPeony extends BlockFlower
 {
-	public static int blockID;
 	public BlockPeony(int Id)
 	{
 		super(Id, Material.plants);
 		
-		blockID = Id;
 		setStepSound(soundGrassFootstep);
 		setUnlocalizedName("peony");
+		this.setCreativeTab(SinoCraft.sct);
 	}
 	
 	@Override
@@ -47,7 +41,7 @@ public class BlockPeony extends BlockFlower
 	@Override
 	public int idDropped(int par1, Random par2Random, int par3)
 	{
-		return blockID;
+		return this.blockID;
 	}
 	
 	@Override

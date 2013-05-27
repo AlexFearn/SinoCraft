@@ -8,13 +8,11 @@ import net.minecraft.item.Item;
 
 public class ItemReedLeaves extends Item
 {
-	public static int itemID;
 	
 	public ItemReedLeaves(int Id)
 	{
 		super(Id);
 		
-		itemID = Id;
 		setCreativeTab(CreativeTabs.tabDecorations);
 		this.setUnlocalizedName("reedLeaves");
 	}

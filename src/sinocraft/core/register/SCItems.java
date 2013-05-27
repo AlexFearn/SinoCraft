@@ -26,6 +26,7 @@ public class SCItems
 		{
 			SinoCraft.log.warning("Error when loading itemIDs from config . " + e);
 		}
+		
 		addItemRecipes();
 		
 		LanguageRegistry.instance().addNameForObject(itemReedLeaves,

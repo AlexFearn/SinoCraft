@@ -1,6 +1,8 @@
 package sinocraft.plants.blocks;
 
 import java.util.Random;
+
+import sinocraft.SinoCraft;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockFlower;
@@ -11,12 +13,11 @@ import net.minecraftforge.common.EnumPlantType;
 
 public class BlockAzalea extends BlockFlower
 {
-	public static int blockID;
 	public BlockAzalea(int Id)
 	{
 		super(Id, Material.plants);
 		
-		blockID = Id;
+		this.setCreativeTab(SinoCraft.sct);
 		setStepSound(soundGrassFootstep);
 		setUnlocalizedName("azalea");
 	}
@@ -40,7 +41,7 @@ public class BlockAzalea extends BlockFlower
 	@Override
 	public int idDropped(int par1, Random par2Random, int par3)
 	{
-		return blockID;
+		return this.blockID;
 	}
 	
 	@Override

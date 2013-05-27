@@ -16,13 +16,11 @@ import net.minecraftforge.common.IPlantable;
 
 public class BlockReed extends BlockFlower implements IPlantable
 {
-	public static int blockID;
 	
 	public BlockReed(int Id)
 	{
 		super(Id, Material.plants);
-		
-		blockID = Id;
+
 		setStepSound(soundGrassFootstep);
 		this.setUnlocalizedName("reed");
 	}
