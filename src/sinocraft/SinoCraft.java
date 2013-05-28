@@ -24,49 +24,49 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 
 @Mod(modid = "SinoCraft", name = "SinoCraft", version = "1.0.0.0")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
-
-	/** 
-	 * MOD的主类
-	 * @author HopeAsd,PL
-	 */
-public class SinoCraft
+/** 
+ * MOD的主类
+ * @author HopeAsd,PL
+ */
+public class SinoCraft 
 {
 
 	public static SCConfig config;
-	
+
 	public static Logger log = FMLLog.getLogger();
-	
+
 	public static CreativeTabs sct = new SCCreativeTab("SC");
-	
+
 	@Instance("SinoCraft")
 	public static SinoCraft instance;
-	
+
 	@SidedProxy(clientSide = "sinocraft.core.proxy.ClientProxy", serverSide = "sinocraft.core.proxy.ServerProxy")
 	public static ServerProxy proxy;
-	
+
 	@PreInit
-	public void preInit(FMLPreInitializationEvent event)
-	{
+	public void preInit(FMLPreInitializationEvent event) {
 		config = new SCConfig(event.getSuggestedConfigurationFile());
-		
+
 		proxy.preLoad(event);
 	}
-	
+
 	@Init
-	public void init(FMLInitializationEvent e)
+	public void init(FMLInitializationEvent e) 
 	{
-		
+
 		SCBlocks.load(config);
 		SCItems.load(config);
-		
-		LanguageRegistry.instance().addStringLocalization("itemGroup.SC", "en_US", "SinoCraft");
-		LanguageRegistry.instance().addStringLocalization("itemGroup.SC", "zh_CN", "龙腾东方：中华文化 ");
-		
+
+		LanguageRegistry.instance().addStringLocalization("itemGroup.SC",
+				"en_US", "SinoCraft");
+		LanguageRegistry.instance().addStringLocalization("itemGroup.SC",
+				"zh_CN", "龙腾东方：中华文化 ");
+
 		proxy.load(e);
 	}
-	
+
 	@PostInit
-	public void postInit(FMLPostInitializationEvent event)
+	public void postInit(FMLPostInitializationEvent event) 
 	{
 		config.SaveConfig();
 		proxy.postLoad(event);
