@@ -3,11 +3,8 @@ package sinocraft.plants.blocks;
 import java.util.Random;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import sinocraft.plants.items.ItemReedLeaves;
-import net.minecraft.block.Block;
+import sinocraft.core.register.SCItems;
 import net.minecraft.block.BlockFlower;
-import net.minecraft.block.BlockSand;
-import net.minecraft.block.StepSound;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.world.World;
@@ -46,7 +43,7 @@ public class BlockReed extends BlockFlower implements IPlantable
 	@Override
 	public int idDropped(int par1, Random random, int par3)
 	{
-		return ItemReedLeaves.itemID;
+		return SCItems.itemReedLeaves.itemID;
 	}	
 	
 	@Override
