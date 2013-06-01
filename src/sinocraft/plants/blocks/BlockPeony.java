@@ -19,7 +19,7 @@ public class BlockPeony extends BlockFlower
 		
 		setStepSound(soundGrassFootstep);
 		setUnlocalizedName("peony");
-		this.setCreativeTab(SinoCraft.sct);
+		//this.setCreativeTab(SinoCraft.sct);
 	}
 	
 	@Override

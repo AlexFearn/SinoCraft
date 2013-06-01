@@ -18,7 +18,7 @@ public class BlockChrysanthemum extends BlockFlower implements IPlantable
 	{
 		super(Id, Material.plants);
 		
-		this.setCreativeTab(SinoCraft.sct);
+		//this.setCreativeTab(SinoCraft.sct);
 		setStepSound(soundGrassFootstep);
 		setUnlocalizedName("chrysanthemum");
 	}

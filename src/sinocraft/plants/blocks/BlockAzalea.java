@@ -17,7 +17,7 @@ public class BlockAzalea extends BlockFlower
 	{
 		super(Id, Material.plants);
 		
-		this.setCreativeTab(SinoCraft.sct);
+		//this.setCreativeTab(SinoCraft.sct);
 		setStepSound(soundGrassFootstep);
 		setUnlocalizedName("azalea");
 	}

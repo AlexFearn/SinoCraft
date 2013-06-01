@@ -18,7 +18,7 @@ public class BlockPrunusMumeBranch extends Block
 	{
 		super(Id, Material.leaves);
 		
-		this.setCreativeTab(SinoCraft.sct);
+		//this.setCreativeTab(SinoCraft.sct);
 		setTickRandomly(true);
 		this.setUnlocalizedName("prunusmumebranch");
 	}

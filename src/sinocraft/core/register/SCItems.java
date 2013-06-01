@@ -24,7 +24,7 @@ public class SCItems
 		}
 		catch (Exception e)
 		{
-			SinoCraft.log.warning("Error when loading itemIDs from config . " + e);
+			//SinoCraft.log.warning("Error when loading itemIDs from config . " + e);
 		}
 		
 		addItemRecipes();

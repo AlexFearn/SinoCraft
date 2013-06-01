@@ -2,13 +2,19 @@ package sinocraft;
 
 import java.util.logging.Logger;
 
+import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.src.ModLoader;
 
 import sinocraft.core.SCCreativeTab;
 import sinocraft.core.proxy.ServerProxy;
 import sinocraft.core.register.SCBlocks;
 import sinocraft.core.register.SCConfig;
 import sinocraft.core.register.SCItems;
+import sinocraft.plants.blocks.BlockChrysanthemum;
+import sinocraft.plants.blocks.BlockPeony;
+import sinocraft.plants.blocks.BlockPrunusMumeBranch;
+import sinocraft.plants.blocks.BlockReed;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
@@ -22,7 +28,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
-@Mod(modid = "SinoCraft", name = "SinoCraft", version = "1.0.0.0")
+@Mod(modid = "SinoCraft", name = "SinoCraft", version = "1.0.0.1")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 /** 
  * MOD的主类
@@ -30,45 +36,42 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
  */
 public class SinoCraft 
 {
-
 	public static SCConfig config;
 
 	public static Logger log = FMLLog.getLogger();
 
 	public static CreativeTabs sct = new SCCreativeTab("SC");
-
+	
 	@Instance("SinoCraft")
 	public static SinoCraft instance;
 
 	@SidedProxy(clientSide = "sinocraft.core.proxy.ClientProxy", serverSide = "sinocraft.core.proxy.ServerProxy")
 	public static ServerProxy proxy;
-
+	
 	@PreInit
-	public void preInit(FMLPreInitializationEvent event) {
+	public void preInit(FMLPreInitializationEvent event)
+	{
 		config = new SCConfig(event.getSuggestedConfigurationFile());
 
 		proxy.preLoad(event);
 	}
-
+	
 	@Init
 	public void init(FMLInitializationEvent e) 
 	{
+		SCBlocks.load();
+		//SCItems.load(config);
 
-		SCBlocks.load(config);
-		SCItems.load(config);
-
-		LanguageRegistry.instance().addStringLocalization("itemGroup.SC",
-				"en_US", "SinoCraft");
-		LanguageRegistry.instance().addStringLocalization("itemGroup.SC",
-				"zh_CN", "龙腾东方：中华文化 ");
-
+		ModLoader.addLocalization("itemGroup.SC", "SinoCraft");
+		
 		proxy.load(e);
 	}
-
+	
 	@PostInit
-	public void postInit(FMLPostInitializationEvent event) 
+	public void postInit(FMLPostInitializationEvent event)
 	{
 		config.SaveConfig();
 		proxy.postLoad(event);
 	}
+	
 }

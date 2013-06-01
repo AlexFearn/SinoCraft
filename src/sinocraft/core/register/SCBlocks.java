@@ -17,13 +17,13 @@ import net.minecraft.src.ModLoader;
 
 public class SCBlocks
 {
-	public static Block blockPeony;
-	public static Block blockChrysanthemum;
-	public static Block blockPrunusMumeBranch;
-	public static Block blockReed;
-
-	public static void load(SCConfig conf)
+	public static void load()
 	{
+		Block blockPeony = new BlockPeony(501);
+		Block blockChrysanthemum = new BlockChrysanthemum(502);
+		Block blockPrunusMumeBranch = new BlockPrunusMumeBranch(503);
+		Block blockReed = new BlockReed(504);
+		/*
 		try
 		{
 			blockPeony = new BlockPeony(conf.getBlockID("blockPeony", 501));
@@ -35,31 +35,18 @@ public class SCBlocks
 		{
 			SinoCraft.log.warning("Error when loading blockIDs from config . " + e);
 		}
+		*/
 		
 		ModLoader.registerBlock(blockPeony);
 		ModLoader.registerBlock(blockChrysanthemum);
 		ModLoader.registerBlock(blockPrunusMumeBranch);
 		ModLoader.registerBlock(blockReed);
 		
-		
-		LanguageRegistry.instance().addNameForObject(blockPeony,
-				"zh_CN", "牡丹");
-		LanguageRegistry.instance().addNameForObject(blockChrysanthemum,
-				"zh_CN", "菊花");
-		LanguageRegistry.instance().addNameForObject(blockPrunusMumeBranch,
-				"zh_CN", "梅花枝");
-		LanguageRegistry.instance().addNameForObject(blockReed,
-				"zh_CN", "芦苇");
+		ModLoader.addName(blockPeony, "牡丹");
+		ModLoader.addName(blockChrysanthemum, "菊花");
+		ModLoader.addName(blockPrunusMumeBranch, "梅花枝");
+		ModLoader.addName(blockReed, "芦苇");
 
-		
-		LanguageRegistry.instance().addNameForObject(blockPeony,
-				"en_US", "Peony");
-		LanguageRegistry.instance().addNameForObject(blockChrysanthemum,
-				"en_US", "Chrysanthemum");
-		LanguageRegistry.instance().addNameForObject(blockPrunusMumeBranch,
-				"en_US", "Prunus Mume Branch");
-		LanguageRegistry.instance().addNameForObject(blockReed,
-				"en_US", "Reed");
 		return;
 	}
 }
