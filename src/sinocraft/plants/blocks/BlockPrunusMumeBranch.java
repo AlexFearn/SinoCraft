@@ -11,16 +11,22 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.world.World;
 
+/**
+ * 梅花枝
+ * @author Liong
+ *
+ */
+
 public class BlockPrunusMumeBranch extends Block
 {
-	
 	public BlockPrunusMumeBranch(int Id)
 	{
 		super(Id, Material.leaves);
 		
-		//this.setCreativeTab(SinoCraft.sct);
+		setCreativeTab(SinoCraft.sct);
 		setTickRandomly(true);
-		this.setUnlocalizedName("prunusmumebranch");
+		setStepSound(soundGrassFootstep);
+		setUnlocalizedName("Prunus Mume Branch");
 	}
 	
 	@Override

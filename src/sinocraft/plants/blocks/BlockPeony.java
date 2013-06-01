@@ -11,15 +11,21 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 
+/**
+ * 牡丹
+ * @author Liong
+ *
+ */
+
 public class BlockPeony extends BlockFlower
 {
 	public BlockPeony(int Id)
 	{
 		super(Id, Material.plants);
 		
+		setCreativeTab(SinoCraft.sct);
 		setStepSound(soundGrassFootstep);
-		setUnlocalizedName("peony");
-		//this.setCreativeTab(SinoCraft.sct);
+		setUnlocalizedName("Peony");
 	}
 	
 	@Override

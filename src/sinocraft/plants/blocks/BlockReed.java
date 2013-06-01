@@ -3,6 +3,7 @@ package sinocraft.plants.blocks;
 import java.util.Random;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import sinocraft.SinoCraft;
 import sinocraft.core.register.SCItems;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.material.Material;
@@ -11,15 +12,21 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 
+/**
+ * 芦苇
+ * @author Liong
+ *
+ */
+
 public class BlockReed extends BlockFlower implements IPlantable
 {
-	
 	public BlockReed(int Id)
 	{
 		super(Id, Material.plants);
-
+		
+		setCreativeTab(SinoCraft.sct);
 		setStepSound(soundGrassFootstep);
-		this.setUnlocalizedName("reed");
+		setUnlocalizedName("Reed");
 	}
 	
 	@Override

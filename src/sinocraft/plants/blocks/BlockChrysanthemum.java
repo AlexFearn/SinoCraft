@@ -12,15 +12,21 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 
+/**
+ * 菊花
+ * @author Liong
+ *
+ */
+
 public class BlockChrysanthemum extends BlockFlower implements IPlantable
 {
 	public BlockChrysanthemum(int Id)
 	{
 		super(Id, Material.plants);
 		
-		//this.setCreativeTab(SinoCraft.sct);
+		setCreativeTab(SinoCraft.sct);
 		setStepSound(soundGrassFootstep);
-		setUnlocalizedName("chrysanthemum");
+		setUnlocalizedName("Chrysanthemum");
 	}
 	
 	@Override

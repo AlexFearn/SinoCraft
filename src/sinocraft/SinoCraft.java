@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.src.ModLoader;
+import net.minecraftforge.common.ForgeDirection;
 
 import sinocraft.core.SCCreativeTab;
 import sinocraft.core.proxy.ServerProxy;
@@ -28,15 +29,15 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
-@Mod(modid = "SinoCraft", name = "SinoCraft", version = "1.0.0.1")
+@Mod(modid = "SinoCraft", name = "SinoCraft", version = "1.0.0.0")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 /** 
  * MOD的主类
- * @author HopeAsd,PL
+ * @author HopeAsd, Liong
  */
 public class SinoCraft 
 {
-	public static SCConfig config;
+	//public static SCConfig config;
 
 	public static Logger log = FMLLog.getLogger();
 
@@ -51,26 +52,27 @@ public class SinoCraft
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event)
 	{
-		config = new SCConfig(event.getSuggestedConfigurationFile());
-
+		ModLoader.addLocalization("itemGroup.SC", "zh_CN", "龙腾东方：中华文化");
+		ModLoader.addLocalization("itemGroup.SC", "en_US", "SinoCraft");
+		
+		//config = new SCConfig(event.getSuggestedConfigurationFile());
+				
 		proxy.preLoad(event);
 	}
 	
 	@Init
-	public void init(FMLInitializationEvent e) 
+	public void init(FMLInitializationEvent event) 
 	{
-		SCBlocks.load();
-		//SCItems.load(config);
-
-		ModLoader.addLocalization("itemGroup.SC", "SinoCraft");
+		SCBlocks.load(/*config*/);
+		SCItems.load(/*config*/);
 		
-		proxy.load(e);
+		proxy.load(event);
 	}
-	
+
 	@PostInit
 	public void postInit(FMLPostInitializationEvent event)
 	{
-		config.SaveConfig();
+		//config.SaveConfig();
 		proxy.postLoad(event);
 	}
 	

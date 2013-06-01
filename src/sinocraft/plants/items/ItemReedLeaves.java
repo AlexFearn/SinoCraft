@@ -1,10 +1,17 @@
 package sinocraft.plants.items;
 
+import sinocraft.SinoCraft;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+
+/**
+ * 粽叶
+ * @author Liong
+ *
+ */
 
 public class ItemReedLeaves extends Item
 {
@@ -13,8 +20,8 @@ public class ItemReedLeaves extends Item
 	{
 		super(Id);
 		
-		setCreativeTab(CreativeTabs.tabDecorations);
-		this.setUnlocalizedName("reedLeaves");
+		setCreativeTab(SinoCraft.sct);
+		this.setUnlocalizedName("Reed Leaves");
 	}
 	
 	@Override
