@@ -1,16 +1,13 @@
 package sinocraft.plants.blocks;
 
 import java.util.Random;
+import sinocraft.core.blocks.SCFlower;
+import sinocraft.core.register.SCItems;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import sinocraft.SinoCraft;
-import sinocraft.core.register.SCItems;
-import net.minecraft.block.BlockFlower;
-import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
-import net.minecraftforge.common.IPlantable;
 
 /**
  * 芦苇
@@ -18,33 +15,13 @@ import net.minecraftforge.common.IPlantable;
  *
  */
 
-public class BlockReed extends BlockFlower implements IPlantable
+public class BlockReed extends SCFlower
 {
 	public BlockReed(int Id)
 	{
-		super(Id, Material.plants);
+		super(Id);
 		
-		setCreativeTab(SinoCraft.sct);
-		setStepSound(soundGrassFootstep);
 		setUnlocalizedName("Reed");
-	}
-	
-	@Override
-	public int getRenderType()
-	{
-		return 1;
-	}
-	
-	@Override
-	public boolean renderAsNormalBlock()
-	{
-		return false;
-	}
-	
-	@Override
-	public boolean isOpaqueCube()
-	{
-		return false;
 	}
 
 	@Override

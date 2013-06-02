@@ -1,9 +1,7 @@
 package sinocraft.plants.blocks;
 
 import java.util.Random;
-
 import sinocraft.SinoCraft;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
