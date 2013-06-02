@@ -17,9 +17,8 @@ public class SCItems
 {
 	public static ItemReedLeaves itemReedLeaves;
 
-	public static void load(/*SCConfig conf*/)
+	public static void load(SCConfig conf)
 	{
-		/*
 		try
 		{
 			itemReedLeaves = new ItemReedLeaves(conf.getItemID("itemReedLeaves", 2400));
@@ -28,11 +27,10 @@ public class SCItems
 		{
 			SinoCraft.log.warning("Error when loading itemIDs from config . " + e);
 		}
-		*/
 		
 		addItemRecipes();
 		
-		itemReedLeaves = new ItemReedLeaves(2400);
+		//itemReedLeaves = new ItemReedLeaves(2400);
 		
 		ModLoader.addName(itemReedLeaves, "zh_CN", "粽叶");
 		

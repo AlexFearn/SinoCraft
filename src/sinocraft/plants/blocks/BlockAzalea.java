@@ -23,12 +23,6 @@ public class BlockAzalea extends SCFlower
 	}
 	
 	@Override
-	public EnumPlantType getPlantType(World world, int x, int y, int z)
-	{
-		return EnumPlantType.Plains;
-	}
-	
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister i)
 	{

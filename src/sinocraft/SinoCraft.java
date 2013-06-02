@@ -37,7 +37,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
  */
 public class SinoCraft 
 {
-	//public static SCConfig config;
+	public static SCConfig config;
 
 	public static Logger log = FMLLog.getLogger();
 
@@ -55,7 +55,7 @@ public class SinoCraft
 		ModLoader.addLocalization("itemGroup.SC", "zh_CN", "龙腾东方：中华文化");
 		ModLoader.addLocalization("itemGroup.SC", "en_US", "SinoCraft");
 		
-		//config = new SCConfig(event.getSuggestedConfigurationFile());
+		config = new SCConfig(event.getSuggestedConfigurationFile());
 				
 		proxy.preLoad(event);
 	}
@@ -63,8 +63,8 @@ public class SinoCraft
 	@Init
 	public void init(FMLInitializationEvent event) 
 	{
-		SCBlocks.load(/*config*/);
-		SCItems.load(/*config*/);
+		SCBlocks.load(config);
+		SCItems.load(config);
 		
 		proxy.load(event);
 	}
@@ -72,7 +72,7 @@ public class SinoCraft
 	@PostInit
 	public void postInit(FMLPostInitializationEvent event)
 	{
-		//config.SaveConfig();
+		config.SaveConfig();
 		proxy.postLoad(event);
 	}
 	

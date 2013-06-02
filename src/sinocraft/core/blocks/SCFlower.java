@@ -32,10 +32,11 @@ public class SCFlower extends BlockFlower
 	@Override
 	public boolean canBlockStay(World world, int x, int y, int z)
 	{
-		if (world.getBlockId(x, y, z) == grass.blockID ||
-			world.getBlockId(x, y, z) == dirt.blockID)
+		if (world.getBlockId(x, y - 1, z) == grass.blockID ||
+			world.getBlockId(x, y - 1, z) == dirt.blockID)
 			return true;
-		return false;
+		else
+			return false;
 	}
 	
 	@Override

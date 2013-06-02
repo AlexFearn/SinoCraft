@@ -29,28 +29,29 @@ public class SCBlocks
 	public static BlockAzalea blockAzalea;
 	public static BlockPrunusMumeWood blockPrunusMumeWood;
 
-	public static void load(/*SCConfig config*/)
+	public static void load(SCConfig config)
 	{
-		/*
 		try
 		{
 			blockPeony = new BlockPeony(config.getBlockID("blockPeony", 501));
 			blockChrysanthemum = new BlockChrysanthemum(config.getBlockID("blockChrysanthemum",502));
 			blockPrunusMumeBranch = new BlockPrunusMumeBranch(config.getBlockID("blockPrunusMumeBranch",503));
 			blockReed = new BlockReed (config.getBlockID("blockReed",504));
+			blockAzalea = new BlockAzalea(config.getBlockID("blockAzalea", 505));
+			blockPrunusMumeWood = new BlockPrunusMumeWood(config.getBlockID("blockPrunusMumeWood", 506));
 		}
 		catch (Exception e)
 		{
 			SinoCraft.log.warning("Error when loading blockIDs from config . " + e);
 		}
+		/*
+		blockPeony = new BlockPeony(501);
+		blockChrysanthemum = new BlockChrysanthemum(502);
+		blockPrunusMumeBranch = new BlockPrunusMumeBranch(503);
+		blockReed = new BlockReed(504);
+		blockAzalea = new BlockAzalea(505);
+		blockPrunusMumeWood = new BlockPrunusMumeWood(506);
 		*/
-		blockPeony = new BlockPeony(500);
-		blockChrysanthemum = new BlockChrysanthemum(501);
-		blockPrunusMumeBranch = new BlockPrunusMumeBranch(502);
-		blockReed = new BlockReed(503);
-		blockAzalea = new BlockAzalea(504);
-		blockPrunusMumeWood = new BlockPrunusMumeWood(505);
-		
 		ModLoader.registerBlock(blockPeony);
 		ModLoader.registerBlock(blockChrysanthemum);
 		ModLoader.registerBlock(blockPrunusMumeBranch);

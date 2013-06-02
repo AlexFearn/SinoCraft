@@ -51,14 +51,13 @@ public class BlockPrunusMumeBranch extends Block
 	public void updateTick(World world, int x, int z, int y, Random random)
 	{
 		boolean noWood = true;
-		int Y = y;
 		
 		for (int X = x - 4; X <= x + 4; X++)
 			for (int Z = z - 4; Z <= z + 4; Z++)
 				if (world.getBlockId(X, y, Z) == 3)
-					noWood = false;
+					return;
 		if (noWood)
-	        world.setBlockToAir(x, z, y);
+	        world.setBlockToAir(x, y, z);
 	}
 	
 	@Override

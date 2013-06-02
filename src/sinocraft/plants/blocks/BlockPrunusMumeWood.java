@@ -1,5 +1,6 @@
 package sinocraft.plants.blocks;
 
+import scala.util.parsing.ast.Binders.ReturnAndDo;
 import sinocraft.SinoCraft;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -8,6 +9,7 @@ import net.minecraft.block.BlockWood;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.util.Icon;
+import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.ForgeDirection;
 
 /**
@@ -18,7 +20,10 @@ import net.minecraftforge.common.ForgeDirection;
 
 public class BlockPrunusMumeWood extends Block
 {
-	protected Icon[] blockIcon;
+	@SideOnly(Side.CLIENT)
+	private Icon blockIcon_UpDown;
+	@SideOnly(Side.CLIENT)
+	private Icon blockIcon_Side;
 	
 	public BlockPrunusMumeWood(int Id)
 	{
@@ -31,14 +36,24 @@ public class BlockPrunusMumeWood extends Block
 	
 	@Override
 	@SideOnly(Side.CLIENT)
+	public Icon getBlockTexture(IBlockAccess iBlockAccess, int x, int y, int z, int side)
+	{
+		if(side == 0 || side == 1)
+			return blockIcon_UpDown;
+		else
+			return blockIcon_Side;
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
 	public Icon getIcon(int side, int metadata)
 	{
-		if(side == 0||side == 1)
-			return blockIcon[1];
+		if(side == 0 || side == 1)
+			return blockIcon_UpDown;
 		else
-			return blockIcon[0];
+			return blockIcon_Side;
 	}
-
+	
 	@Override
 	public boolean isOpaqueCube()
 	{
@@ -55,7 +70,7 @@ public class BlockPrunusMumeWood extends Block
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister i)
 	{
-		blockIcon[0] = i.registerIcon("SinoCraft:BlockPrunusMumeWood_Side");
-		blockIcon[1] = i.registerIcon("SinoCraft:BlockPrunusMumeWood_UpDown");
+		blockIcon_UpDown = i.registerIcon("SinoCraft:BlockPrunusMumeWood_UpDown");
+		blockIcon_Side = i.registerIcon("SinoCraft:BlockPrunusMumeWood_Side");
 	}
 }
