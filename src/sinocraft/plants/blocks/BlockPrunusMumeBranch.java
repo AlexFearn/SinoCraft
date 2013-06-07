@@ -2,6 +2,7 @@ package sinocraft.plants.blocks;
 
 import java.util.Random;
 import sinocraft.SinoCraft;
+import sinocraft.core.register.SCBlocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -54,7 +55,7 @@ public class BlockPrunusMumeBranch extends Block
 		
 		for (int X = x - 4; X <= x + 4; X++)
 			for (int Z = z - 4; Z <= z + 4; Z++)
-				if (world.getBlockId(X, y, Z) == 3)
+				if (world.getBlockId(X, y, Z) == SCBlocks.blockPrunusMumeWood.blockID)
 					return;
 		if (noWood)
 	        world.setBlockToAir(x, y, z);
