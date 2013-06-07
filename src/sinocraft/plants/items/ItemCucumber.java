@@ -23,7 +23,7 @@ public class ItemCucumber extends Item
 		super(Id);
 		
 		setCreativeTab(SinoCraft.sct);
-		this.setUnlocalizedName("Cucumber");
+		setUnlocalizedName("Cucumber");
 	}
 	
 	@Override
@@ -31,7 +31,7 @@ public class ItemCucumber extends Item
 	{
 		if (world.getBlockId(x, y, z) == SCBlocks.blockBeanBracket.blockID)
 		{											   //↓Flag
-			world.setBlockMetadataWithNotify(x, y, z, 7, 3); //Flag 1代表方块更新，Flag 2代表发送至客户端（总是），Flag 3代表不重新渲染，可以叠加
+			world.setBlockMetadataWithNotify(x, y, z, 7, 2); //Flag 1代表方块更新，Flag 2代表发送至客户端（总是），Flag 3代表不重新渲染，可以叠加
 		}
 		
 		return true;
