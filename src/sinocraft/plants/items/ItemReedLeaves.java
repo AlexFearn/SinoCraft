@@ -20,7 +20,7 @@ public class ItemReedLeaves extends Item
 		super(Id);
 		
 		setCreativeTab(SinoCraft.sct);
-		this.setUnlocalizedName("Reed Leaves");
+		setUnlocalizedName("Reed Leaves");
 	}
 	
 	@Override

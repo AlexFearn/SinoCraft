@@ -15,7 +15,7 @@ import net.minecraft.world.World;
 
 public class SCFlower extends BlockFlower
 {
-	protected SCFlower(int Id)
+	public SCFlower(int Id)
 	{
 		super(Id, Material.plants);
 		

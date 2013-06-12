@@ -1,18 +1,14 @@
 package sinocraft.core.register;
 
-import org.omg.CORBA.PUBLIC_MEMBER;
-
-import scala.annotation.StaticAnnotation;
 import sinocraft.SinoCraft;
 import sinocraft.plants.blocks.BlockAzalea;
 import sinocraft.plants.blocks.BlockBeanBracket;
 import sinocraft.plants.blocks.BlockChrysanthemum;
+import sinocraft.plants.blocks.BlockGlutinousRice;
 import sinocraft.plants.blocks.BlockPeony;
 import sinocraft.plants.blocks.BlockPrunusMumeBranch;
 import sinocraft.plants.blocks.BlockPrunusMumeWood;
 import sinocraft.plants.blocks.BlockReed;
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.src.ModLoader;
 
@@ -31,6 +27,7 @@ public class SCBlocks
 	public static BlockAzalea blockAzalea;
 	public static BlockPrunusMumeWood blockPrunusMumeWood;
 	public static BlockBeanBracket blockBeanBracket;
+	public static BlockGlutinousRice blockGlutinousRice;
 
 	public static void load(SCConfig config)
 	{
@@ -43,19 +40,13 @@ public class SCBlocks
 			blockAzalea = new BlockAzalea(config.getBlockID("blockAzalea", 504));
 			blockPrunusMumeWood = new BlockPrunusMumeWood(config.getBlockID("blockPrunusMumeWood", 505));
 			blockBeanBracket = new BlockBeanBracket(config.getBlockID("blockBeanBracket", 506));
+			blockGlutinousRice = new BlockGlutinousRice(config.getBlockID("blockGlutinousRice", 507));
 		}
 		catch (Exception e)
 		{
 			SinoCraft.log.warning("Error when loading blockIDs from config . " + e);
 		}
-		/*
-		blockPeony = new BlockPeony(501);
-		blockChrysanthemum = new BlockChrysanthemum(502);
-		blockPrunusMumeBranch = new BlockPrunusMumeBranch(503);
-		blockReed = new BlockReed(504);
-		blockAzalea = new BlockAzalea(505);
-		blockPrunusMumeWood = new BlockPrunusMumeWood(506);
-		*/
+		
 		ModLoader.registerBlock(blockPeony);
 		ModLoader.registerBlock(blockChrysanthemum);
 		ModLoader.registerBlock(blockPrunusMumeBranch);
@@ -63,6 +54,7 @@ public class SCBlocks
 		ModLoader.registerBlock(blockAzalea);
 		ModLoader.registerBlock(blockPrunusMumeWood);
 		ModLoader.registerBlock(blockBeanBracket);
+		ModLoader.registerBlock(blockGlutinousRice);
 		
 		ModLoader.addName(blockPeony, "zh_CN", "牡丹");
 		ModLoader.addName(blockChrysanthemum, "zh_CN", "菊花");
@@ -71,6 +63,8 @@ public class SCBlocks
 		ModLoader.addName(blockAzalea, "zh_CN", "杜鹃");
 		ModLoader.addName(blockPrunusMumeWood, "zh_CN", "梅花木");
 		ModLoader.addName(blockBeanBracket, "zh_CN", "作物架");
+
+		//ModLoader.addName( , "zh_CN", "");
 		
 		ModLoader.addName(blockPeony, "en_US", "Peony");
 		ModLoader.addName(blockChrysanthemum, "en_US", "Chrysanthemum");
@@ -79,6 +73,8 @@ public class SCBlocks
 		ModLoader.addName(blockAzalea, "en_US", "Azalea");
 		ModLoader.addName(blockPrunusMumeWood,"en_US", "Prunus Mume Wood");
 		ModLoader.addName(blockBeanBracket, "en_US", "Bean Bracket");
+		
+		//ModLoader.addName( , "en_US", "");
 		
 		return;
 	}

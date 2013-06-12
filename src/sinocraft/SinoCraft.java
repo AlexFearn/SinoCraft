@@ -8,6 +8,7 @@ import net.minecraft.src.ModLoader;
 import net.minecraftforge.common.ForgeDirection;
 
 import sinocraft.core.SCCreativeTab;
+import sinocraft.core.SCWorldGenerator;
 import sinocraft.core.proxy.ServerProxy;
 import sinocraft.core.register.SCBlocks;
 import sinocraft.core.register.SCConfig;
@@ -28,6 +29,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 @Mod(modid = "SinoCraft", name = "SinoCraft", version = "1.0.0.0")
@@ -57,7 +59,7 @@ public class SinoCraft
 		ModLoader.addLocalization("itemGroup.SC", "en_US", "SinoCraft");
 		
 		config = new SCConfig(event.getSuggestedConfigurationFile());
-				
+		
 		proxy.preLoad(event);
 	}
 	
@@ -66,6 +68,8 @@ public class SinoCraft
 	{
 		SCBlocks.load(config);
 		SCItems.load(config);
+		
+		GameRegistry.registerWorldGenerator(new SCWorldGenerator());
 		
 		proxy.load(event);
 	}

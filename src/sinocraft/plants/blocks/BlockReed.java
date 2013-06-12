@@ -23,8 +23,16 @@ public class BlockReed extends SCFlower
 		super(Id);
 		
 		setUnlocalizedName("Reed");
+		setTickRandomly(true);
 	}
 
+	@Override
+	public void updateTick(World world, int x, int y, int z, Random random)
+	{
+		if (!canBlockStay(world, x, y, z))
+			world.destroyBlock(x, y, z, true);
+	}
+	
 	@Override
 	public boolean canPlaceBlockAt(World world, int x, int y, int z)
 	{
