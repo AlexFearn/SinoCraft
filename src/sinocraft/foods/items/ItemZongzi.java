@@ -1,7 +1,5 @@
 package sinocraft.foods.items;
 
-import javax.sound.midi.Soundbank;
-
 import sinocraft.SinoCraft;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

@@ -27,9 +27,9 @@ public class SCConfig
 				System.out.print(e);
 				return;
 			}
+		}
 		config = new Configuration(configFile);
 		config.load();
-		}
 	}
 
 	public void InitliazeConfig(File ConfigFile)
