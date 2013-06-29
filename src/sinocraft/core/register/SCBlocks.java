@@ -1,6 +1,6 @@
 package sinocraft.core.register;
 
-import sinocraft.SinoCraft;
+import sinocraft.core.SCLog;
 import sinocraft.plants.blocks.BlockAzalea;
 import sinocraft.plants.blocks.BlockBeanBracket;
 import sinocraft.plants.blocks.BlockChrysanthemum;
@@ -44,7 +44,7 @@ public class SCBlocks
 		}
 		catch (Exception e)
 		{
-			SinoCraft.log.warning("Error when loading blockIDs from config . " + e);
+			SCLog.info("Error when loading blockIDs from config . " + e);
 		}
 		
 		ModLoader.registerBlock(blockPeony);
@@ -55,26 +55,6 @@ public class SCBlocks
 		ModLoader.registerBlock(blockPrunusMumeWood);
 		ModLoader.registerBlock(blockBeanBracket);
 		ModLoader.registerBlock(blockGlutinousRice);
-		
-		ModLoader.addName(blockPeony, "zh_CN", "牡丹");
-		ModLoader.addName(blockChrysanthemum, "zh_CN", "菊花");
-		ModLoader.addName(blockPrunusMumeBranch, "zh_CN", "梅花枝");
-		ModLoader.addName(blockReed, "zh_CN", "芦苇");
-		ModLoader.addName(blockAzalea, "zh_CN", "杜鹃");
-		ModLoader.addName(blockPrunusMumeWood, "zh_CN", "梅花木");
-		ModLoader.addName(blockBeanBracket, "zh_CN", "作物架");
-
-		//ModLoader.addName( , "zh_CN", "");
-		
-		ModLoader.addName(blockPeony, "en_US", "Peony");
-		ModLoader.addName(blockChrysanthemum, "en_US", "Chrysanthemum");
-		ModLoader.addName(blockPrunusMumeBranch, "en_US", "Prunus Mume Branch");
-		ModLoader.addName(blockReed, "en_US", "Reed");
-		ModLoader.addName(blockAzalea, "en_US", "Azalea");
-		ModLoader.addName(blockPrunusMumeWood,"en_US", "Prunus Mume Wood");
-		ModLoader.addName(blockBeanBracket, "en_US", "Bean Bracket");
-		
-		//ModLoader.addName( , "en_US", "");
 		
 		return;
 	}

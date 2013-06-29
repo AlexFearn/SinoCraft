@@ -1,7 +1,7 @@
 package sinocraft.core.register;
 
 import cpw.mods.fml.common.registry.LanguageRegistry;
-import sinocraft.SinoCraft;
+import sinocraft.core.SCLog;
 import sinocraft.foods.items.ItemZongzi;
 import sinocraft.plants.items.ItemCucumber;
 import sinocraft.plants.items.ItemGlutinousRice;
@@ -41,24 +41,11 @@ public class SCItems
 		}
 		catch (Exception e)
 		{
-			SinoCraft.log.warning("Error when loading itemIDs from config . " + e);
+			SCLog.info("Error when loading itemIDs from config . " + e);
 		}
 		
 		addItemRecipes();
-		
-		ModLoader.addName(itemReedLeaves, "zh_CN", "粽叶");
-		ModLoader.addName(itemCucumber, "zh_CN", "黄瓜");
-		ModLoader.addName(itemVignaRadiata, "zh_CN", "绿豆");
-		ModLoader.addName(itemVignaAngularis, "zh_CN", "红豆");
-		ModLoader.addName(itemZongzi, "zh_CN", "粽子");
-		ModLoader.addName(itemGlutinousRice, "zh_CN", "糯米");
-		
-		ModLoader.addName(itemReedLeaves, "en_US", "Reed Leaves");
-		ModLoader.addName(itemCucumber, "en_US", "Cucumber");
-		ModLoader.addName(itemVignaRadiata, "en_US", "Vigna Radiata");
-		ModLoader.addName(itemVignaAngularis, "en_US", "Vigna Angularis");
-		ModLoader.addName(itemZongzi, "en_US", "Zongzi");
-		ModLoader.addName(itemGlutinousRice, "en_US", "Glutinous Rice");
+			
 	}
 	
 	private static void addItemRecipes()

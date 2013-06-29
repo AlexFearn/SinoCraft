@@ -32,17 +32,17 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
-@Mod(modid = "SinoCraft", name = "SinoCraft", version = "1.0.0.0")
+@Mod(modid = "SinoCraft", name = "SinoCraft", version = SinoCraft.VERSION)
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 /** 
  * MOD的主类
  * @author HopeAsd, Liong
  */
 public class SinoCraft 
-{
+{	
+	public static final String VERSION = "1.0.0.0 pre";
+	
 	public static SCConfig config;
-
-	public static Logger log = FMLLog.getLogger();
 
 	public static CreativeTabs sct = new SCCreativeTab("SC");
 	
@@ -55,8 +55,6 @@ public class SinoCraft
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event)
 	{
-		ModLoader.addLocalization("itemGroup.SC", "zh_CN", "龙腾东方：中华文化");
-		ModLoader.addLocalization("itemGroup.SC", "en_US", "SinoCraft");
 		
 		config = new SCConfig(event.getSuggestedConfigurationFile());
 		
