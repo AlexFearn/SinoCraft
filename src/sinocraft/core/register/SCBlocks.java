@@ -7,8 +7,10 @@ import sinocraft.plants.blocks.BlockChrysanthemum;
 import sinocraft.plants.blocks.BlockGlutinousRice;
 import sinocraft.plants.blocks.BlockPeony;
 import sinocraft.plants.blocks.BlockPrunusMumeBranch;
+import sinocraft.plants.blocks.BlockPrunusMumeSapling;
 import sinocraft.plants.blocks.BlockPrunusMumeWood;
 import sinocraft.plants.blocks.BlockReed;
+import sinocraft.plants.blocks.BlockTeaBush;
 import net.minecraft.block.Block;
 import net.minecraft.src.ModLoader;
 
@@ -26,8 +28,10 @@ public class SCBlocks
 	public static BlockReed blockReed;
 	public static BlockAzalea blockAzalea;
 	public static BlockPrunusMumeWood blockPrunusMumeWood;
-	public static BlockBeanBracket blockBeanBracket;
-	public static BlockGlutinousRice blockGlutinousRice;
+	//public static BlockBeanBracket blockBeanBracket;
+	//public static BlockGlutinousRice blockGlutinousRice;
+	//public static BlockTeaBush blockTeaBush;
+	public static BlockPrunusMumeSapling blockPrunusMumeSapling;
 
 	public static void load(SCConfig config)
 	{
@@ -39,8 +43,10 @@ public class SCBlocks
 			blockReed = new BlockReed (config.getBlockID("blockReed",503));
 			blockAzalea = new BlockAzalea(config.getBlockID("blockAzalea", 504));
 			blockPrunusMumeWood = new BlockPrunusMumeWood(config.getBlockID("blockPrunusMumeWood", 505));
-			blockBeanBracket = new BlockBeanBracket(config.getBlockID("blockBeanBracket", 506));
-			blockGlutinousRice = new BlockGlutinousRice(config.getBlockID("blockGlutinousRice", 507));
+			//blockBeanBracket = new BlockBeanBracket(config.getBlockID("blockBeanBracket", 506));
+			//blockGlutinousRice = new BlockGlutinousRice(config.getBlockID("blockGlutinousRice", 507));
+			//blockTeaBush = new BlockTeaBush(config.getBlockID("blockTeaBush", 508));
+			blockPrunusMumeSapling = new BlockPrunusMumeSapling(config.getBlockID("blockPrunusMumeSapling", 509));
 		}
 		catch (Exception e)
 		{
@@ -53,9 +59,38 @@ public class SCBlocks
 		ModLoader.registerBlock(blockReed);
 		ModLoader.registerBlock(blockAzalea);
 		ModLoader.registerBlock(blockPrunusMumeWood);
-		ModLoader.registerBlock(blockBeanBracket);
-		ModLoader.registerBlock(blockGlutinousRice);
+		//ModLoader.registerBlock(blockBeanBracket);
+		//ModLoader.registerBlock(blockGlutinousRice);
+		//ModLoader.registerBlock(blockTeaBush);
+		ModLoader.registerBlock(blockPrunusMumeSapling);
 		
+<<<<<<< HEAD
+=======
+		ModLoader.addName(blockPeony, "zh_CN", "牡丹");
+		ModLoader.addName(blockChrysanthemum, "zh_CN", "菊花");
+		ModLoader.addName(blockPrunusMumeBranch, "zh_CN", "梅花枝");
+		ModLoader.addName(blockReed, "zh_CN", "芦苇");
+		ModLoader.addName(blockAzalea, "zh_CN", "杜鹃");
+		ModLoader.addName(blockPrunusMumeWood, "zh_CN", "梅花木");
+		//ModLoader.addName(blockBeanBracket, "zh_CN", "作物架");
+		//ModLoader.addName(blockTeaBush, "zh_CN", "茶树");
+		ModLoader.addName(blockPrunusMumeSapling, "zh_CN", "梅花树苗");
+
+		//ModLoader.addName( , "zh_CN", "");
+		
+		ModLoader.addName(blockPeony, "en_US", "Peony");
+		ModLoader.addName(blockChrysanthemum, "en_US", "Chrysanthemum");
+		ModLoader.addName(blockPrunusMumeBranch, "en_US", "Prunus Mume Branch");
+		ModLoader.addName(blockReed, "en_US", "Reed");
+		ModLoader.addName(blockAzalea, "en_US", "Azalea");
+		ModLoader.addName(blockPrunusMumeWood,"en_US", "Prunus Mume Wood");
+		//ModLoader.addName(blockBeanBracket, "en_US", "Bean Bracket");
+		//ModLoader.addName(blockTeaBush, "en_US", "Tea Bush");
+		ModLoader.addName(blockPrunusMumeSapling, "en_US", "Prunus Mume Sapling");
+		
+		//ModLoader.addName( , "en_US", "");
+		
+>>>>>>> origin/release
 		return;
 	}
 }

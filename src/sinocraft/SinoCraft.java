@@ -10,8 +10,14 @@ import sinocraft.core.SCWorldGenerator;
 import sinocraft.core.proxy.ServerProxy;
 import sinocraft.core.register.SCBlocks;
 import sinocraft.core.register.SCConfig;
+import sinocraft.core.register.SCCraftingRecipes;
+import sinocraft.core.register.SCFurnaceRecipes;
 import sinocraft.core.register.SCItems;
+<<<<<<< HEAD
 import sinocraft.core.register.SCProperty;
+=======
+import sinocraft.core.register.SCRenderer;
+>>>>>>> origin/release
 import sinocraft.plants.blocks.BlockChrysanthemum;
 import sinocraft.plants.blocks.BlockPeony;
 import sinocraft.plants.blocks.BlockPrunusMumeBranch;
@@ -58,11 +64,22 @@ public class SinoCraft {
 	}
 
 	@Init
+<<<<<<< HEAD
 	public void init(FMLInitializationEvent event) {
 		SCBlocks.load(config);
 		SCItems.load(config);
 
 		SCProperty.loadProps(SinoCraft.config);
+=======
+	public void init(FMLInitializationEvent event) 
+	{
+		SCRenderer.load(config);
+		SCBlocks.load(config);
+		SCItems.load(config);
+		SCCraftingRecipes.load();
+		SCFurnaceRecipes.load();
+		
+>>>>>>> origin/release
 		GameRegistry.registerWorldGenerator(new SCWorldGenerator());
 
 		proxy.load(event);

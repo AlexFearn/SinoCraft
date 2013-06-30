@@ -12,6 +12,12 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
+/**
+ * 糯米
+ * @author Liong
+ *
+ */
+
 public class ItemGlutinousRice extends Item
 {
 	public ItemGlutinousRice(int Id)
