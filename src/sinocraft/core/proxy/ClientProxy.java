@@ -10,18 +10,18 @@ public class ClientProxy extends ServerProxy
 	@Override
 	public void preLoad(FMLPreInitializationEvent event)
 	{
-		
+		super.preLoad(event);
 	}
 	
 	@Override
 	public void load(FMLInitializationEvent event)
 	{
-		
+		super.load(event);
 	}
 	
 	@Override
 	public void postLoad(FMLPostInitializationEvent event)
 	{
-		
+		super.postLoad(event);
 	}
 }

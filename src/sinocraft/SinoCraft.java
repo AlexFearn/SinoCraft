@@ -1,7 +1,5 @@
 package sinocraft;
 
-import java.util.logging.Logger;
-
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.src.ModLoader;
@@ -13,6 +11,7 @@ import sinocraft.core.proxy.ServerProxy;
 import sinocraft.core.register.SCBlocks;
 import sinocraft.core.register.SCConfig;
 import sinocraft.core.register.SCItems;
+import sinocraft.core.register.SCProperty;
 import sinocraft.plants.blocks.BlockChrysanthemum;
 import sinocraft.plants.blocks.BlockPeony;
 import sinocraft.plants.blocks.BlockPrunusMumeBranch;
@@ -30,7 +29,6 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 
 @Mod(modid = "SinoCraft", name = "SinoCraft", version = SinoCraft.VERSION)
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
@@ -38,43 +36,40 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
  * MOD的主类
  * @author HopeAsd, Liong
  */
-public class SinoCraft 
-{	
+public class SinoCraft {
+	public static SCConfig config;
+	
 	public static final String VERSION = "1.0.0.0 pre";
 	
-	public static SCConfig config;
-
 	public static CreativeTabs sct = new SCCreativeTab("SC");
-	
+
 	@Instance("SinoCraft")
 	public static SinoCraft instance;
 
 	@SidedProxy(clientSide = "sinocraft.core.proxy.ClientProxy", serverSide = "sinocraft.core.proxy.ServerProxy")
 	public static ServerProxy proxy;
-	
+
 	@PreInit
-	public void preInit(FMLPreInitializationEvent event)
-	{
-		
+	public void preInit(FMLPreInitializationEvent event) {
+
 		config = new SCConfig(event.getSuggestedConfigurationFile());
-		
+
 		proxy.preLoad(event);
 	}
-	
+
 	@Init
-	public void init(FMLInitializationEvent event) 
-	{
+	public void init(FMLInitializationEvent event) {
 		SCBlocks.load(config);
 		SCItems.load(config);
-		
+
+		SCProperty.loadProps(SinoCraft.config);
 		GameRegistry.registerWorldGenerator(new SCWorldGenerator());
-		
+
 		proxy.load(event);
 	}
 
 	@PostInit
-	public void postInit(FMLPostInitializationEvent event)
-	{
+	public void postInit(FMLPostInitializationEvent event) {
 		config.SaveConfig();
 		proxy.postLoad(event);
 	}
