@@ -64,8 +64,6 @@ public class SCBlocks
 		//ModLoader.registerBlock(blockTeaBush);
 		ModLoader.registerBlock(blockPrunusMumeSapling);
 		
-<<<<<<< HEAD
-=======
 		ModLoader.addName(blockPeony, "zh_CN", "牡丹");
 		ModLoader.addName(blockChrysanthemum, "zh_CN", "菊花");
 		ModLoader.addName(blockPrunusMumeBranch, "zh_CN", "梅花枝");
@@ -73,6 +71,7 @@ public class SCBlocks
 		ModLoader.addName(blockAzalea, "zh_CN", "杜鹃");
 		ModLoader.addName(blockPrunusMumeWood, "zh_CN", "梅花木");
 		//ModLoader.addName(blockBeanBracket, "zh_CN", "作物架");
+		//ModLoader.addName(blockGlutinousRice, "zh_CH","糯稻");
 		//ModLoader.addName(blockTeaBush, "zh_CN", "茶树");
 		ModLoader.addName(blockPrunusMumeSapling, "zh_CN", "梅花树苗");
 
@@ -85,12 +84,12 @@ public class SCBlocks
 		ModLoader.addName(blockAzalea, "en_US", "Azalea");
 		ModLoader.addName(blockPrunusMumeWood,"en_US", "Prunus Mume Wood");
 		//ModLoader.addName(blockBeanBracket, "en_US", "Bean Bracket");
+		//ModLoader.addName(blockGlutinousRice, "en_CH","GlutinousRice");
 		//ModLoader.addName(blockTeaBush, "en_US", "Tea Bush");
 		ModLoader.addName(blockPrunusMumeSapling, "en_US", "Prunus Mume Sapling");
 		
 		//ModLoader.addName( , "en_US", "");
 		
->>>>>>> origin/release
 		return;
 	}
 }

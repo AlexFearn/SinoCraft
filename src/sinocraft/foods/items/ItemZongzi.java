@@ -24,16 +24,18 @@ public class ItemZongzi extends Item
 		
 		setCreativeTab(SinoCraft.sct);
 		setUnlocalizedName("Zongzi");
-
 	}
 	
 	@Override
 	public ItemStack onEaten(ItemStack itemstack, World world, EntityPlayer entityPlayer)
 	{
-        if (!entityPlayer.capabilities.isCreativeMode)
-        	--itemstack.stackSize;
-		entityPlayer.getFoodStats().addStats(8, 0.0F);
-        world.playSoundAtEntity(entityPlayer, "random.burp", 0.5F, world.rand.nextFloat() * 0.1F + 0.9F);
+		if (!world.isRemote)
+		{
+	        if (!entityPlayer.capabilities.isCreativeMode)
+	        	--itemstack.stackSize;
+			entityPlayer.getFoodStats().addStats(8, 0.0F);
+	        world.playSoundAtEntity(entityPlayer, "random.burp", 0.5F, world.rand.nextFloat() * 0.1F + 0.9F);
+		}
 		return itemstack;
 	}
 	

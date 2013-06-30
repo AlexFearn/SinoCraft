@@ -4,9 +4,6 @@ package sinocraft.core.register;
 import java.lang.reflect.Field;
 
 import sinocraft.core.Configurable;
-import cbproject.core.CBCMod;
-import cbproject.core.misc.Config;
-
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.Property;

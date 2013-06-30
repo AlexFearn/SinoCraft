@@ -9,13 +9,10 @@ import sinocraft.SinoCraft;
  * @author HopeAsd
  *
  */
-public class SCProperty {
-	
-	
-	
-	public static void loadProps(SCConfig config) {
-		GeneralRegistry
-				.loadConfigurableClass(SinoCraft.config, SCProperty.class);
+public class SCProperty
+{
+	public static void loadProps(SCConfig config)
+	{
+		GeneralRegistry.loadConfigurableClass(SinoCraft.config, SCProperty.class);
 	}
-
 }

@@ -46,24 +46,7 @@ public class SCItems
 		{
 			SCLog.info("Error when loading itemIDs from config . " + e);
 		}
-		
-<<<<<<< HEAD
-		addItemRecipes();
-			
-	}
 	
-	private static void addItemRecipes()
-	{
-		ModLoader.addRecipe(new ItemStack(itemZongzi), new Object[]
-		{
-			" A ",
-			"BCB",
-			"  ",
-			Character.valueOf('A'), itemGlutinousRice,
-			Character.valueOf('B'), Item.silk,
-			Character.valueOf('C'), itemReedLeaves
-		});
-=======
 		ModLoader.addName(itemReedLeaves, "zh_CN", "粽叶");
 		//ModLoader.addName(itemCucumber, "zh_CN", "黄瓜");
 		//ModLoader.addName(itemVignaRadiata, "zh_CN", "绿豆");
@@ -79,6 +62,5 @@ public class SCItems
 		ModLoader.addName(itemZongzi, "en_US", "Zongzi");
 		ModLoader.addName(itemGlutinousRice, "en_US", "Glutinous Rice");
 		ModLoader.addName(itemBenincasaPruriens, "en_US", "Benincasa Pruriens");
->>>>>>> origin/release
 	}
 }

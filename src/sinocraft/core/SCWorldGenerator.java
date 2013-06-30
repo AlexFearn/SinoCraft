@@ -32,16 +32,11 @@ public class SCWorldGenerator implements IWorldGenerator
 				switch (world.provider.dimensionId)
 				{
 					case 0:
-						int j = random.nextInt(5);
+						int j = random.nextInt(1);
 						
 						switch (j)
 						{
-							case 0: S_plain(random, chunkX, chunkZ, world, SCBlocks.blockPeony); break;
-							case 1: S_plain(random, chunkX, chunkZ, world, SCBlocks.blockChrysanthemum); break;
-							case 2: S_plain(random, chunkX, chunkZ, world, SCBlocks.blockAzalea); break;
-							case 3: S_plain(random, chunkX, chunkZ, world, SCBlocks.blockReed); break;
-							//case 4: S_wildcrops(random, chunkX, chunkZ, world, SCBlocks.blockGlutinousRice); break;
-							case 5: S_beach(random, chunkX, chunkZ, world, SCBlocks.blockReed); break;
+							case 0: S_beach(random, chunkX, chunkZ, world, SCBlocks.blockReed); break;
 						}
 						break;
 					case -1: N(random, chunkX, chunkZ, world); break;

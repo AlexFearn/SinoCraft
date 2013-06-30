@@ -17,6 +17,5 @@ public @interface Configurable {
 
 	String defValue();
 
-
 	String comment() default "";
 }

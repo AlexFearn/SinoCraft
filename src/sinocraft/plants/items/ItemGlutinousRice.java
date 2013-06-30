@@ -29,9 +29,10 @@ public class ItemGlutinousRice extends Item
 	}
 	
 	@Override
-	public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
+	public boolean onItemUse(ItemStack itemstack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
 	{
-		world.setBlock(x, y + 1, z, SCBlocks.blockGlutinousRice.blockID, 0, 3);
+		//--itemstack.stackSize;
+		//world.setBlock(x, y + 1, z, SCBlocks.blockGlutinousRice.blockID, 0, 3);
 		return true;
 	}
 	
