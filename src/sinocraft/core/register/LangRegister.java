@@ -3,7 +3,6 @@ package sinocraft.core.register;
 import java.util.HashSet;
 import java.util.Set;
 
-import bilicraft.core.util.BCLog;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 import sinocraft.core.SCLog;
