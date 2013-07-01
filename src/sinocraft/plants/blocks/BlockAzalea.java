@@ -1,6 +1,6 @@
 package sinocraft.plants.blocks;
 
-import sinocraft.blocks.SCFlower;
+import sinocraft.core.blocks.SCFlower;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IconRegister;

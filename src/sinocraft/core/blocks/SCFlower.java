@@ -1,4 +1,4 @@
-package sinocraft.blocks;
+package sinocraft.core.blocks;
 
 import java.util.Random;
 

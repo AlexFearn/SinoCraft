@@ -7,7 +7,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.world.World;
-import sinocraft.blocks.SCCrop;
+import sinocraft.core.blocks.SCCrop;
 import sinocraft.core.register.SCBlocks;
 import sinocraft.core.register.SCItems;
 
@@ -22,6 +22,7 @@ public class BlockBenincasaPruriens extends SCCrop
 	public BlockBenincasaPruriens(int Id)
 	{
 		super(Id);
+		setUnlocalizedName("Benincasa Pruriens");
 	}
 	
 	@Override

@@ -9,7 +9,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import sinocraft.blocks.SCCrop;
+import sinocraft.core.blocks.SCCrop;
 import sinocraft.core.register.SCItems;
 
 /**

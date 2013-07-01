@@ -4,15 +4,12 @@ package sinocraft.core.register;
 import java.lang.reflect.Field;
 
 import sinocraft.core.Configurable;
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
+
 import net.minecraftforge.common.Property;
 
 /**
  * 
  * 被注册类中标记的域必须为静态域。
- * 
- * 
  */
 public class GeneralRegistry {
 

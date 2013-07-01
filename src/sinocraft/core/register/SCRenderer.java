@@ -30,7 +30,10 @@ public class SCRenderer
 		{
 			SCLog.info("Error when loading renderIDs from config . " + e);
 		}
+
 		RenderingRegistry.registerBlockHandler(RendererTeaBushID, new RendererTeaBush());
+		SCLog.info("Client Render load!");
+
 		
 		addSeeds();
 	}

@@ -1,7 +1,5 @@
 package sinocraft.plants.blocks;
 
-import com.google.common.base.CaseFormat;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import sinocraft.SinoCraft;
@@ -9,10 +7,8 @@ import sinocraft.core.register.SCRenderer;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
 
 /**
  * 茶树

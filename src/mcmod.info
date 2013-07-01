@@ -1,0 +1,16 @@
+[
+{
+	"modid": "SinoCraft"
+	"name": "SinoCraft",
+	"description": "A minecraft mod adding Chinese culture and related elememts!",
+	"version": "1.0.0.0pre",
+	"credits": "Thank all for playing >)",
+	"authors": ["SinoCraft Modding Team", "And all your players"],
+	"logoFile": "/modback.png",
+	"url": "",
+	"updateUrl": "",
+	"parent": "",
+	"screenshots": [],
+	"dependencies": []
+}
+]

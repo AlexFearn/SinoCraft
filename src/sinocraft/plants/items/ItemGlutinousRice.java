@@ -12,12 +12,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-/**
- * 糯米
- * @author Liong
- *
- */
-
 public class ItemGlutinousRice extends Item
 {
 	public ItemGlutinousRice(int Id)
@@ -29,10 +23,9 @@ public class ItemGlutinousRice extends Item
 	}
 	
 	@Override
-	public boolean onItemUse(ItemStack itemstack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
+	public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
 	{
-		//--itemstack.stackSize;
-		//world.setBlock(x, y + 1, z, SCBlocks.blockGlutinousRice.blockID, 0, 3);
+		world.setBlock(x, y + 1, z, SCBlocks.blockGlutinousRice.blockID, 0, 3);
 		return true;
 	}
 	

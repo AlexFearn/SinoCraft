@@ -2,7 +2,7 @@ package sinocraft.plants.blocks;
 
 import java.util.Random;
 
-import sinocraft.blocks.SCFlower;
+import sinocraft.core.blocks.SCFlower;
 import sinocraft.core.register.SCBlocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -16,6 +16,7 @@ public class BlockPrunusMumeSapling extends SCFlower
 	public BlockPrunusMumeSapling(int Id)
 	{
 		super(Id);
+		setUnlocalizedName("Prunus Mume Sapling");
 	}
 	
 	@Override

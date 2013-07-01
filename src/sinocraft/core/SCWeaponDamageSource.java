@@ -24,8 +24,10 @@ public class SCWeaponDamageSource extends EntityDamageSourceIndirect {
 		return this.shooterEntity;
 	}
 
-	public static DamageSource causeProjectileWeaponDamage(EntityProjectile projectile, Entity entity)
-	{
-		return new SCWeaponDamageSource("weapon", projectile, entity).setProjectile();
+	public static DamageSource causeProjectileWeaponDamage(
+			EntityProjectile projectile, Entity entity) {
+		return new SCWeaponDamageSource("weapon", projectile, entity)
+				.setProjectile();
 	}
+
 }
