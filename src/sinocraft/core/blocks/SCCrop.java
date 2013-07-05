@@ -1,4 +1,4 @@
-package sinocraft.blocks;
+package sinocraft.core.blocks;
 
 import java.util.Random;
 
@@ -10,7 +10,7 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
-import sinocraft.blocks.SCFlower;
+import sinocraft.core.blocks.SCFlower;
 import sinocraft.core.register.SCBlocks;
 import sinocraft.core.register.SCItems;
 

@@ -1,7 +1,7 @@
 package sinocraft.plants.blocks;
 
 import java.util.Random;
-import sinocraft.blocks.SCFlower;
+import sinocraft.core.blocks.SCFlower;
 import sinocraft.core.register.SCItems;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

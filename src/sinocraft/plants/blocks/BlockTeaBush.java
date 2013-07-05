@@ -1,7 +1,5 @@
 package sinocraft.plants.blocks;
 
-import com.google.common.base.CaseFormat;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import sinocraft.SinoCraft;
@@ -9,7 +7,6 @@ import sinocraft.core.register.SCRenderer;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -32,6 +29,23 @@ public class BlockTeaBush extends Block
 		setCreativeTab(SinoCraft.sct);
 		setStepSound(soundGrassFootstep);
 		setUnlocalizedName("Tea Bush");
+	}
+	
+	@Override
+	public boolean canPlaceBlockAt(World world, int x, int y, int z)
+	{
+		return canBlockStay(world, x, y, z);
+	}
+	
+	@Override
+	
+	public boolean canBlockStay(World world, int x, int y, int z)
+	{
+		if (world.getBlockId(x, y - 1, z) == grass.blockID ||
+			world.getBlockId(x, y - 1, z) == dirt.blockID)
+			return true;
+		else
+			return false;
 	}
 	
 	@Override

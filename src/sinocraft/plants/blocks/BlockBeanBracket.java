@@ -2,18 +2,14 @@ package sinocraft.plants.blocks;
 
 import java.util.Random;
 
-import scala.noinline;
-import scala.collection.generic.BitOperations.Int;
 import sinocraft.SinoCraft;
-import sinocraft.core.register.SCBlocks;
 import sinocraft.core.register.SCItems;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
-import net.minecraft.block.StepSound;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;

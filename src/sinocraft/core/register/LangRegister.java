@@ -10,8 +10,7 @@ import sinocraft.core.SCLog;
 public class LangRegister {
 	public static Set<String> languages = new HashSet<String>();
 
-	static
-	{
+	static {
 		languages.add("zh_CN");
 		languages.add("en_US");
 	}
@@ -21,7 +20,8 @@ public class LangRegister {
 		try
 		{
 			for (String lang : languages) {
-				LanguageRegistry.instance().loadLocalization("/sinocraft/lang/" + lang + ".properties", lang, false);
+				LanguageRegistry.instance().loadLocalization(
+						"/sinocraft/lang/" + lang + ".properties", lang, false);
 				SCLog.info("Load Language:"+lang);
 			}
 		}

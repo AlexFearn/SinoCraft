@@ -14,6 +14,7 @@ public class SCCreativeTab extends CreativeTabs
 	}
 	
 	@SideOnly(Side.CLIENT)
+	@Override
 	public int getTabIconItemIndex()
 	{
 		return SCItems.itemReedLeaves.itemID;
