@@ -1,13 +1,18 @@
 package sinocraft.foods.items;
 
+import java.util.Random;
+
 import sinocraft.SinoCraft;
+import sinocraft.core.register.SCPotion;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
 /**
@@ -16,15 +21,14 @@ import net.minecraft.world.World;
  *
  */
 
-public class ItemZongzi extends Item
+public class ItemZongzi extends ItemFood
 {
 	public ItemZongzi(int Id)
 	{
-		super(Id);
+		super(Id, 8, 0.8F, false);
 		
 		setCreativeTab(SinoCraft.sct);
 		setUnlocalizedName("Zongzi");
-
 	}
 	
 	@Override
@@ -32,29 +36,16 @@ public class ItemZongzi extends Item
 	{
         if (!entityPlayer.capabilities.isCreativeMode)
         	--itemstack.stackSize;
-		entityPlayer.getFoodStats().addStats(8, 0.0F);
-        world.playSoundAtEntity(entityPlayer, "random.burp", 0.5F, world.rand.nextFloat() * 0.1F + 0.9F);
+        if (new Random().nextInt(1024) < 4)
+        	entityPlayer.addPotionEffect(new PotionEffect(SCPotion.PotionIndigestionID, 30, 0, false));
 		return itemstack;
 	}
 	
 	@Override
 	public int getMaxItemUseDuration(ItemStack par1ItemStack)
 	{
-		return 64;
+		return 8;
 	}
-	
-	@Override
-	public EnumAction getItemUseAction(ItemStack itemstack)
-	{
-		return EnumAction.eat;
-	}
-	
-	@Override
-	public ItemStack onItemRightClick(ItemStack itemStack, World world,	EntityPlayer entityPlayer)
-	{
-        entityPlayer.setItemInUse(itemStack, this.getMaxItemUseDuration(itemStack));
-        return itemStack;
-    }
 	
 	@Override
 	@SideOnly(Side.CLIENT)

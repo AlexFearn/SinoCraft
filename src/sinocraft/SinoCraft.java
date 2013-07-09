@@ -6,7 +6,10 @@ import sinocraft.core.SCWorldGenerator;
 import sinocraft.core.proxy.ServerProxy;
 import sinocraft.core.register.SCBlocks;
 import sinocraft.core.register.SCConfig;
+import sinocraft.core.register.SCCraftingRecipes;
+import sinocraft.core.register.SCFurnaceRecipes;
 import sinocraft.core.register.SCItems;
+import sinocraft.core.register.SCPotion;
 import sinocraft.core.register.SCProperty;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
@@ -40,26 +43,29 @@ public class SinoCraft {
 	public static ServerProxy proxy;
 
 	@PreInit
-	public void preInit(FMLPreInitializationEvent event) {
-
+	public void preInit(FMLPreInitializationEvent event) 
+	{
 		config = new SCConfig(event.getSuggestedConfigurationFile());
 
 		proxy.preLoad(event);
 	}
 
 	@Init
-	public void init(FMLInitializationEvent event) {
+	public void init(FMLInitializationEvent event)
+	{
 		SCBlocks.load(config);
 		SCItems.load(config);
-
+		SCCraftingRecipes.load();
+		SCFurnaceRecipes.load();
 		SCProperty.loadProps(SinoCraft.config);
+		SCPotion.load();
 		
-
 		proxy.load(event);
 	}
 
 	@PostInit
-	public void postInit(FMLPostInitializationEvent event) {
+	public void postInit(FMLPostInitializationEvent event)
+	{
 		config.SaveConfig();
 		proxy.postLoad(event);
 	}

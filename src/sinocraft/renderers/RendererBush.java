@@ -12,12 +12,12 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 
 /**
- * 茶树渲染器
+ * 灌木渲染器
  * @author Liong
  *
  */
 
-public class RendererTeaBush implements ISimpleBlockRenderingHandler
+public class RendererBush implements ISimpleBlockRenderingHandler
 {
 
 	@Override
@@ -29,29 +29,29 @@ public class RendererTeaBush implements ISimpleBlockRenderingHandler
 	@Override
 	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer)
 	{
-		Tessellator tessellator = Tessellator.instance;
+        Tessellator tessellator = Tessellator.instance;
+        
         tessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));
+        
+        double minU = 0D;
+        double minV = 0D;
+        double maxU = 1D;
+        double maxV = 1D;
+        
         float f = 1.0F;
         int l = block.colorMultiplier(world, x, y, z);
-        float red = (float)(l >> 16 & 255) / 255.0F;
-        float green = (float)(l >> 8 & 255) / 255.0F;
-        float blue = (float)(l & 255) / 255.0F;
-
-        if (EntityRenderer.anaglyphEnable)
-        {
-            float f4 = (red * 30.0F + green * 59.0F + blue * 11.0F) / 100.0F;
-            float f5 = (red * 30.0F + green * 70.0F) / 100.0F;
-            float f6 = (red * 30.0F + blue * 70.0F) / 100.0F;
-            red = f4;
-            green = f5;
-            blue = f6;
-        }
-
-        tessellator.setColorOpaque_F(f * red, f * green, f * blue);
+        float f1 = (float)(l >> 16 & 255) / 255.0F;
+        float f2 = (float)(l >> 8 & 255) / 255.0F;
+        float f3 = (float)(l & 255) / 255.0F;
         
-        drawCrossedSquares(block, world.getBlockMetadata(x, y, z), (double)x, (double)y, (double)z, 1.0F, renderer);
-        GL11.glDisable(GL11.GL_CULL_FACE);
+        tessellator.setColorOpaque_F(f * f1, f * f2, f * f3);
+        
+		//outside
         renderer.renderStandardBlock(block, x, y, z);
+
+        
+        //drawCrossedSquares(block, world.getBlockMetadata(x, y, z), x, y, z, 1.0F, renderer);        
+        
         return true;
 	}
 
@@ -64,7 +64,45 @@ public class RendererTeaBush implements ISimpleBlockRenderingHandler
 	@Override
 	public int getRenderId()
 	{
-		return SCRenderer.RendererTeaBushID;
+		return SCRenderer.RendererBushID;
+	}
+	
+	public void drawInside(int x, int y, int z, Block block, RenderBlocks renderer)
+	{
+		Tessellator tessellator = Tessellator.instance;
+        Icon side = block.getIcon(2, 0);
+        if(side == null)
+        	side = renderer.minecraftRB.renderEngine.getMissingIcon(0);
+        double minU = 0D;
+        double minV = 0D;
+        double maxU = 1D;
+        double maxV = 1D;
+		
+		//inside
+		tessellator.addVertexWithUV(x    , y + 1, z + 1, minU, minV);
+		tessellator.addVertexWithUV(x    , y    , z + 1, minU, maxV);
+		tessellator.addVertexWithUV(x    , y    , z    , maxU, maxV);
+		tessellator.addVertexWithUV(x    , y + 1, z    , maxU, minV);
+		
+		tessellator.addVertexWithUV(x    , y + 1, z    , minU, minV);
+		tessellator.addVertexWithUV(x    , y    , z    , minU, maxV);
+		tessellator.addVertexWithUV(x + 1, y    , z    , maxU, maxV);
+		tessellator.addVertexWithUV(x + 1, y + 1, z    , maxU, minV);
+		
+		tessellator.addVertexWithUV(x + 1, y + 1, z    , minU, minV);
+		tessellator.addVertexWithUV(x + 1, y    , z    , minU, maxV);
+		tessellator.addVertexWithUV(x + 1, y    , z + 1, maxU, maxV);
+		tessellator.addVertexWithUV(x + 1, y + 1, z + 1, maxU, minV);
+		
+		tessellator.addVertexWithUV(x + 1, y + 1, z + 1, minU, minV);
+		tessellator.addVertexWithUV(x + 1, y    , z + 1, minU, maxV);
+		tessellator.addVertexWithUV(x    , y    , z + 1, maxU, maxV);
+		tessellator.addVertexWithUV(x    , y + 1, z + 1, maxU, minV);
+		//top
+		tessellator.addVertexWithUV(x    , y + 1, z    , minU, minV);
+		tessellator.addVertexWithUV(x    , y + 1, z + 1, maxU, minV);
+		tessellator.addVertexWithUV(x + 1, y + 1, z + 1, maxU, maxV);
+		tessellator.addVertexWithUV(x + 1, y + 1, z    , minU, maxV);
 	}
 	
     public void drawCrossedSquares(Block block, int metadata, double x, double y, double z, float par9, RenderBlocks renderer)
@@ -94,10 +132,10 @@ public class RendererTeaBush implements ISimpleBlockRenderingHandler
         tessellator.addVertexWithUV(d9, y + 0.0D, d11, minU, maxV);
         tessellator.addVertexWithUV(d8, y + 0.0D, d10, maxU, maxV);
         tessellator.addVertexWithUV(d8, y + (double)par9, d10, maxU, minV);
-        tessellator.addVertexWithUV(d8, y + (double)par9, d11, minU, minV);
+        tessellator.addVertexWithUV(d8, y + par9, d11, minU, minV);
         tessellator.addVertexWithUV(d8, y + 0.0D, d11, minU, maxV);
         tessellator.addVertexWithUV(d9, y + 0.0D, d10, maxU, maxV);
-        tessellator.addVertexWithUV(d9, y + (double)par9, d10, maxU, minV);
+        tessellator.addVertexWithUV(d9, y + par9, d10, maxU, minV);
         tessellator.addVertexWithUV(d9, y + (double)par9, d10, minU, minV);
         tessellator.addVertexWithUV(d9, y + 0.0D, d10, minU, maxV);
         tessellator.addVertexWithUV(d8, y + 0.0D, d11, maxU, maxV);

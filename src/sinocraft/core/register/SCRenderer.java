@@ -8,7 +8,8 @@ import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import sinocraft.SinoCraft;
 import sinocraft.core.SCLog;
-import sinocraft.renderers.RendererTeaBush;
+import sinocraft.renderers.RendererBush;
+import sinocraft.renderers.RendererWolk;
 
 /**
  * MOD中的渲染器注册类
@@ -18,33 +19,23 @@ import sinocraft.renderers.RendererTeaBush;
 
 public class SCRenderer
 {
-	public static int RendererTeaBushID;
+	public static int RendererBushID;
+	public static int RendererWolkID;
 	
 	public static void load(SCConfig config)
 	{
 		try
 		{
-			RendererTeaBushID = config.getInteger("rendererTeaBush", 80);
+			RendererBushID = config.getInteger("rendererBush", 80);
+			RendererWolkID = config.getInteger("rendererWolk", 81);
 		}
 		catch(Exception e)
 		{
 			SCLog.info("Error when loading renderIDs from config . " + e);
 		}
 
-		RenderingRegistry.registerBlockHandler(RendererTeaBushID, new RendererTeaBush());
+		RenderingRegistry.registerBlockHandler(RendererBushID, new RendererBush());
+		RenderingRegistry.registerBlockHandler(RendererWolkID, new RendererWolk());
 		SCLog.info("Client Render load!");
-
-		
-		addSeeds();
 	}
-
-	private static void addSeeds()
-	{
-		MinecraftForge.addGrassPlant(SCBlocks.blockPeony, 0, 2);
-		MinecraftForge.addGrassPlant(SCBlocks.blockChrysanthemum, 0, 2);
-		MinecraftForge.addGrassPlant(SCBlocks.blockAzalea, 0, 2);
-		MinecraftForge.addGrassSeed(new ItemStack(SCItems.itemGlutinousRice), 1);
-	}
-	
-	
 }

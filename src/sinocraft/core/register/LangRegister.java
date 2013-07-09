@@ -22,7 +22,7 @@ public class LangRegister {
 			for (String lang : languages) {
 				LanguageRegistry.instance().loadLocalization(
 						"/sinocraft/lang/" + lang + ".properties", lang, false);
-				SCLog.info("Load Language:"+lang);
+				SCLog.info("Load Language:" + lang);
 			}
 		}
 		catch (Exception e)

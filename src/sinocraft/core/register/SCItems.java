@@ -7,6 +7,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraft.item.Item;
 import sinocraft.core.SCLog;
 import sinocraft.foods.items.ItemZongzi;
 import sinocraft.plants.items.ItemBenincasaPruriens;
@@ -49,9 +50,8 @@ public class SCItems
 		{
 			SCLog.info("Error when loading itemIDs from config . " + e);
 		}
-		
+
 		MinecraftForge.addGrassSeed(new ItemStack(itemGlutinousRice, new Random().nextInt(3)), 4);
-		
-		
 	}
 }
+
