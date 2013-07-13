@@ -17,6 +17,9 @@ public class BlockJasmineBush extends SCBush
 	public BlockJasmineBush(int Id)
 	{
 		super(Id);
+		
+		setUnlocalizedName("Jasmine Bush");
+		setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 	}
 	
 	@Override

@@ -1,5 +1,7 @@
 package sinocraft.core.register;
 
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import sinocraft.SinoCraft;
 import sinocraft.core.SCLog;
 import sinocraft.potion.PotionIndigestion;
@@ -18,5 +20,6 @@ public class SCPotion
 		{
 			SCLog.info("Error when loading positionIDs from config . " + e);
 		}
+		
 	}
 }

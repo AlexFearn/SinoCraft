@@ -26,6 +26,7 @@ public class BlockTeaBush extends SCBush
 		super(Id);
 		
 		setUnlocalizedName("Tea Bush");
+		setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 	}
 	
 	@Override

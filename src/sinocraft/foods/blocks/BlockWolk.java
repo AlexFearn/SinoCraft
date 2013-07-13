@@ -1,4 +1,4 @@
-package sinocraft.cooker.block;
+package sinocraft.foods.blocks;
 
 import sinocraft.SinoCraft;
 import sinocraft.core.register.SCRenderer;
@@ -14,6 +14,7 @@ public class BlockWolk extends Block
 {
 	protected Icon blockIcon_Side;
 	protected Icon blockIcon_Handle;
+	protected Icon blockIcon_Bottom;
 	
 	public BlockWolk(int Id)
 	{
@@ -22,17 +23,22 @@ public class BlockWolk extends Block
 		setStepSound(soundMetalFootstep);
 		setUnlocalizedName("Wolk");
 		setCreativeTab(SinoCraft.sct);
-		setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.6F, 1.0F);
+		setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.6F, 0.9375F);
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Icon getIcon(int side, int metadata)
 	{
-		if (side == 6)
+		switch (side)
+		{
+		case 0:
+			return blockIcon_Bottom;
+		case 6:
 			return blockIcon_Handle;
-		else
+		default:
 			return blockIcon_Side;
+		}
 	}
 	
 	@Override
@@ -67,6 +73,7 @@ public class BlockWolk extends Block
 	public void registerIcons(IconRegister i)
 	{
 		blockIcon_Side = i.registerIcon("SinoCraft:BlockWolk_Side");
+		blockIcon_Bottom = i.registerIcon("SinoCraft:BlockWolk_Bottom");
 		blockIcon_Handle = i.registerIcon("SinoCraft:BlockWolk_Handle");
 	}
 }

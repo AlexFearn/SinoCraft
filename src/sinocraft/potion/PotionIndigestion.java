@@ -11,7 +11,8 @@ public class PotionIndigestion extends Potion
 	{
 		super(Id, isBad, liquidColor);
 		
-		setPotionName("Indigestion");
+		setPotionName("potion.indigestion");
+		
 	}
 	
 	@Override

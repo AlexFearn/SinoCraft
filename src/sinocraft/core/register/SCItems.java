@@ -25,13 +25,13 @@ import sinocraft.plants.items.ItemVignaRadiata;
 
 public class SCItems
 {
-	public static ItemReedLeaves itemReedLeaves;
-	public static ItemCucumber itemCucumber;
-	public static ItemVignaRadiata itemVignaRadiata;
-	public static ItemVignaAngularis itemVignaAngularis;
-	public static ItemZongzi itemZongzi;
-	public static ItemGlutinousRice itemGlutinousRice;
-	public static ItemBenincasaPruriens itemBenincasaPruriens;
+	public static Item itemReedLeaves;
+	public static Item itemCucumber;
+	public static Item itemVignaRadiata;
+	public static Item itemVignaAngularis;
+	public static Item itemZongzi;
+	public static Item itemGlutinousRice;
+	public static Item itemBenincasaPruriens;
 
 	public static void load(SCConfig config)
 	{

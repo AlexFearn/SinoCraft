@@ -27,24 +27,22 @@ public class ItemZongzi extends ItemFood
 	{
 		super(Id, 8, 0.8F, false);
 		
+		//setPotionEffect(SCPotion.PotionIndigestionID, 600, 0, 0.003906F);
 		setCreativeTab(SinoCraft.sct);
 		setUnlocalizedName("Zongzi");
 	}
 	
 	@Override
-	public ItemStack onEaten(ItemStack itemstack, World world, EntityPlayer entityPlayer)
+	public ItemStack onEaten(ItemStack itemstack, World world, EntityPlayer entityplayer)
 	{
-        if (!entityPlayer.capabilities.isCreativeMode)
-        	--itemstack.stackSize;
-        if (new Random().nextInt(1024) < 4)
-        	entityPlayer.addPotionEffect(new PotionEffect(SCPotion.PotionIndigestionID, 30, 0, false));
+		super.onEaten(itemstack, world, entityplayer);
 		return itemstack;
 	}
 	
 	@Override
-	public int getMaxItemUseDuration(ItemStack par1ItemStack)
+	public int getMaxItemUseDuration(ItemStack itemstack)
 	{
-		return 8;
+		return 64;
 	}
 	
 	@Override

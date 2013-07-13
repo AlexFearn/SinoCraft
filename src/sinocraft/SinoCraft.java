@@ -57,8 +57,8 @@ public class SinoCraft {
 		SCItems.load(config);
 		SCCraftingRecipes.load();
 		SCFurnaceRecipes.load();
-		SCProperty.loadProps(SinoCraft.config);
-		SCPotion.load();
+		SCProperty.loadProps(config);
+		//SCPotion.load();
 		
 		proxy.load(event);
 	}

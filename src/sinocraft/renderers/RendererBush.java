@@ -48,9 +48,10 @@ public class RendererBush implements ISimpleBlockRenderingHandler
         
 		//outside
         renderer.renderStandardBlock(block, x, y, z);
-
-        
-        //drawCrossedSquares(block, world.getBlockMetadata(x, y, z), x, y, z, 1.0F, renderer);        
+        //inside
+        drawInside(x, y, z, block, renderer);
+        //branch
+        drawCrossedSquares(block, world.getBlockMetadata(x, y, z), x, y, z, 1.0F, renderer);        
         
         return true;
 	}
@@ -71,14 +72,15 @@ public class RendererBush implements ISimpleBlockRenderingHandler
 	{
 		Tessellator tessellator = Tessellator.instance;
         Icon side = block.getIcon(2, 0);
+        
         if(side == null)
         	side = renderer.minecraftRB.renderEngine.getMissingIcon(0);
-        double minU = 0D;
-        double minV = 0D;
-        double maxU = 1D;
-        double maxV = 1D;
+        
+        double minU = side.getMinU();
+        double minV = side.getMinV();
+        double maxU = side.getMaxU();
+        double maxV = side.getMaxV();
 		
-		//inside
 		tessellator.addVertexWithUV(x    , y + 1, z + 1, minU, minV);
 		tessellator.addVertexWithUV(x    , y    , z + 1, minU, maxV);
 		tessellator.addVertexWithUV(x    , y    , z    , maxU, maxV);
@@ -100,9 +102,9 @@ public class RendererBush implements ISimpleBlockRenderingHandler
 		tessellator.addVertexWithUV(x    , y + 1, z + 1, maxU, minV);
 		//top
 		tessellator.addVertexWithUV(x    , y + 1, z    , minU, minV);
-		tessellator.addVertexWithUV(x    , y + 1, z + 1, maxU, minV);
+		tessellator.addVertexWithUV(x + 1, y + 1, z    , maxU, minV);
 		tessellator.addVertexWithUV(x + 1, y + 1, z + 1, maxU, maxV);
-		tessellator.addVertexWithUV(x + 1, y + 1, z    , minU, maxV);
+		tessellator.addVertexWithUV(x    , y + 1, z + 1, minU, maxV);
 	}
 	
     public void drawCrossedSquares(Block block, int metadata, double x, double y, double z, float par9, RenderBlocks renderer)
@@ -111,9 +113,7 @@ public class RendererBush implements ISimpleBlockRenderingHandler
         Icon branch = block.getIcon(6, 0);
         
         if(branch == null)
-        {
         	branch = renderer.minecraftRB.renderEngine.getMissingIcon(0);
-        }
         
         double minU = (double)branch.getMinU();
         double minV = (double)branch.getMinV();

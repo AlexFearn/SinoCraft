@@ -1,5 +1,7 @@
 package sinocraft.renderers;
 
+import javax.swing.Renderer;
+
 import org.lwjgl.opengl.GL11;
 
 import sinocraft.core.register.SCRenderer;
@@ -23,20 +25,6 @@ public class RendererWolk implements ISimpleBlockRenderingHandler
 	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer)
 	{        
 		Tessellator tessellator = Tessellator.instance;
-        Icon handle = block.getIcon(6, 0);
-        
-        if(handle == null)
-        {
-        	handle = renderer.minecraftRB.renderEngine.getMissingIcon(0);
-        }
-        
-        double h = 0.5;
-        double i = 0.6;
-        
-        double minU = (double)handle.getMinU();
-        double minV = (double)handle.getMinV();
-        double maxU = (double)handle.getMaxU();
-        double maxV = (double)handle.getMaxV();
 		
         tessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));
 
@@ -46,54 +34,15 @@ public class RendererWolk implements ISimpleBlockRenderingHandler
         float f3 = (float)(color & 255) / 255.0F;
         
         tessellator.setColorOpaque_F(f1, f2, f3);
-		//handle 1
-        tessellator.addVertexWithUV(x + 1, y + h, z + 1, maxU, maxV);
-        tessellator.addVertexWithUV(x + 2, y + h, z + 1, maxU, minV);
-        tessellator.addVertexWithUV(x + 2, y + h, z    , minU, minV);
-        tessellator.addVertexWithUV(x + 1, y + h, z    , minU, maxV);
         
-        tessellator.addVertexWithUV(x + 2, y + h, z    , maxU, minV);
-        tessellator.addVertexWithUV(x + 2, y + h, z + 1, minU, minV);
-        tessellator.addVertexWithUV(x + 1, y + h, z + 1, minU, maxV);
-        tessellator.addVertexWithUV(x + 1, y + h, z    , maxU, maxV);
-        //handle 2
-		tessellator.addVertexWithUV(x    , y + h, z + 1, minU, maxV);
-		tessellator.addVertexWithUV(x    , y + h, z    , maxU, maxV);
-		tessellator.addVertexWithUV(x - 1, y + h, z    , maxU, minV);
-		tessellator.addVertexWithUV(x - 1, y + h, z + 1, minU, minV);
-		
-		tessellator.addVertexWithUV(x - 1, y + h, z    , minU, minV);
-		tessellator.addVertexWithUV(x    , y + h, z    , minU, maxV);
-		tessellator.addVertexWithUV(x    , y + h, z + 1, maxU, maxV);
-		tessellator.addVertexWithUV(x - 1, y + h, z + 1, maxU, minV);
+        //handle
+        drawHandles(x, y, z, block, renderer);
 		//outside
         renderer.renderStandardBlock(block, x, y, z);
         //inside
-		tessellator.addVertexWithUV(x    , y + i, z + 1, minU, minV);
-		tessellator.addVertexWithUV(x    , y    , z + 1, minU, maxV);
-		tessellator.addVertexWithUV(x    , y    , z    , maxU, maxV);
-		tessellator.addVertexWithUV(x    , y + i, z    , maxU, minV);
-		
-		tessellator.addVertexWithUV(x    , y + i, z    , minU, minV);
-		tessellator.addVertexWithUV(x    , y    , z    , minU, maxV);
-		tessellator.addVertexWithUV(x + 1, y    , z    , maxU, maxV);
-		tessellator.addVertexWithUV(x + 1, y + i, z    , maxU, minV);
-		
-		tessellator.addVertexWithUV(x + 1, y + i, z    , minU, minV);
-		tessellator.addVertexWithUV(x + 1, y    , z    , minU, maxV);
-		tessellator.addVertexWithUV(x + 1, y    , z + 1, maxU, maxV);
-		tessellator.addVertexWithUV(x + 1, y + i, z + 1, maxU, minV);
-		
-		tessellator.addVertexWithUV(x + 1, y + i, z + 1, minU, minV);
-		tessellator.addVertexWithUV(x + 1, y    , z + 1, minU, maxV);
-		tessellator.addVertexWithUV(x    , y    , z + 1, maxU, maxV);
-		tessellator.addVertexWithUV(x    , y + i, z + 1, maxU, minV);
+		drawInside(x, y, z, block, renderer);
 		//bottom
-		tessellator.addVertexWithUV(x    , y    , z    , minU, minV);
-		tessellator.addVertexWithUV(x    , y    , z + 1, minU, maxV);
-		tessellator.addVertexWithUV(x + 1, y    , z + 1, maxU, maxV);
-		tessellator.addVertexWithUV(x + 1, y    , z    , maxU, minV);
-		
+		drawBottom(x, y, z, block, renderer);
         return true;
 	}
 
@@ -108,4 +57,137 @@ public class RendererWolk implements ISimpleBlockRenderingHandler
 	{
 		return SCRenderer.RendererWolkID;
 	}
+	
+	public void drawOutSide(int x, int y, int z, Block block, RenderBlocks renderer)
+	{
+		Tessellator tessellator = Tessellator.instance;
+		
+		Icon side = block.getIcon(2, 0);
+		
+        double i = 0.6;
+        double j = 0.0001;
+		
+        double d1 = 0.0625;
+        double d2 = 0.9375;
+        
+        double minU = (double)side.getMinU();
+        double minV = (double)side.getMinV();
+        double maxU = (double)side.getMaxU();
+        double maxV = (double)side.getMaxV();
+		tessellator.addVertexWithUV(x + d1, y + i, z + d1, maxU, minV);
+		tessellator.addVertexWithUV(x + d1, y + j, z + d1, maxU, maxV);
+		tessellator.addVertexWithUV(x + d1, y + j, z + d2, minU, maxV);
+		tessellator.addVertexWithUV(x + d1, y + i, z + d2, minU, minV);
+		
+		tessellator.addVertexWithUV(x + d2, y + i, z + d1, maxU, minV);
+		tessellator.addVertexWithUV(x + d2, y + j, z + d1, maxU, maxV);
+		tessellator.addVertexWithUV(x + d1, y + j, z + d1, minU, maxV);
+		tessellator.addVertexWithUV(x + d1, y + i, z + d1, minU, minV);
+		
+		tessellator.addVertexWithUV(x + d2, y + i, z + d2, maxU, minV);
+		tessellator.addVertexWithUV(x + d2, y + j, z + d2, maxU, maxV);
+		tessellator.addVertexWithUV(x + d2, y + j, z + d1, minU, maxV);
+		tessellator.addVertexWithUV(x + d2, y + i, z + d1, minU, minV);
+
+		tessellator.addVertexWithUV(x + d1, y + i, z + d2, maxU, minV);
+		tessellator.addVertexWithUV(x + d1, y + j, z + d2, maxU, maxV);
+		tessellator.addVertexWithUV(x + d2, y + j, z + d2, minU, maxV);
+		tessellator.addVertexWithUV(x + d2, y + i, z + d2, minU, minV);
+	}
+	
+	public void drawHandles(int x, int y, int z, Block block, RenderBlocks renderer)
+	{
+		Tessellator tessellator = Tessellator.instance;
+        Icon handle = block.getIcon(6, 0);
+        
+        if(handle == null)
+        	handle = renderer.minecraftRB.renderEngine.getMissingIcon(0);
+		
+        double h = 0.5;
+        
+        double minU = (double)handle.getMinU();
+        double minV = (double)handle.getMinV();
+        double maxU = (double)handle.getMaxU();
+        double maxV = (double)handle.getMaxV();
+		
+		//handle 1
+        tessellator.addVertexWithUV(x + 0.9375, y + h, z + 1, maxU, maxV);
+        tessellator.addVertexWithUV(x + 1.9375, y + h, z + 1, maxU, minV);
+        tessellator.addVertexWithUV(x + 1.9375, y + h, z    , minU, minV);
+        tessellator.addVertexWithUV(x + 0.9375, y + h, z    , minU, maxV);
+        
+        tessellator.addVertexWithUV(x + 1.9375, y + h, z    , maxU, minV);
+        tessellator.addVertexWithUV(x + 1.9375, y + h, z + 1, minU, minV);
+        tessellator.addVertexWithUV(x + 0.9375, y + h, z + 1, minU, maxV);
+        tessellator.addVertexWithUV(x + 0.9375, y + h, z    , maxU, maxV);
+        //handle 2
+		tessellator.addVertexWithUV(x + 0.0625, y + h, z + 1, minU, maxV);
+		tessellator.addVertexWithUV(x + 0.0625, y + h, z    , maxU, maxV);
+		tessellator.addVertexWithUV(x - 0.9375, y + h, z    , maxU, minV);
+		tessellator.addVertexWithUV(x - 0.9375, y + h, z + 1, minU, minV);
+		
+		tessellator.addVertexWithUV(x - 0.9375, y + h, z    , minU, minV);
+		tessellator.addVertexWithUV(x + 0.0625, y + h, z    , minU, maxV);
+		tessellator.addVertexWithUV(x + 0.0625, y + h, z + 1, maxU, maxV);
+		tessellator.addVertexWithUV(x - 0.9375, y + h, z + 1, maxU, minV);
+	}
+	
+	public void drawInside(int x, int y, int z, Block block, RenderBlocks renderer)
+	{
+		Tessellator tessellator = Tessellator.instance;
+		
+		Icon side = block.getIcon(2, 0);
+		
+        double j = 0.0001;
+		
+        double d1 = 0.0625;
+        double d2 = 0.9375;
+        
+        double minU = (double)side.getMinU();
+        double minV = (double)side.getMinV();
+        double maxU = (double)side.getMaxU();
+        double maxV = (double)side.getMaxV();
+		
+		tessellator.addVertexWithUV(x + d1, y + 1, z + 1, minU, minV);
+		tessellator.addVertexWithUV(x + d1, y + j, z + 1, minU, maxV);
+		tessellator.addVertexWithUV(x + d1, y + j, z    , maxU, maxV);
+		tessellator.addVertexWithUV(x + d1, y + 1, z    , maxU, minV);
+		
+		tessellator.addVertexWithUV(x    , y + 1, z + d1, minU, minV);
+		tessellator.addVertexWithUV(x    , y + j, z + d1, minU, maxV);
+		tessellator.addVertexWithUV(x + 1, y + j, z + d1, maxU, maxV);
+		tessellator.addVertexWithUV(x + 1, y + 1, z + d1, maxU, minV);
+		
+		tessellator.addVertexWithUV(x + d2, y + 1, z + 0, minU, minV);
+		tessellator.addVertexWithUV(x + d2, y + j, z + 0, minU, maxV);
+		tessellator.addVertexWithUV(x + d2, y + j, z + 1, maxU, maxV);
+		tessellator.addVertexWithUV(x + d2, y + 1, z + 1, maxU, minV);
+		
+		tessellator.addVertexWithUV(x + 1, y + 1, z + d2, minU, minV);
+		tessellator.addVertexWithUV(x + 1, y + j, z + d2, minU, maxV);
+		tessellator.addVertexWithUV(x + 0, y + j, z + d2, maxU, maxV);
+		tessellator.addVertexWithUV(x + 0, y + 1, z + d2, maxU, minV);
+	}
+	
+	public void drawBottom(int x, int y, int z, Block block, RenderBlocks renderer)
+	{
+		Tessellator tessellator = Tessellator.instance;
+		
+        Icon bottom = block.getIcon(0, 0);
+        
+        double j = 0.0001;
+		
+        double d1 = 0.0625;
+        double d2 = 0.9375;
+        
+        double minU = (double)bottom.getMinU();
+        double minV = (double)bottom.getMinV();
+        double maxU = (double)bottom.getMaxU();
+        double maxV = (double)bottom.getMaxV();
+        		
+		tessellator.addVertexWithUV(x    , y + j, z    , minU, minV);
+		tessellator.addVertexWithUV(x    , y + j, z + 1, minU, maxV);
+		tessellator.addVertexWithUV(x + 1, y + j, z + 1, maxU, maxV);
+		tessellator.addVertexWithUV(x + 1, y + j, z    , maxU, minV);
+	}       
 }

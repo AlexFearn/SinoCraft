@@ -23,21 +23,20 @@ public class itemSteamedBread extends ItemFood
 	@Override
 	public ItemStack onEaten(ItemStack itemstack, World world, EntityPlayer entityplayer)
 	{
-		if (!entityplayer.capabilities.isCreativeMode)
-			--itemstack.stackSize;
+		super.onEaten(itemstack, world, entityplayer);
 		return itemstack;
 	}
 	
 	@Override
 	public int getMaxItemUseDuration(ItemStack itemstack)
 	{
-		return 3;
+		return 40;
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister i)
 	{
-		itemIcon = i.registerIcon("ItemSteamedBread");
+		itemIcon = i.registerIcon("SinoCraft:ItemSteamedBread");
 	}
 }

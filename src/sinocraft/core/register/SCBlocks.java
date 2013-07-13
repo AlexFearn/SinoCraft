@@ -1,7 +1,13 @@
 package sinocraft.core.register;
 
+import cpw.mods.fml.common.network.IGuiHandler;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
-import sinocraft.cooker.block.BlockWolk;
+import sinocraft.SinoCraft;
+import sinocraft.foods.blocks.BlockCookstove;
+import sinocraft.foods.blocks.BlockWolk;
+import sinocraft.foods.tileentity.TileEntityCookstove;
+import sinocraft.core.GuiHandler;
 import sinocraft.core.SCLog;
 import sinocraft.core.blocks.SCFlower;
 import sinocraft.plants.blocks.BlockAzalea;
@@ -15,7 +21,9 @@ import sinocraft.plants.blocks.BlockPrunusMumeWood;
 import sinocraft.plants.blocks.BlockReed;
 import sinocraft.plants.blocks.BlockTeaBush;
 import net.minecraft.block.Block;
+import net.minecraft.client.multiplayer.NetClientHandler;
 import net.minecraft.item.ItemStack;
+import net.minecraft.src.BaseMod;
 import net.minecraft.src.ModLoader;
 import net.minecraftforge.common.MinecraftForge;
 
@@ -38,9 +46,13 @@ public class SCBlocks
 	public static Block blockGlutinousRice;
 	public static Block blockTeaBush;
 	public static Block blockPrunusMumeSapling;
-	
-	public static BlockWolk blockWolk;
 
+	public static Block blockWolk;
+	public static Block blockCookstove;
+	public static Block blockCookstove_burning;
+	
+	public static int guiCookstoveID;
+	
 	public static void load(SCConfig config)
 	{
 		try
@@ -58,6 +70,10 @@ public class SCBlocks
 			blockTeaBush = new BlockTeaBush(config.getBlockID("blockTeaBush", 508));
 			
 			blockWolk = new BlockWolk(config.getBlockID("blockWolk", 509));
+			blockCookstove = new BlockCookstove(config.getBlockID("blockCookstove", 510), false);
+			blockCookstove_burning = new BlockCookstove(config.getBlockID("blockCookstove", 511), true);
+			
+			guiCookstoveID = config.getInteger("containerCookstove", 32);
 		}
 		catch (Exception e)
 		{
@@ -77,7 +93,11 @@ public class SCBlocks
 		ModLoader.registerBlock(blockTeaBush);
 	
 		ModLoader.registerBlock(blockWolk);
+		ModLoader.registerBlock(blockCookstove);
 		
+		ModLoader.registerTileEntity(TileEntityCookstove.class, "TileEntityBlockCookstove");
+		
+		NetworkRegistry.instance().registerGuiHandler(SinoCraft.instance, new GuiHandler());
 		return;
 	}
 }
