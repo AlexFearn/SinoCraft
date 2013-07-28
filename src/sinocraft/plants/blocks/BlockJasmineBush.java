@@ -4,8 +4,6 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import sinocraft.core.blocks.SCBush;
-import sinocraft.core.register.SCRenderer;
-
 /**
  * 茉莉花木
  * @author Liong

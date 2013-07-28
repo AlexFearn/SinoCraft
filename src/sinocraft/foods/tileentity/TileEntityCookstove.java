@@ -1,190 +1,110 @@
 package sinocraft.foods.tileentity;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import sinocraft.core.register.SCItems;
-import sinocraft.foods.blocks.BlockCookstove;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockFurnace;
-import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.ISidedInventory;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemSword;
-import net.minecraft.item.ItemTool;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
-
-/**
- * 炉子的实体
- * @author Liong
- *
- */
-
-public class TileEntityCookstove extends TileEntity implements ISidedInventory
+import net.minecraft.tileentity.TileEntityFurnace;
+ 
+public class TileEntityCookstove extends TileEntity implements IInventory
 {
-	ItemStack[] cookstoveItemStack = new ItemStack[2];
-	boolean isBurning; //是否在燃烧
-	public int time_CookstoveCanBurn = 0; //炉子可燃烧的时间
-	public int time_ItemCankeepCookstoveBurning = 0; //物品可维持炉子燃烧的时间	
-	/**
-	 * 获取物品槽数量
-	 * @return 物品槽数量
-	 */
-    public int getSizeInventory()
-    {
-        return cookstoveItemStack.length;
-    }
-    
-    public boolean isBurning()
-    {
-    	return time_CookstoveCanBurn > 0;
-    }
-    
-    @Override
-    public void updateEntity()
-    {
-    	boolean canBurn = time_CookstoveCanBurn > 0;
-    	boolean flag = false;
-    	
-    	if (time_CookstoveCanBurn > 0)
-    		--time_CookstoveCanBurn;
-    	if (!worldObj.isRemote)
-    	{
-    		time_ItemCankeepCookstoveBurning = time_CookstoveCanBurn = getItemBurnTime(cookstoveItemStack[1]);
+	boolean isActive;
+    public int time_CanKeepBurn = 0; //炉子将会持续燃烧的时间，对应熔炉的furnaceBurnTime
 
-    		if (time_ItemCankeepCookstoveBurning == 0 && canBurn)
-    			if (time_CookstoveCanBurn > 0)
-    			{
-    				flag = true;
-    				if (cookstoveItemStack[1] != null)
-    				{
-    					--cookstoveItemStack[1].stackSize;
-                        if (cookstoveItemStack[1].stackSize == 0)
-                            cookstoveItemStack[1] = cookstoveItemStack[1].getItem().getContainerItemStack(cookstoveItemStack[1]);
-    				}
-    			}
-            if (canBurn != time_CookstoveCanBurn > 0)
-            {
-                flag = true;
-                BlockCookstove.updateFurnaceBlockState(time_CookstoveCanBurn > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
-            }
-    	}
-        if (flag)
-        {
-            onInventoryChanged();
-        }
-    }
-    
     /**
-     * 按比例计算出当前剩余可燃烧时间的近似值
-     * 显示GUI时调用
+     * The number of ticks that a fresh copy of the currently-burning item would keep the furnace burning for
      */
-    public int getBurnTimeRemainingScaled(int scale)
-    {
-        if (time_ItemCankeepCookstoveBurning == 0)
-        {
-            time_ItemCankeepCookstoveBurning = 200;
-        }
+    public int time_FuelCanBurn = 0; //当前燃料能够维持炉子燃烧的时间，对应熔炉的cirretItemBurnTime
+	
+	private ItemStack[] itemstacks = new ItemStack[3];
+	
+	private String LocalizedName = "";
+	
+	@Override
+	public void updateEntity()
+	{
+		super.updateEntity();
+		
+		if ()
+	}
 
-        return time_CookstoveCanBurn * scale / time_ItemCankeepCookstoveBurning;
-    }
-    
-    public static int getItemBurnTime(ItemStack itemstack)
-    {
-        if (itemstack == null)
-        {
-            return 0;
-        }
-        else
-        {
-            int i = itemstack.getItem().itemID;
-            Item item = itemstack.getItem();
+	@Override
+	public int getSizeInventory()
+	{
+		return itemstacks.length;
+	}
 
-            if (itemstack.getItem() instanceof ItemBlock && Block.blocksList[i] != null)
-            {
-                Block block = Block.blocksList[i];
-
-                if (block == Block.woodSingleSlab)
-                	return 150;
-                if (block.blockMaterial == Material.wood)
-                    return 300;
-            }
-
-            if (i == Item.stick.itemID) return 100;
-            if (i == Item.coal.itemID) return 1600;
-            if (i == Item.blazeRod.itemID) return 2400;
-        }
-        return 0;
-    }
-    
-    //接口ISidedInventory提供的方法
-    
 	@Override
 	public ItemStack getStackInSlot(int slotID)
 	{
-		return cookstoveItemStack[slotID];
+		return itemstacks[slotID];
 	}
-	
+
 	@Override
 	public ItemStack decrStackSize(int slotID, int amount)
 	{
-    	if (cookstoveItemStack[slotID] != null)	
-    	{
-	    	ItemStack itemstack;
-	    	if (cookstoveItemStack[slotID].stackSize <= amount)
-	    	{
-	    		itemstack = cookstoveItemStack[slotID];
-	    		cookstoveItemStack[slotID] = null;
-	    	}
-	    	else
-	    	{
-	    		itemstack = cookstoveItemStack[slotID].splitStack(amount);
-	    		if (cookstoveItemStack[slotID].stackSize == 0)
-	    			cookstoveItemStack[slotID] = null;
-	    		return itemstack;
-	    	}
-    	}
-    	else
-			return null;
-    	
-    	return cookstoveItemStack[slotID];
+        if (itemstacks[slotID] != null)
+        {
+            ItemStack itemstack;
+
+            if (itemstacks[slotID].stackSize <= amount)
+            {
+                itemstack = itemstacks[slotID];
+                itemstacks[slotID] = null;
+                return itemstack;
+            }
+            else
+            {
+                itemstack = itemstacks[slotID].splitStack(amount);
+
+                if (itemstacks[slotID].stackSize == 0)
+                    itemstacks[slotID] = null;
+                
+                return itemstack;
+            }
+        }
+        else
+            return null;
 	}
 
 	@Override
 	public ItemStack getStackInSlotOnClosing(int slotID)
 	{
-    	if (cookstoveItemStack[slotID] != null)
-    	{
-    		ItemStack itemstack = cookstoveItemStack[slotID];
-    		cookstoveItemStack[slotID] = null;
-    		return itemstack;
-    	}
-    	else
-    		return null;
+		if (itemstacks[slotID] != null)
+		{
+			ItemStack itemstack = itemstacks[slotID];
+			itemstacks[slotID] = null;
+			return itemstack;
+		}
+		else
+			return null;
 	}
 
 	@Override
 	public void setInventorySlotContents(int slotID, ItemStack itemstack)
 	{
-        this.cookstoveItemStack[slotID] = itemstack;
+        itemstacks[slotID] = itemstack;
 
         if (itemstack != null && itemstack.stackSize > this.getInventoryStackLimit())
+        {
             itemstack.stackSize = this.getInventoryStackLimit();
+        }
 	}
 
 	@Override
 	public String getInvName()
 	{
-		return "container.cookstove";
+		return isInvNameLocalized() ? LocalizedName : "container.cookstove";
 	}
 
 	@Override
 	public boolean isInvNameLocalized()
 	{
-		// TODO 语言文件弄好后记得改成true
-		return false;
+		return LocalizedName != null && LocalizedName.length() > 0;
 	}
 
 	@Override
@@ -196,39 +116,82 @@ public class TileEntityCookstove extends TileEntity implements ISidedInventory
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer entityplayer)
 	{
-		// TODO 抽时间弄懂这是干啥的
-		return true;
+        return worldObj.getBlockTileEntity(xCoord, yCoord, zCoord) != this ? false : entityplayer.getDistanceSq((double)xCoord + 0.5D, (double)yCoord + 0.5D, (double)zCoord + 0.5D) <= 64.0D;
 	}
 
 	@Override
-	public void openChest() {}
+	public void openChest()
+	{
+		
+	}
 
 	@Override
-	public void closeChest() {}
+	public void closeChest()
+	{
+		
+	}
 
 	@Override
 	public boolean isStackValidForSlot(int slotID, ItemStack itemstack)
 	{
-        return getItemBurnTime(itemstack) > 0 ? true : false;
+        return slotID == 2 ? false : (slotID == 1 ? (TileEntityFurnace.isItemFuel(itemstack) && itemstack.itemID != Item.bucketLava.itemID) : true);
 	}
-	
-	//下面都是漏斗用的，咱们社会主义用不着
-	
-	@Override
-	public int[] getAccessibleSlotsFromSide(int slotID)
+
+	public void LocalizeName(String name)
 	{
-		return null;
+		LocalizedName = name;
 	}
 	
 	@Override
-	public boolean canInsertItem(int slotID, ItemStack itemstack, int side)
+	public void readFromNBT(NBTTagCompound nbtTagCompound)
 	{
-		return isStackValidForSlot(slotID, itemstack);
+        super.readFromNBT(nbtTagCompound);
+        NBTTagList nbttaglist = nbtTagCompound.getTagList("Items");
+        this.itemstacks = new ItemStack[this.getSizeInventory()];
+
+        for (int i = 0; i < nbttaglist.tagCount(); ++i)
+        {
+            NBTTagCompound nbttagcompound1 = (NBTTagCompound)nbttaglist.tagAt(i);
+            byte b0 = nbttagcompound1.getByte("Slot");
+
+            if (b0 >= 0 && b0 < this.itemstacks.length)
+            {
+                this.itemstacks[b0] = ItemStack.loadItemStackFromNBT(nbttagcompound1);
+            }
+        }
+
+        time_CanKeepBurn = nbtTagCompound.getShort("BurnTime");
+        time_FuelCanBurn = TileEntityFurnace.getItemBurnTime(this.itemstacks[1]);
+
+        if (nbtTagCompound.hasKey("CustomName"))
+        {
+            this.LocalizedName = nbtTagCompound.getString("CustomName");
+        }
 	}
 	
 	@Override
-	public boolean canExtractItem(int slotID, ItemStack itemstack, int side)
+	public void writeToNBT(NBTTagCompound nbtTagCompound)
 	{
-		return false;
+        super.writeToNBT(nbtTagCompound);
+        nbtTagCompound.setShort("BurnTime", (short)time_CanKeepBurn);
+        NBTTagList nbttaglist = new NBTTagList();
+
+        for (int i = 0; i < this.itemstacks.length; ++i)
+        {
+            if (itemstacks[i] != null)
+            {
+                NBTTagCompound nbttagcompound1 = new NBTTagCompound();
+                nbttagcompound1.setByte("Slot", (byte)i);
+                itemstacks[i].writeToNBT(nbttagcompound1);
+                nbttaglist.appendTag(nbttagcompound1);
+            }
+        }
+
+        nbtTagCompound.setTag("Items", nbttaglist);
+
+        if (this.isInvNameLocalized())
+        {
+            nbtTagCompound.setString("CustomName", this.LocalizedName);
+        }
 	}
 }

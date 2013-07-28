@@ -1,5 +1,6 @@
 package sinocraft.core.register;
 
+import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -20,6 +21,8 @@ import sinocraft.plants.blocks.BlockPrunusMumeSapling;
 import sinocraft.plants.blocks.BlockPrunusMumeWood;
 import sinocraft.plants.blocks.BlockReed;
 import sinocraft.plants.blocks.BlockTeaBush;
+import sinocraft.renderers.RendererBush;
+import sinocraft.renderers.RendererWolk;
 import net.minecraft.block.Block;
 import net.minecraft.client.multiplayer.NetClientHandler;
 import net.minecraft.item.ItemStack;
@@ -49,9 +52,11 @@ public class SCBlocks
 
 	public static Block blockWolk;
 	public static Block blockCookstove;
-	public static Block blockCookstove_burning;
 	
 	public static int guiCookstoveID;
+	
+	public static int rendererBushID;
+	public static int rendererWolkID;
 	
 	public static void load(SCConfig config)
 	{
@@ -70,10 +75,13 @@ public class SCBlocks
 			blockTeaBush = new BlockTeaBush(config.getBlockID("blockTeaBush", 508));
 			
 			blockWolk = new BlockWolk(config.getBlockID("blockWolk", 509));
-			blockCookstove = new BlockCookstove(config.getBlockID("blockCookstove", 510), false);
-			blockCookstove_burning = new BlockCookstove(config.getBlockID("blockCookstove", 511), true);
+			blockCookstove = new BlockCookstove(config.getBlockID("blockCookstove", 510));
 			
 			guiCookstoveID = config.getInteger("containerCookstove", 32);
+			
+			rendererBushID = config.getInteger("rendererBush", 80);
+			rendererWolkID = config.getInteger("rendererWolk", 81);
+
 		}
 		catch (Exception e)
 		{
@@ -98,6 +106,9 @@ public class SCBlocks
 		ModLoader.registerTileEntity(TileEntityCookstove.class, "TileEntityBlockCookstove");
 		
 		NetworkRegistry.instance().registerGuiHandler(SinoCraft.instance, new GuiHandler());
+		
+		RenderingRegistry.registerBlockHandler(rendererBushID, new RendererBush());
+		RenderingRegistry.registerBlockHandler(rendererWolkID, new RendererWolk());
 		return;
 	}
 }

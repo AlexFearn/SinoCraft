@@ -1,10 +1,10 @@
 package sinocraft.core.blocks;
 
+import sinocraft.core.register.SCBlocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
-import sinocraft.core.register.SCRenderer;
 
 public abstract class SCBush extends SCFlower
 {
@@ -44,6 +44,6 @@ public abstract class SCBush extends SCFlower
 	@Override
 	public int getRenderType()
 	{
-		return SCRenderer.RendererBushID;
+		return SCBlocks.rendererBushID;
 	}
 }

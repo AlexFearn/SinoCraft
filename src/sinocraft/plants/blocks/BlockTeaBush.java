@@ -5,7 +5,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 import sinocraft.SinoCraft;
 import sinocraft.core.blocks.SCBush;
 import sinocraft.core.blocks.SCFlower;
-import sinocraft.core.register.SCRenderer;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;

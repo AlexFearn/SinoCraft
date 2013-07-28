@@ -9,7 +9,6 @@ import sinocraft.core.register.SCConfig;
 import sinocraft.core.register.SCCraftingRecipes;
 import sinocraft.core.register.SCFurnaceRecipes;
 import sinocraft.core.register.SCItems;
-import sinocraft.core.register.SCPotion;
 import sinocraft.core.register.SCProperty;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
@@ -29,7 +28,8 @@ import cpw.mods.fml.common.registry.GameRegistry;
  * MOD的主类
  * @author HopeAsd, Liong
  */
-public class SinoCraft {
+public class SinoCraft
+{
 	public static SCConfig config;
 	
 	public static final String VERSION = "1.0.0.0 pre";
@@ -48,17 +48,17 @@ public class SinoCraft {
 		config = new SCConfig(event.getSuggestedConfigurationFile());
 
 		proxy.preLoad(event);
+		
+		SCBlocks.load(config);
+		SCItems.load(config);
 	}
 
 	@Init
 	public void init(FMLInitializationEvent event)
 	{
-		SCBlocks.load(config);
-		SCItems.load(config);
 		SCCraftingRecipes.load();
 		SCFurnaceRecipes.load();
 		SCProperty.loadProps(config);
-		//SCPotion.load();
 		
 		proxy.load(event);
 	}

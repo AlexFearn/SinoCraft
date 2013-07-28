@@ -1,7 +1,7 @@
 package sinocraft.foods.blocks;
 
 import sinocraft.SinoCraft;
-import sinocraft.core.register.SCRenderer;
+import sinocraft.core.register.SCBlocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -65,7 +65,7 @@ public class BlockWolk extends Block
 	@Override
 	public int getRenderType()
 	{
-		return SCRenderer.RendererWolkID;
+		return SCBlocks.rendererWolkID;
 	}
 	
 	@Override

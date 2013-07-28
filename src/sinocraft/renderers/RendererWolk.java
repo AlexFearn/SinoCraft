@@ -4,7 +4,7 @@ import javax.swing.Renderer;
 
 import org.lwjgl.opengl.GL11;
 
-import sinocraft.core.register.SCRenderer;
+import sinocraft.core.register.SCBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.RenderBlocks;
@@ -27,7 +27,7 @@ public class RendererWolk implements ISimpleBlockRenderingHandler
 		Tessellator tessellator = Tessellator.instance;
 		
         tessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));
-
+        GL11.glDisable(GL11.GL_LIGHTING);
         int color = block.colorMultiplier(world, x, y, z);
         float f1 = (float)(color >> 16 & 255) / 255.0F;
         float f2 = (float)(color >> 8 & 255) / 255.0F;
@@ -55,7 +55,7 @@ public class RendererWolk implements ISimpleBlockRenderingHandler
 	@Override
 	public int getRenderId()
 	{
-		return SCRenderer.RendererWolkID;
+		return SCBlocks.rendererWolkID;
 	}
 	
 	public void drawOutSide(int x, int y, int z, Block block, RenderBlocks renderer)

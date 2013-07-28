@@ -3,7 +3,6 @@ package sinocraft.foods.items;
 import java.util.Random;
 
 import sinocraft.SinoCraft;
-import sinocraft.core.register.SCPotion;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -27,7 +26,6 @@ public class ItemZongzi extends ItemFood
 	{
 		super(Id, 8, 0.8F, false);
 		
-		//setPotionEffect(SCPotion.PotionIndigestionID, 600, 0, 0.003906F);
 		setCreativeTab(SinoCraft.sct);
 		setUnlocalizedName("Zongzi");
 	}

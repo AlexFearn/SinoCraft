@@ -4,7 +4,7 @@ import org.lwjgl.opengl.GL11;
 
 import net.minecraft.client.renderer.RenderBlocks;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
-import sinocraft.core.register.SCRenderer;
+import sinocraft.core.register.SCBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.Tessellator;
@@ -65,7 +65,7 @@ public class RendererBush implements ISimpleBlockRenderingHandler
 	@Override
 	public int getRenderId()
 	{
-		return SCRenderer.RendererBushID;
+		return SCBlocks.rendererBushID;
 	}
 	
 	public void drawInside(int x, int y, int z, Block block, RenderBlocks renderer)
