@@ -21,7 +21,8 @@ public class GuiHandler implements IGuiHandler
 				return null;
 			return new ContainerCookstove((TileEntityCookstove)tileentity, player.inventory);
 		}
-		return null;	}
+		return null;
+	}
 
 	@Override
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world,	int x, int y, int z)

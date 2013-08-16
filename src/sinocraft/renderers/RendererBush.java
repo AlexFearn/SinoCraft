@@ -2,12 +2,14 @@ package sinocraft.renderers;
 
 import org.lwjgl.opengl.GL11;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderBlocks;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import sinocraft.core.register.SCBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 
@@ -74,7 +76,9 @@ public class RendererBush implements ISimpleBlockRenderingHandler
         Icon side = block.getIcon(2, 0);
         
         if(side == null)
-        	side = renderer.minecraftRB.renderEngine.getMissingIcon(0);
+        	//								获取MC本体	        获取其中的渲染器  获取材质		  材质缺失时的临时材质的		 建立丢失的材质
+        	//																			 ResourceLocation实例
+        	side = ((TextureMap)Minecraft.getMinecraft().func_110434_K().func_110581_b(TextureMap.field_110575_b)).func_110572_b("missingno");
         
         double minU = side.getMinU();
         double minV = side.getMinV();
@@ -113,7 +117,7 @@ public class RendererBush implements ISimpleBlockRenderingHandler
         Icon branch = block.getIcon(6, 0);
         
         if(branch == null)
-        	branch = renderer.minecraftRB.renderEngine.getMissingIcon(0);
+        	branch = ((TextureMap)Minecraft.getMinecraft().func_110434_K().func_110581_b(TextureMap.field_110575_b)).func_110572_b("missingno");
         
         double minU = (double)branch.getMinU();
         double minV = (double)branch.getMinV();

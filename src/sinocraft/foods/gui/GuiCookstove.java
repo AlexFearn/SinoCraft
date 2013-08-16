@@ -1,7 +1,9 @@
 package sinocraft.foods.gui;
  
 import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.client.renderer.texture.TextureUtil;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 
 import org.lwjgl.opengl.GL11;
@@ -33,7 +35,7 @@ public class GuiCookstove extends GuiContainer
 	protected void drawGuiContainerBackgroundLayer(float var1, int x, int y)
 	{
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		mc.renderEngine.bindTexture("/gui/cookstove.png");
+		mc.renderEngine.func_110577_a(new ResourceLocation("/gui/cookstove.png"));
 		int xOnScreen = (width - xSize) / 2;
 		int yOnScreen = (height - ySize) / 2;
 		drawTexturedModalRect(xOnScreen, yOnScreen, 0, 0, xSize, ySize);

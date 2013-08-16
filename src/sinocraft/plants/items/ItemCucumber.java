@@ -3,6 +3,7 @@ package sinocraft.plants.items;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import sinocraft.SinoCraft;
+import sinocraft.core.SCLog;
 import sinocraft.core.register.SCBlocks;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
@@ -31,7 +32,7 @@ public class ItemCucumber extends Item
 	{
 		if (world.getBlockId(x, y, z) == SCBlocks.blockBeanBracket.blockID)
 		{											   //↓Flag
-			world.setBlockMetadataWithNotify(x, y, z, 7, 2); //Flag 1代表方块更新，Flag 2代表发送至客户端（总是），Flag 3代表不重新渲染，可以叠加
+			world.setBlockMetadataWithNotify(x, y, z, 7, 2); //Flag 1代表方块更新，F2代表发送至客户端（总是），3代表不重新渲染，可以叠加
 		}
 		
 		return true;

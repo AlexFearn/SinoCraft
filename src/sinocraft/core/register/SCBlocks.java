@@ -69,13 +69,13 @@ public class SCBlocks
 			blockAzalea = new BlockAzalea(config.getBlockID("blockAzalea", 504));
 			
 			blockPrunusMumeWood = new BlockPrunusMumeWood(config.getBlockID("blockPrunusMumeWood", 505));
-			blockPrunusMumeSapling = new BlockPrunusMumeSapling(config.getBlockID("blockPrunusMumeSapling", 509));
-			blockBeanBracket = new BlockBeanBracket(config.getBlockID("blockBeanBracket", 506));
-			blockGlutinousRice = new BlockGlutinousRice(config.getBlockID("blockGlutinousRice", 507));
-			blockTeaBush = new BlockTeaBush(config.getBlockID("blockTeaBush", 508));
+			blockPrunusMumeSapling = new BlockPrunusMumeSapling(config.getBlockID("blockPrunusMumeSapling", 506));
+			blockBeanBracket = new BlockBeanBracket(config.getBlockID("blockBeanBracket", 507));
+			blockGlutinousRice = new BlockGlutinousRice(config.getBlockID("blockGlutinousRice", 508));
+			blockTeaBush = new BlockTeaBush(config.getBlockID("blockTeaBush", 509));
 			
-			blockWolk = new BlockWolk(config.getBlockID("blockWolk", 509));
-			blockCookstove = new BlockCookstove(config.getBlockID("blockCookstove", 510));
+			blockWolk = new BlockWolk(config.getBlockID("blockWolk", 510));
+			blockCookstove = new BlockCookstove(config.getBlockID("blockCookstove", 511), true);
 			
 			guiCookstoveID = config.getInteger("containerCookstove", 32);
 			
@@ -104,7 +104,7 @@ public class SCBlocks
 		ModLoader.registerBlock(blockCookstove);
 		
 		ModLoader.registerTileEntity(TileEntityCookstove.class, "TileEntityBlockCookstove");
-		
+				
 		NetworkRegistry.instance().registerGuiHandler(SinoCraft.instance, new GuiHandler());
 		
 		RenderingRegistry.registerBlockHandler(rendererBushID, new RendererBush());

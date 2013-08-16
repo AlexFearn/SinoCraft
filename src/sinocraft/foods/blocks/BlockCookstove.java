@@ -3,6 +3,7 @@ package sinocraft.foods.blocks;
 import sinocraft.SinoCraft;
 import sinocraft.core.register.SCBlocks;
 import sinocraft.foods.tileentity.TileEntityCookstove;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLiving;
@@ -14,10 +15,15 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
  
 public class BlockCookstove extends BlockContainer
-{ 
-	public BlockCookstove(int Id)
+{
+	boolean isActive;
+	
+	public BlockCookstove(int Id, boolean isActive)
 	{
 		super(Id, Material.rock);
+		
+		this.isActive = isActive;
+		setUnlocalizedName("Cookstove");
 	}
  
 	@Override
@@ -33,26 +39,26 @@ public class BlockCookstove extends BlockContainer
 		return new TileEntityCookstove();
 	}
 	
-	@Override
-    public void onBlockPlacedBy(World world, int x, int y, int z, EntityLiving entityliving, ItemStack itemstack)
+	/*
+    public static void updateFurnaceBlockState(boolean CanBurn, World world, int par2, int par3, int par4)
     {
-        int l = MathHelper.floor_double((double)(entityliving.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+        int l = world.getBlockMetadata(par2, par3, par4);
+        TileEntity tileentity = world.getBlockTileEntity(par2, par3, par4);
+        keepFurnaceInventory = true;
 
-        if (l == 0)
+        if (CanBurn)
+            world.setBlock(par2, par3, par4, Block.furnaceBurning.blockID);
+        else
+            world.setBlock(par2, par3, par4, Block.furnaceIdle.blockID);
+
+        keepFurnaceInventory = false;
+        world.setBlockMetadataWithNotify(par2, par3, par4, l, 2);
+
+        if (tileentity != null)
         {
-            world.setBlockMetadataWithNotify(x, y, z, 2, 2);
-            System.out.println("wegee");
+            tileentity.validate();
+            world.setBlockTileEntity(par2, par3, par4, tileentity);
         }
-        if (l == 1)
-            world.setBlockMetadataWithNotify(x, y, z, 5, 2);
-
-        if (l == 2)
-            world.setBlockMetadataWithNotify(x, y, z, 3, 2);
-
-        if (l == 3)
-            world.setBlockMetadataWithNotify(x, y, z, 4, 2);
-
-        if (itemstack.hasDisplayName())// ↓用来给炉子分名字赋值，记得改
-            ((TileEntityCookstove)world.getBlockTileEntity(x, y, z)).LocalizeName(itemstack.getDisplayName());
     }
+    */
 }

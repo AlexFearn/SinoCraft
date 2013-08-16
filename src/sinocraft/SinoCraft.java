@@ -2,6 +2,7 @@ package sinocraft;
 
 import net.minecraft.creativetab.CreativeTabs;
 import sinocraft.core.SCCreativeTab;
+import sinocraft.core.SCLog;
 import sinocraft.core.SCWorldGenerator;
 import sinocraft.core.proxy.ServerProxy;
 import sinocraft.core.register.SCBlocks;
@@ -49,18 +50,22 @@ public class SinoCraft
 
 		proxy.preLoad(event);
 		
-		SCBlocks.load(config);
 		SCItems.load(config);
+		SCLog.info("no bug at preinit 1");
+		SCBlocks.load(config);
+		SCLog.info("no bug at preinit 2");
 	}
 
 	@Init
 	public void init(FMLInitializationEvent event)
 	{
+		SCLog.info("no bug at init 1");
 		SCCraftingRecipes.load();
 		SCFurnaceRecipes.load();
 		SCProperty.loadProps(config);
-		
+		SCLog.info("no bug at init 2");
 		proxy.load(event);
+		SCLog.info("no bug at init 3");
 	}
 
 	@PostInit

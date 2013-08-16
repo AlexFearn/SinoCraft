@@ -6,9 +6,11 @@ import org.lwjgl.opengl.GL11;
 
 import sinocraft.core.register.SCBlocks;
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
@@ -101,7 +103,7 @@ public class RendererWolk implements ISimpleBlockRenderingHandler
         Icon handle = block.getIcon(6, 0);
         
         if(handle == null)
-        	handle = renderer.minecraftRB.renderEngine.getMissingIcon(0);
+        	handle = ((TextureMap)Minecraft.getMinecraft().func_110434_K().func_110581_b(TextureMap.field_110575_b)).func_110572_b("missingno");
 		
         double h = 0.5;
         

@@ -1,5 +1,6 @@
 package sinocraft.foods.tileentity;
 
+import net.minecraft.block.BlockFurnace;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
@@ -12,26 +13,72 @@ import net.minecraft.tileentity.TileEntityFurnace;
  
 public class TileEntityCookstove extends TileEntity implements IInventory
 {
+	
 	boolean isActive;
     public int time_CanKeepBurn = 0; //炉子将会持续燃烧的时间，对应熔炉的furnaceBurnTime
-
-    /**
-     * The number of ticks that a fresh copy of the currently-burning item would keep the furnace burning for
-     */
     public int time_FuelCanBurn = 0; //当前燃料能够维持炉子燃烧的时间，对应熔炉的cirretItemBurnTime
 	
-	private ItemStack[] itemstacks = new ItemStack[3];
+	private ItemStack[] itemstacks = new ItemStack[10];
 	
 	private String LocalizedName = "";
 	
 	@Override
 	public void updateEntity()
 	{
+        boolean CanBurn = time_CanKeepBurn > 0;
+        boolean stillCanBurn = false;
+		
 		super.updateEntity();
 		
-		if ()
-	}
+		if (CanBurn)
+			--time_CanKeepBurn;
+		if (!worldObj.isRemote)
+        {
+            if (time_CanKeepBurn == 0)
+            {
+                time_FuelCanBurn = time_CanKeepBurn = TileEntityFurnace.getItemBurnTime(itemstacks[1]);
 
+                if (time_CanKeepBurn > 0)
+                {
+                    stillCanBurn = true;
+
+                    if (itemstacks[1] != null)
+                    {
+                        --itemstacks[1].stackSize;
+
+                        if (itemstacks[1].stackSize == 0)
+                        {
+                            itemstacks[1] = this.itemstacks[1].getItem().getContainerItemStack(itemstacks[1]);
+                        }
+                    }
+                }
+            }
+
+            if (time_CanKeepBurn > 0)
+            {
+                ++time_CanKeepBurn;
+
+                if (this.time_CanKeepBurn == 200)
+                {
+                    this.time_CanKeepBurn = 0;
+                    stillCanBurn = true;
+                }
+            }
+            else
+                this.time_CanKeepBurn = 0;
+
+            if (CanBurn != this.time_CanKeepBurn > 0)
+            {
+                stillCanBurn = true;
+                BlockFurnace.updateFurnaceBlockState(this.time_CanKeepBurn > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
+            }
+        }
+
+        if (stillCanBurn)
+            onInventoryChanged();
+            
+	}
+	
 	@Override
 	public int getSizeInventory()
 	{
@@ -132,9 +179,9 @@ public class TileEntityCookstove extends TileEntity implements IInventory
 	}
 
 	@Override
-	public boolean isStackValidForSlot(int slotID, ItemStack itemstack)
+	public boolean isItemValidForSlot(int slotID, ItemStack itemstack)
 	{
-        return slotID == 2 ? false : (slotID == 1 ? (TileEntityFurnace.isItemFuel(itemstack) && itemstack.itemID != Item.bucketLava.itemID) : true);
+        return TileEntityFurnace.isItemFuel(itemstack) && itemstack.itemID != Item.bucketLava.itemID;
 	}
 
 	public void LocalizeName(String name)
@@ -193,5 +240,5 @@ public class TileEntityCookstove extends TileEntity implements IInventory
         {
             nbtTagCompound.setString("CustomName", this.LocalizedName);
         }
-	}
+	}	
 }
