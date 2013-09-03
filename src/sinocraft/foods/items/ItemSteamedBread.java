@@ -9,6 +9,11 @@ import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
+/**
+ * 馒头
+ * @author Liong
+ *
+ */
 
 public class ItemSteamedBread extends ItemFood
 {
@@ -17,7 +22,8 @@ public class ItemSteamedBread extends ItemFood
 		super(Id, 3, 0.8F, false);
 		
 		setCreativeTab(SinoCraft.sct);
-		setUnlocalizedName("Steamed Bread");
+		setUnlocalizedName("SteamedBread");
+		func_111206_d("sinocraft:ItemSteamedBread");
 	}
 	
 	@Override
@@ -31,12 +37,5 @@ public class ItemSteamedBread extends ItemFood
 	public int getMaxItemUseDuration(ItemStack itemstack)
 	{
 		return 40;
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister i)
-	{
-		itemIcon = i.registerIcon("SinoCraft:ItemSteamedBread");
 	}
 }

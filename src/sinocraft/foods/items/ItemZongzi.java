@@ -28,6 +28,7 @@ public class ItemZongzi extends ItemFood
 		
 		setCreativeTab(SinoCraft.sct);
 		setUnlocalizedName("Zongzi");
+		func_111206_d("sinocraft:ItemZongzi");
 	}
 	
 	@Override
@@ -41,12 +42,5 @@ public class ItemZongzi extends ItemFood
 	public int getMaxItemUseDuration(ItemStack itemstack)
 	{
 		return 64;
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister i)
-	{
-		itemIcon = i.registerIcon("SinoCraft:ItemZongzi");
 	}
 }

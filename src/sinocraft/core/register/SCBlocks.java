@@ -51,10 +51,9 @@ public class SCBlocks
 	public static Block blockPrunusMumeSapling;
 
 	public static Block blockWolk;
-	public static Block blockCookstove;
-	
-	public static int guiCookstoveID;
-	
+	public static Block blockCookstoveIdle;
+	public static Block blockCookstoveActive;
+		
 	public static int rendererBushID;
 	public static int rendererWolkID;
 	
@@ -75,9 +74,8 @@ public class SCBlocks
 			blockTeaBush = new BlockTeaBush(config.getBlockID("blockTeaBush", 509));
 			
 			blockWolk = new BlockWolk(config.getBlockID("blockWolk", 510));
-			blockCookstove = new BlockCookstove(config.getBlockID("blockCookstove", 511), true);
-			
-			guiCookstoveID = config.getInteger("containerCookstove", 32);
+			blockCookstoveIdle = new BlockCookstove(config.getBlockID("blockCookstoIdle", 511), false);
+			blockCookstoveActive = new BlockCookstove(config.getBlockID("blockCookstoveActive", 512), true);
 			
 			rendererBushID = config.getInteger("rendererBush", 80);
 			rendererWolkID = config.getInteger("rendererWolk", 81);
@@ -101,7 +99,8 @@ public class SCBlocks
 		ModLoader.registerBlock(blockTeaBush);
 	
 		ModLoader.registerBlock(blockWolk);
-		ModLoader.registerBlock(blockCookstove);
+		ModLoader.registerBlock(blockCookstoveIdle);
+		ModLoader.registerBlock(blockCookstoveActive);
 		
 		ModLoader.registerTileEntity(TileEntityCookstove.class, "TileEntityBlockCookstove");
 				

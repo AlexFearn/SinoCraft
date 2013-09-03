@@ -23,6 +23,7 @@ public class ItemCharSui extends ItemFood
 		
 		setCreativeTab(SinoCraft.sct);
 		setUnlocalizedName("CharSui");
+		func_111206_d("sinocraft:ItemCharSui");
 	}
 	
 	@Override
@@ -36,12 +37,5 @@ public class ItemCharSui extends ItemFood
 	public int getMaxItemUseDuration(ItemStack itemstack)
 	{
 		return 64;
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister i)
-	{
-		itemIcon = i.registerIcon("SinoCraft:ItemCharSui");
 	}
 }

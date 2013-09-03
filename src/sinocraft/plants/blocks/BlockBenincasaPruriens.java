@@ -7,6 +7,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.world.World;
+import sinocraft.SinoCraft;
 import sinocraft.core.blocks.SCCrop;
 import sinocraft.core.register.SCBlocks;
 import sinocraft.core.register.SCItems;
@@ -22,7 +23,13 @@ public class BlockBenincasaPruriens extends SCCrop
 	public BlockBenincasaPruriens(int Id)
 	{
 		super(Id);
-		setUnlocalizedName("Benincasa Pruriens");
+		
+		setCreativeTab(SinoCraft.sct);
+		setUnlocalizedName("BenincasaPruriens");
+		func_111022_d("sinocraft:BlockBenincasaPruriens_0");
+		func_111022_d("sinocraft:BlockBenincasaPruriens_1");
+		func_111022_d("sinocraft:BlockBenincasaPruriens_2");
+		func_111022_d("sinocraft:BlockBenincasaPruriens_3");
 	}
 	
 	@Override
@@ -31,23 +38,12 @@ public class BlockBenincasaPruriens extends SCCrop
 		if (!canBlockStay(world, x, y, z))
 			world.destroyBlock(x, y, z, true);
 		if (world.getBlockMetadata(x, y, z) != 3)
-			if (random.nextInt(1024) <= 16)
-				world.setBlockMetadataWithNotify(x, y, z, world.getBlockMetadata(x, y, z) + 1, 3);
+			world.setBlockMetadataWithNotify(x, y, z, world.getBlockMetadata(x, y, z) + 1, 3);
 	}
 	
 	@Override
 	public int idDropped(int metadata, Random random, int par3)
 	{
 		return SCItems.itemBenincasaPruriens.itemID;
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister i)
-	{
-		blockIcon_0 = i.registerIcon("SinoCraft:BlockBenincasaPruriens_0");
-		blockIcon_1 = i.registerIcon("SinoCraft:BlockBenincasaPruriens_1");
-		blockIcon_2 = i.registerIcon("SinoCraft:BlockBenincasaPruriens_2");
-		blockIcon_3 = i.registerIcon("SinoCraft:BlockBenincasaPruriens_3");
 	}
 }

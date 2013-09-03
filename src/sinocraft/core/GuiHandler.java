@@ -14,7 +14,7 @@ public class GuiHandler implements IGuiHandler
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world,	int x, int y, int z)
 	{
-		if (ID == SCBlocks.guiCookstoveID)
+		if (ID == 0)
 		{
 			TileEntity tileentity = world.getBlockTileEntity(x, y, z);
 			if (tileentity == null || !(tileentity instanceof TileEntityCookstove))
@@ -27,7 +27,7 @@ public class GuiHandler implements IGuiHandler
 	@Override
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world,	int x, int y, int z)
 	{
-		if (ID == SCBlocks.guiCookstoveID)
+		if (ID == 0)
 		{
 			TileEntity tileentity = world.getBlockTileEntity(x, y, z);
 			if (tileentity == null || !(tileentity instanceof TileEntityCookstove))

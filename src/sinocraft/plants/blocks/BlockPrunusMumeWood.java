@@ -28,7 +28,9 @@ public class BlockPrunusMumeWood extends Block
 		
 		setCreativeTab(SinoCraft.sct);
 		setStepSound(soundWoodFootstep);
-		setUnlocalizedName("Prunus Mume Wood");
+		setUnlocalizedName("PrunusMumeWood");
+		func_111022_d("sinocraft:BlockPrunusMumeWood_UpDown");
+		func_111022_d("sinocraft:BlockPrunusMumeWood_Side");
 	}
 	
 	@Override
@@ -61,13 +63,5 @@ public class BlockPrunusMumeWood extends Block
 	public int getRenderType()
 	{
 		return 0;
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister i)
-	{
-		blockIcon_UpDown = i.registerIcon("SinoCraft:BlockPrunusMumeWood_UpDown");
-		blockIcon_Side = i.registerIcon("SinoCraft:BlockPrunusMumeWood_Side");
 	}
 }

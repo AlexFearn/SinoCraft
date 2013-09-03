@@ -23,7 +23,8 @@ public class ItemVignaRadiata extends Item
 		super(Id);
 		
 		setCreativeTab(SinoCraft.sct);
-		setUnlocalizedName("Vigna Radiata");
+		setUnlocalizedName("VignaRadiata");
+		func_111206_d("sinocraft:ItemVignaRadiata");
 	}
 	
 	@Override
@@ -35,12 +36,5 @@ public class ItemVignaRadiata extends Item
 		}
 		
 		return true;
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister i)
-	{
-		itemIcon = i.registerIcon("SinoCraft:ItemVignaRadiata");
 	}
 }

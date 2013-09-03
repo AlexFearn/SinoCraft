@@ -25,7 +25,8 @@ public class BlockPrunusMumeBranch extends Block
 		setCreativeTab(SinoCraft.sct);
 		setTickRandomly(true);
 		setStepSound(soundGrassFootstep);
-		setUnlocalizedName("Prunus Mume Branch");
+		setUnlocalizedName("PrunusMumeBranch");
+		func_111022_d("sinocraft:BlockPrunusMumeBranch");
 	}
 	
 	@Override
@@ -65,12 +66,5 @@ public class BlockPrunusMumeBranch extends Block
 	public boolean isLeaves(World world, int x, int y, int z)
 	{
 		return true;
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister i)
-	{
-		blockIcon = i.registerIcon("SinoCraft:BlockPrunusMumeBranch");
 	}
 }

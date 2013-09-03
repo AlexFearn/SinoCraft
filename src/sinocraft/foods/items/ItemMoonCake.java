@@ -23,6 +23,7 @@ public class ItemMoonCake extends ItemFood
 		
 		setCreativeTab(SinoCraft.sct);
 		setUnlocalizedName("MoonCake");
+		func_111206_d("sinocraft:ItemMoonCake");
 	}
 	
 	@Override
@@ -36,12 +37,5 @@ public class ItemMoonCake extends ItemFood
 	public int getMaxItemUseDuration(ItemStack itemstack)
 	{
 		return 64;
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister i)
-	{
-		itemIcon = i.registerIcon("SinoCraft:ItemMoonCake");
 	}
 }

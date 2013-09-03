@@ -1,6 +1,8 @@
 package sinocraft.plants.blocks;
 
 import java.util.Random;
+
+import sinocraft.SinoCraft;
 import sinocraft.core.blocks.SCFlower;
 import sinocraft.core.register.SCItems;
 import cpw.mods.fml.relauncher.Side;
@@ -22,15 +24,9 @@ public class BlockReed extends SCFlower
 	{
 		super(Id);
 		
+		setCreativeTab(SinoCraft.sct);
 		setUnlocalizedName("Reed");
-		setTickRandomly(true);
-	}
-
-	@Override
-	public void updateTick(World world, int x, int y, int z, Random random)
-	{
-		if (!canBlockStay(world, x, y, z))
-			world.destroyBlock(x, y, z, true);
+		func_111022_d("sinocraft:BlockReed");
 	}
 	
 	@Override
@@ -68,12 +64,5 @@ public class BlockReed extends SCFlower
 	public EnumPlantType getPlantType(World world, int x, int y, int z)
 	{
 		return EnumPlantType.Beach;
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister i)
-	{
-		blockIcon = i.registerIcon("SinoCraft:BlockReed");
 	}
 }

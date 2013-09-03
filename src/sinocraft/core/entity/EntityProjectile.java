@@ -7,7 +7,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EntityTracker;
 import net.minecraft.entity.IProjectile;
 import net.minecraft.entity.player.EntityPlayer;
@@ -73,7 +73,7 @@ public class EntityProjectile extends Entity implements IProjectile,
 		this.shootingEntity = entity;
 	}
 
-	protected void setPickupModeFromEntity(EntityLiving var1) {
+	protected void setPickupModeFromEntity(EntityLivingBase var1) {
 		if (var1 instanceof EntityPlayer) {
 			if (((EntityPlayer) var1).capabilities.isCreativeMode) {
 				this.setPickupMode(2);

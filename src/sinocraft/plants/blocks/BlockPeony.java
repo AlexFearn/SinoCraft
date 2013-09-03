@@ -1,5 +1,6 @@
 package sinocraft.plants.blocks;
 
+import sinocraft.SinoCraft;
 import sinocraft.core.blocks.SCFlower;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -19,13 +20,8 @@ public class BlockPeony extends SCFlower
 	{
 		super(Id);
 		
+		setCreativeTab(SinoCraft.sct);
 		setUnlocalizedName("Peony");
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister i)
-	{
-		blockIcon = i.registerIcon("SinoCraft:BlockPeony");
+		func_111022_d("SinoCraft:BlockPeony");
 	}
 }

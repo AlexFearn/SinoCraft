@@ -20,13 +20,7 @@ public class ItemReedLeaves extends Item
 		super(Id);
 		
 		setCreativeTab(SinoCraft.sct);
-		setUnlocalizedName("Reed Leaves");
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister i)
-	{
-		itemIcon = i.registerIcon("SinoCraft:ItemReedLeaves");
+		setUnlocalizedName("ReedLeaves");
+		func_111206_d("sinocraft:ItemReedLeaves");
 	}
 }

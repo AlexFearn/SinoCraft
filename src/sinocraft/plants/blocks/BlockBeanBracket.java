@@ -39,7 +39,13 @@ public class BlockBeanBracket extends Block
 		setCreativeTab(SinoCraft.sct);
 		setTickRandomly(true);
 		setStepSound(soundGrassFootstep);
-		setUnlocalizedName("Bean Bracket");
+		setUnlocalizedName("BeanBracket");
+		func_111022_d("sinocraft:BlockBeanBracket_Normal");
+		func_111022_d("sinocraft:BlockBeanBracket_Germinant");
+		func_111022_d("sinocraft:BlockBeanBracket_Mature");
+		func_111022_d("sinocraft:BlockBeanBracket_VignaRadiata_Fruiting");
+		func_111022_d("sinocraft:BlockBeanBracket_VignaAngularis_Fruiting");
+		func_111022_d("sinocraft:BlockBeanBracket_Cucumber_Fruiting");
 	}
 	
 	@Override

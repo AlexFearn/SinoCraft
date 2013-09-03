@@ -1,5 +1,6 @@
 package sinocraft.foods.items;
 
+import sinocraft.SinoCraft;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -10,12 +11,9 @@ public class ItemSalt extends Item
 	public ItemSalt(int Id)
 	{
 		super(Id);
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister i)
-	{
-		itemIcon = i.registerIcon("SinoCraft:ItemSalt");
+		
+		setCreativeTab(SinoCraft.sct);
+		setUnlocalizedName("Salt");
+		func_111206_d("sinocraft:ItemSalt");
 	}
 }

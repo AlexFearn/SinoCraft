@@ -8,6 +8,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.MinecraftForgeClient;
+import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraft.item.Item;
 import net.minecraft.src.ModLoader;
@@ -60,7 +61,6 @@ public class SCItems
 		{
 			SCLog.info("Error when loading itemIDs from config . " + e);
 		}
-
 		MinecraftForge.addGrassSeed(new ItemStack(itemGlutinousRice, new Random().nextInt(3)), 2);
 	}
 }

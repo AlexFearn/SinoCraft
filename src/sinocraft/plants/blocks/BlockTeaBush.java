@@ -24,16 +24,11 @@ public class BlockTeaBush extends SCBush
 	{
 		super(Id);
 		
-		setUnlocalizedName("Tea Bush");
+		setCreativeTab(SinoCraft.sct);
+		setUnlocalizedName("TeaBush");
 		setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister i)
-	{
-		blockIcon_Top = i.registerIcon("BlockTeaBush_Top");
-		blockIcon_Branch = i.registerIcon("BlockTeaBush_Branch");
-		blockIcon_Leaves = i.registerIcon("BlockTeaBush_Leaves");
+		func_111022_d("sinocraft:BlockTeaBush_Top");
+		func_111022_d("sinocraft:BlockTeaBush_Branch");
+		func_111022_d("sinocraft:BlockTeaBush_Leaves");
 	}
 }

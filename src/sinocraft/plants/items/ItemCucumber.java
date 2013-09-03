@@ -25,6 +25,7 @@ public class ItemCucumber extends Item
 		
 		setCreativeTab(SinoCraft.sct);
 		setUnlocalizedName("Cucumber");
+		func_111206_d("sinocraft:ItemCucumber");
 	}
 	
 	@Override

@@ -3,7 +3,9 @@ package sinocraft.plants.blocks;
 import net.minecraft.client.renderer.texture.IconRegister;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import sinocraft.SinoCraft;
 import sinocraft.core.blocks.SCBush;
+
 /**
  * 茉莉花木
  * @author Liong
@@ -16,16 +18,11 @@ public class BlockJasmineBush extends SCBush
 	{
 		super(Id);
 		
-		setUnlocalizedName("Jasmine Bush");
+		setCreativeTab(SinoCraft.sct);
+		setUnlocalizedName("JasmineBush");
 		setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister i)
-	{
-		blockIcon_Top = i.registerIcon("BlockJasmineBush_Up");
-		blockIcon_Branch = i.registerIcon("BlockJasmineBush_Branch");
-		blockIcon_Leaves = i.registerIcon("BlockJasmineBush_Leaves");
+		func_111022_d("sinocraft:BlockJasmineBush_Up");
+		func_111022_d("sinocraft:BlockJasmineBush_Branch");
+		func_111022_d("sinocraft:BlockJasmineBush_Leaves");
 	}
 }

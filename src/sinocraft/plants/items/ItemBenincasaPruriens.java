@@ -23,7 +23,8 @@ public class ItemBenincasaPruriens extends Item
 		super(Id);
 		
 		setCreativeTab(SinoCraft.sct);
-		setUnlocalizedName("Benincasa Pruriens");
+		setUnlocalizedName("BenincasaPruriens");
+		func_111206_d("sinocraft:ItemBenincasaPruriens");
 	}
 	
 	@Override
@@ -54,11 +55,4 @@ public class ItemBenincasaPruriens extends Item
         entityPlayer.setItemInUse(itemstack, this.getMaxItemUseDuration(itemstack));
         return itemstack;
     }
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister i)
-	{
-		itemIcon = i.registerIcon("SinoCraft:ItemBenincasaPruriens");
-	}
 }
