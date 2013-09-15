@@ -27,8 +27,16 @@ public class BlockTeaBush extends SCBush
 		setCreativeTab(SinoCraft.sct);
 		setUnlocalizedName("TeaBush");
 		setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-		func_111022_d("sinocraft:BlockTeaBush_Top");
-		func_111022_d("sinocraft:BlockTeaBush_Branch");
-		func_111022_d("sinocraft:BlockTeaBush_Leaves");
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister i)
+	{
+		blockIcon_Top = i.registerIcon("sinocraft:BlockTeaBush_Top");
+		blockIcon_Leaves = i.registerIcon("sinocraft:BlockTeaBush_Leaves");      
+		                       
+		blockIcon_Top_Grown = i.registerIcon("sinocraft:BlockTeaBush_Top_Grown");   
+		blockIcon_Leaves_Grown = i.registerIcon("sinocraft:BlockTeaBush_Leaves_Grown");
 	}
 }

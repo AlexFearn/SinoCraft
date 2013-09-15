@@ -23,19 +23,18 @@ public class ItemSteamedBread extends ItemFood
 		
 		setCreativeTab(SinoCraft.sct);
 		setUnlocalizedName("SteamedBread");
-		func_111206_d("sinocraft:ItemSteamedBread");
-	}
-	
-	@Override
-	public ItemStack onEaten(ItemStack itemstack, World world, EntityPlayer entityplayer)
-	{
-		super.onEaten(itemstack, world, entityplayer);
-		return itemstack;
+		func_111206_d("");
 	}
 	
 	@Override
 	public int getMaxItemUseDuration(ItemStack itemstack)
 	{
 		return 40;
+	}
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister i)
+	{
+		itemIcon = i.registerIcon("sinocraft:ItemSteamedBread");
 	}
 }

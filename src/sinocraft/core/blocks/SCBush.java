@@ -9,8 +9,10 @@ import net.minecraft.world.IBlockAccess;
 public abstract class SCBush extends SCFlower
 {
 	protected Icon blockIcon_Top;
-	protected Icon blockIcon_Branch;
 	protected Icon blockIcon_Leaves;
+	
+	protected Icon blockIcon_Top_Grown;
+	protected Icon blockIcon_Leaves_Grown;
 	
 	public SCBush(int Id)
 	{
@@ -30,15 +32,26 @@ public abstract class SCBush extends SCFlower
 	@SideOnly(Side.CLIENT)
 	public Icon getIcon(int side, int metadata)
 	{
-		switch (side)
-		{
-		case 1:
-			return blockIcon_Top;
-		case 6:
-			return blockIcon_Branch;
-		default:
-			return blockIcon_Leaves;
-		}
+		if (metadata == 1)
+			switch (side)
+			{
+			case 1:
+				return blockIcon_Top_Grown;
+			case 6:
+				return blockIcon;
+			default:
+				return blockIcon_Leaves_Grown;
+			}
+		else
+			switch (side)
+			{
+			case 1:
+				return blockIcon_Top;
+			case 6:
+				return blockIcon;
+			default:
+				return blockIcon_Leaves;
+			}
 	}
 	
 	@Override

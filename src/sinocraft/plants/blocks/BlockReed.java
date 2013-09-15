@@ -26,7 +26,6 @@ public class BlockReed extends SCFlower
 		
 		setCreativeTab(SinoCraft.sct);
 		setUnlocalizedName("Reed");
-		func_111022_d("sinocraft:BlockReed");
 	}
 	
 	@Override
@@ -64,5 +63,12 @@ public class BlockReed extends SCFlower
 	public EnumPlantType getPlantType(World world, int x, int y, int z)
 	{
 		return EnumPlantType.Beach;
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister i)
+	{
+		blockIcon = i.registerIcon("sinocraft:BlockReed");
 	}
 }

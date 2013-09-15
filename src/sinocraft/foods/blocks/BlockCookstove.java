@@ -1,11 +1,14 @@
 package sinocraft.foods.blocks;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import sinocraft.SinoCraft;
 import sinocraft.core.register.SCBlocks;
 import sinocraft.foods.tileentity.TileEntityCookstove;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,12 +16,16 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.client.IItemRenderer;
  
 public class BlockCookstove extends BlockContainer
 {
+	protected Icon blockIcon_Top;
+	protected Icon blockIcon_Face;
+	
 	final boolean isActive;
 	static boolean keepCookstoveInventory = false;
 	
@@ -35,7 +42,6 @@ public class BlockCookstove extends BlockContainer
 
 		setHardness(3.5F);
 		setUnlocalizedName("Cookstove");
-		func_111022_d("sinocraft:BlockCookstove");
 	}
  
 	@Override
@@ -103,13 +109,9 @@ public class BlockCookstove extends BlockContainer
         keepCookstoveInventory = true;
 
         if (canBurn)
-        {
             world.setBlock(x, y, z, SCBlocks.blockCookstoveActive.blockID);
-        }
         else
-        {
             world.setBlock(x, y, z, SCBlocks.blockCookstoveIdle.blockID);
-        }
 
         keepCookstoveInventory = false;
         world.setBlockMetadataWithNotify(x, y, z, i, 2);
@@ -120,4 +122,26 @@ public class BlockCookstove extends BlockContainer
             world.setBlockTileEntity(x, y, z, tileentity);
         }
     }
+    
+    @Override
+    @SideOnly(Side.CLIENT)
+    public Icon getIcon(int side, int metadata)
+    {
+    	if (side == 0 || side == 1)
+    		return blockIcon_Top;
+    	else
+    		if (side == metadata)
+    			return blockIcon_Face;
+    		else
+    			return blockIcon;
+    }
+    
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister i)
+	{
+		blockIcon = i.registerIcon("sinocraft:BlockCookStove");  
+		blockIcon_Top = i.registerIcon("sinocraft:BlockCookStove_Top");
+		blockIcon_Face = i.registerIcon("sinocraft:BlockCookStove_Face");
+	}
 }

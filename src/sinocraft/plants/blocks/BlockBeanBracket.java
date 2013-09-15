@@ -25,8 +25,8 @@ import net.minecraft.world.World;
 public class BlockBeanBracket extends Block
 {
 	Icon blockIcon_Normal;
-	Icon blockIcon_Germinant;//苗
-	Icon blockIcon_Mature;//成熟绿豆苗
+	Icon blockIcon_Stem;//苗
+	Icon blockIcon_GrownUp;//成熟
 	
 	Icon blockIcon_VignaRadiata_Fruiting;//挂果绿豆苗
 	Icon blockIcon_VignaAngularis_Fruiting; //挂果红豆苗
@@ -40,12 +40,6 @@ public class BlockBeanBracket extends Block
 		setTickRandomly(true);
 		setStepSound(soundGrassFootstep);
 		setUnlocalizedName("BeanBracket");
-		func_111022_d("sinocraft:BlockBeanBracket_Normal");
-		func_111022_d("sinocraft:BlockBeanBracket_Germinant");
-		func_111022_d("sinocraft:BlockBeanBracket_Mature");
-		func_111022_d("sinocraft:BlockBeanBracket_VignaRadiata_Fruiting");
-		func_111022_d("sinocraft:BlockBeanBracket_VignaAngularis_Fruiting");
-		func_111022_d("sinocraft:BlockBeanBracket_Cucumber_Fruiting");
 	}
 	
 	@Override
@@ -57,21 +51,21 @@ public class BlockBeanBracket extends Block
 			case 0:
 				return blockIcon_Normal;
 			case 1:
-				return blockIcon_Germinant;
+				return blockIcon_Stem;
 			case 2:
-				return blockIcon_Mature;
+				return blockIcon_GrownUp;
 			case 3:
 				return blockIcon_VignaRadiata_Fruiting;
 			case 4:
-				return blockIcon_Germinant;
+				return blockIcon_Stem;
 			case 5:
-				return blockIcon_Mature;
+				return blockIcon_GrownUp;
 			case 6:
 				return blockIcon_VignaAngularis_Fruiting;
 			case 7:
-				return blockIcon_Germinant;
+				return blockIcon_Stem;
 			case 8:
-				return blockIcon_Mature;
+				return blockIcon_GrownUp;
 			case 9:
 				return blockIcon_Cucumber_Fruiting;
 			default:
@@ -182,8 +176,8 @@ public class BlockBeanBracket extends Block
 	public void registerIcons(IconRegister i)
 	{
 		blockIcon_Normal = i.registerIcon("SinoCraft:BlockBeanBracket_Normal");
-		blockIcon_Germinant = i.registerIcon("SinoCraft:BlockBeanBracket_Germinant");
-		blockIcon_Mature = i.registerIcon("SinoCraft:BlockBeanBracket_Mature");
+		blockIcon_Stem = i.registerIcon("SinoCraft:BlockBeanBracket_Germinant");
+		blockIcon_GrownUp = i.registerIcon("SinoCraft:BlockBeanBracket_Mature");
 		
 		blockIcon_VignaRadiata_Fruiting = i.registerIcon("SinoCraft:BlockBeanBracket_VignaRadiata_Fruiting");
 		blockIcon_VignaAngularis_Fruiting = i.registerIcon("SinoCraft:BlockBeanBracket_VignaAngularis_Fruiting");

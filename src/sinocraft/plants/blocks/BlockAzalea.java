@@ -22,6 +22,12 @@ public class BlockAzalea extends SCFlower
 		
 		setCreativeTab(SinoCraft.sct);
 		setUnlocalizedName("Azalea");
-		func_111022_d("sinocraft:BlockAzalea");
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister i)
+	{
+		blockIcon = i.registerIcon("sinocraft:BlockAzalea");
 	}
 }

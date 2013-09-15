@@ -7,6 +7,12 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.Item;
 
+/**
+ * 碗
+ * @author Liong
+ *
+ */
+
 public class ItemBowl extends Item
 {
 	public ItemBowl(int Id)
@@ -15,6 +21,12 @@ public class ItemBowl extends Item
 		
 		setCreativeTab(SinoCraft.sct);
 		setUnlocalizedName("Bowl");
-		func_111206_d("sinocraft:ItemBowl");
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister i)
+	{
+		itemIcon = i.registerIcon("sinocraft:ItemBowl");
 	}
 }

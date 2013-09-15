@@ -22,6 +22,12 @@ public class BlockPeony extends SCFlower
 		
 		setCreativeTab(SinoCraft.sct);
 		setUnlocalizedName("Peony");
-		func_111022_d("SinoCraft:BlockPeony");
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister i)
+	{
+		blockIcon = i.registerIcon("sinocraft:BlockPeony");
 	}
 }

@@ -6,6 +6,12 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.Item;
 
+/**
+ * 稻米
+ * @author Liong
+ *
+ */
+
 public class ItemRice extends Item
 {
 	public ItemRice(int Id)
@@ -14,6 +20,12 @@ public class ItemRice extends Item
 		
 		setCreativeTab(SinoCraft.sct);
 		setUnlocalizedName("Rice");
-		func_111206_d("sinocraft:ItemRice");
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister i)
+	{
+		itemIcon = i.registerIcon("sinocraft:ItemRice");
 	}
 }

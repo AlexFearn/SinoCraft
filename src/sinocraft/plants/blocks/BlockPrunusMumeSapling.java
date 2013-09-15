@@ -43,4 +43,11 @@ public class BlockPrunusMumeSapling extends SCFlower
 			world.setBlock(x    , y + 4, z    , SCBlocks.blockPrunusMumeBranch.blockID);
 		}
 	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister i)
+	{
+		blockIcon = i.registerIcon("sinocraft:BlockPrunusMumeSapling");
+	}
 }

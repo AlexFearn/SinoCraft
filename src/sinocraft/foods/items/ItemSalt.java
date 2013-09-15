@@ -6,6 +6,12 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.Item;
 
+/**
+ * 盐
+ * @author Liong
+ *
+ */
+
 public class ItemSalt extends Item
 {
 	public ItemSalt(int Id)
@@ -14,6 +20,12 @@ public class ItemSalt extends Item
 		
 		setCreativeTab(SinoCraft.sct);
 		setUnlocalizedName("Salt");
-		func_111206_d("sinocraft:ItemSalt");
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister i)
+	{
+		itemIcon = i.registerIcon("sinocraft:ItemSalt");
 	}
 }

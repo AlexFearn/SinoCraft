@@ -12,7 +12,6 @@ import net.minecraft.world.IBlockAccess;
 
 public class BlockWolk extends Block
 {
-	protected Icon blockIcon_Side;
 	protected Icon blockIcon_Handle;
 	protected Icon blockIcon_Bottom;
 	
@@ -24,9 +23,6 @@ public class BlockWolk extends Block
 		setUnlocalizedName("Wolk");
 		setCreativeTab(SinoCraft.sct);
 		setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.6F, 0.9375F);
-		func_111022_d("sinocraft:BlockWolk_Side");
-		func_111022_d("sinocraft:BlockWolk_Bottom");
-		func_111022_d("sinocraft:BlockWolk_Handle");
 	}              
 	
 	@Override
@@ -40,7 +36,7 @@ public class BlockWolk extends Block
 		case 6:
 			return blockIcon_Handle;
 		default:
-			return blockIcon_Side;
+			return blockIcon;
 		}
 	}
 	
@@ -69,5 +65,14 @@ public class BlockWolk extends Block
 	public int getRenderType()
 	{
 		return SCBlocks.rendererWolkID;
+	}    
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister i)
+	{
+		blockIcon = i.registerIcon("sinocraft:BlockWolk");  
+		blockIcon_Bottom = i.registerIcon("sinocraft:BlockWolk_Bottom");
+		blockIcon_Handle = i.registerIcon("sinocraft:BlockWolk_Handle");
 	}
 }

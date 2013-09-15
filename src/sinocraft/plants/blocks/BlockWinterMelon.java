@@ -13,23 +13,19 @@ import sinocraft.core.register.SCBlocks;
 import sinocraft.core.register.SCItems;
 
 /**
- * 白菜
+ * 冬瓜
  * @author Liong
  *
  */
 
-public class BlockBenincasaPruriens extends SCCrop
+public class BlockWinterMelon extends SCCrop
 {
-	public BlockBenincasaPruriens(int Id)
+	public BlockWinterMelon(int Id)
 	{
 		super(Id);
 		
 		setCreativeTab(SinoCraft.sct);
 		setUnlocalizedName("BenincasaPruriens");
-		func_111022_d("sinocraft:BlockBenincasaPruriens_0");
-		func_111022_d("sinocraft:BlockBenincasaPruriens_1");
-		func_111022_d("sinocraft:BlockBenincasaPruriens_2");
-		func_111022_d("sinocraft:BlockBenincasaPruriens_3");
 	}
 	
 	@Override
@@ -45,5 +41,15 @@ public class BlockBenincasaPruriens extends SCCrop
 	public int idDropped(int metadata, Random random, int par3)
 	{
 		return SCItems.itemBenincasaPruriens.itemID;
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister i)
+	{
+		blockIcon_0 = i.registerIcon("sinocraft:BlockWinterMelon_0");
+		blockIcon_1 = i.registerIcon("sinocraft:BlockWinterMelon_1");
+		blockIcon_2 = i.registerIcon("sinocraft:BlockWinterMelon_2");
+		blockIcon_3 = i.registerIcon("sinocraft:BlockWinterMelon_3");
 	}
 }

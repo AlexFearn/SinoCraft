@@ -20,6 +20,12 @@ public class ItemPlate extends Item
 		
 		setCreativeTab(SinoCraft.sct);
 		setUnlocalizedName("Plate");
-		func_111206_d("sinocraft:ItemPlate");
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister i)
+	{
+		itemIcon = i.registerIcon("sinocraft:ItemPlate");
 	}
 }

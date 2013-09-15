@@ -61,6 +61,7 @@ public class SCItems
 		{
 			SCLog.info("Error when loading itemIDs from config . " + e);
 		}
+		
 		MinecraftForge.addGrassSeed(new ItemStack(itemGlutinousRice, new Random().nextInt(3)), 2);
 	}
 }

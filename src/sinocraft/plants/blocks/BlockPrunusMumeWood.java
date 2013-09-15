@@ -17,10 +17,7 @@ import net.minecraft.world.IBlockAccess;
 
 public class BlockPrunusMumeWood extends Block
 {
-	@SideOnly(Side.CLIENT)
-	private Icon blockIcon_UpDown;
-	@SideOnly(Side.CLIENT)
-	private Icon blockIcon_Side;
+	protected Icon blockIcon_Top;
 	
 	public BlockPrunusMumeWood(int Id)
 	{
@@ -38,9 +35,9 @@ public class BlockPrunusMumeWood extends Block
 	public Icon getBlockTexture(IBlockAccess iBlockAccess, int x, int y, int z, int side)
 	{
 		if(side == 0 || side == 1)
-			return blockIcon_UpDown;
+			return blockIcon_Top;
 		else
-			return blockIcon_Side;
+			return blockIcon;
 	}
 	
 	@Override
@@ -48,9 +45,9 @@ public class BlockPrunusMumeWood extends Block
 	public Icon getIcon(int side, int metadata)
 	{
 		if(side == 0 || side == 1)
-			return blockIcon_UpDown;
+			return blockIcon_Top;
 		else
-			return blockIcon_Side;
+			return blockIcon;
 	}
 	
 	@Override
@@ -63,5 +60,13 @@ public class BlockPrunusMumeWood extends Block
 	public int getRenderType()
 	{
 		return 0;
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister i)
+	{
+		blockIcon = i.registerIcon("sinocraft:BlockPrunusMumeWood");
+		blockIcon_Top = i.registerIcon("sinocraft:BlockPrunusMumeWood_Top");
 	}
 }

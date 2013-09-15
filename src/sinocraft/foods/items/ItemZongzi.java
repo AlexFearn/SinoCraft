@@ -43,4 +43,11 @@ public class ItemZongzi extends ItemFood
 	{
 		return 64;
 	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister i)
+	{
+		itemIcon = i.registerIcon("sinocraft:ItemZongzi");
+	}
 }

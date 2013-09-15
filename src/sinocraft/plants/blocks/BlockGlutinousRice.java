@@ -25,18 +25,18 @@ public class BlockGlutinousRice extends SCCrop
 	{
 		super(Id);
 		
+		setTickRandomly(true);
 		setCreativeTab(SinoCraft.sct);
 		setUnlocalizedName("GlutinousRice");
-		func_111022_d("sinocraft:BlockGlutinousRice_0");
-		func_111022_d("sinocraft:BlockGlutinousRice_1");
-		func_111022_d("sinocraft:BlockGlutinousRice_2");
-		func_111022_d("sinocraft:BlockGlutinousRice_3");
-		func_111022_d("sinocraft:BlockGlutinousRice_4");
-		func_111022_d("sinocraft:BlockGlutinousRice_5");
-		func_111022_d("sinocraft:BlockGlutinousRice_6");
-		func_111022_d("sinocraft:BlockGlutinousRice_7");
 	}
 	
+	@Override
+	public void updateTick(World world, int x, int y, int z, Random random)
+	{
+		int metadata = world.getBlockMetadata(x, y, z);
+		if (metadata != 7)
+			world.setBlockMetadataWithNotify(x, y, z, metadata + 1, 2);
+	}
 	
 	@Override
 	public void dropBlockAsItemWithChance(World world, int x, int y, int z, int metadata, float maxRandom, int maxItem)
@@ -53,4 +53,43 @@ public class BlockGlutinousRice extends SCCrop
 	{
 		return SCItems.itemGlutinousRice.itemID;
 	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister i)
+	{
+		blockIcon_0 = i.registerIcon("sinocraft:BlockGlutinousRice_0");
+		blockIcon_1 = i.registerIcon("sinocraft:BlockGlutinousRice_1");
+		blockIcon_2 = i.registerIcon("sinocraft:BlockGlutinousRice_2");
+		blockIcon_3 = i.registerIcon("sinocraft:BlockGlutinousRice_3");
+		blockIcon_4 = i.registerIcon("sinocraft:BlockGlutinousRice_4");
+		blockIcon_5 = i.registerIcon("sinocraft:BlockGlutinousRice_5");
+		blockIcon_6 = i.registerIcon("sinocraft:BlockGlutinousRice_6");
+		blockIcon_7 = i.registerIcon("sinocraft:BlockGlutinousRice_7");
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
