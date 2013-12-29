@@ -27,7 +27,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 @Mod(modid = "SinoCraft", name = "SinoCraft", version = SinoCraft.VERSION)
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 /** 
- * MOD鐨勪富绫\xBB
+ * MOD 主类
  * @author HopeAsd, Liong
  */
 public class SinoCraft
