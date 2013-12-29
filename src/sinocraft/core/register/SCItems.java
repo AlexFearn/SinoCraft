@@ -99,7 +99,7 @@ public class SCItems
 		
 			
 			ItemChineseCabbage = new ItemFood(config.getItemID("itemChineseCabbage", 3847),2,0.1F,false)
-            .setUnlocalizedName("CookedZongzi")
+            .setUnlocalizedName("ChineseCabbage")
             .setCreativeTab(SinoCraft.sct)
             .setTextureName("sinocraft:chinese_cabbage");
              LanguageRegistry.addName(ItemChineseCabbage, "Chinese Cabbage");

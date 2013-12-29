@@ -41,6 +41,6 @@ public class ItemZongzi extends Item
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister i)
 	{
-		itemIcon = i.registerIcon("sinocraft:Zongzi");
+		itemIcon = i.registerIcon("sinocraft:zongzi");
 	}
 }

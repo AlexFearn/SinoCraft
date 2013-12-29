@@ -1,19 +1,15 @@
 package sinocraft.foods.items;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemFood;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.Icon;
 import sinocraft.SinoCraft;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemFood;
-import net.minecraft.item.ItemSeeds;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
-import net.minecraft.world.World;
 
 /**
  * 鏈堥ゼ
@@ -56,6 +52,8 @@ public class ItemMoonCake extends ItemFood
 	{
 		return "Mooncake "+EnumMoonCakeType.values()[stack.getItemDamage()].toString();
 	}
+	
+	
 	
 	@Override
 	@SideOnly(Side.CLIENT)
