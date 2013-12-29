@@ -8,7 +8,7 @@ import sinocraft.SinoCraft;
 import sinocraft.core.blocks.SCBush;
 
 /**
- * 茉莉花木
+ * 鑼夎帀鑺辨湪
  * @author Liong
  *
  */

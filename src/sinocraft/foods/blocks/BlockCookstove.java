@@ -111,7 +111,7 @@ public class BlockCookstove extends BlockContainer
         if (canBurn)
             world.setBlock(x, y, z, SCBlocks.blockCookstoveActive.blockID);
         else
-            world.setBlock(x, y, z, SCBlocks.blockCookstoveIdle.blockID);
+//            world.setBlock(x, y, z, SCBlocks.blockCookstoveIdle.blockID);
 
         keepCookstoveInventory = false;
         world.setBlockMetadataWithNotify(x, y, z, i, 2);

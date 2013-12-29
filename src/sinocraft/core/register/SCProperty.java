@@ -5,7 +5,7 @@ import sinocraft.SinoCraft;
 
 /**
  * 
- * 获取一些MOD的基本信息
+ * 鑾峰彇涓€浜汳OD鐨勫熀鏈俊鎭\xAF
  * @author HopeAsd
  *
  */

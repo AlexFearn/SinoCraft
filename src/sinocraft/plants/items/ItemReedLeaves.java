@@ -8,7 +8,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
 /**
- * 粽叶
+ * 绮藉彾
  * @author Liong
  *
  */
@@ -21,6 +21,12 @@ public class ItemReedLeaves extends Item
 		
 		setCreativeTab(SinoCraft.sct);
 		setUnlocalizedName("ReedLeaves");
-		func_111206_d("sinocraft:ItemReedLeaves");
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister i)
+	{
+		itemIcon = i.registerIcon("sinocraft:reed_leaves");
 	}
 }

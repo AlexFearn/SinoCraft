@@ -27,19 +27,19 @@ public class GuiCookstove extends GuiContainer
 	@Override
 	protected void drawGuiContainerForegroundLayer(int x, int y)
 	{
-		String s = tileentity.isInvNameLocalized()? tileentity.getInvName() : I18n.func_135053_a(tileentity.getInvName());
+		String s = tileentity.isInvNameLocalized()? tileentity.getInvName() : I18n.getString(tileentity.getInvName());
         fontRenderer.drawString(s, this.xSize / 2 - this.fontRenderer.getStringWidth(s) / 2, 6, 4210752);
-		fontRenderer.drawString(I18n.func_135053_a("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+		fontRenderer.drawString(I18n.getString("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
 	}
 	
 	@Override
 	protected void drawGuiContainerBackgroundLayer(float par1, int x, int y)
 	{
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		mc.renderEngine.func_110577_a(new ResourceLocation("sinocraft:/textures/gui/cookstove.png"));
-		//这两个变量将GUI放置于游戏界面中央
-		//位置在游戏界面的左上1/16处
-		//					界面         GUI
+		mc.renderEngine.bindTexture(new ResourceLocation("sinocraft:/textures/gui/cookstove.png"));
+		//杩欎袱涓彉閲忓皢GUI鏀剧疆浜庢父鎴忕晫闈腑澶\xAE
+		//浣嶇疆鍦ㄦ父鎴忕晫闈㈢殑宸︿笂1/16澶\x84
+		//					鐣岄潰         GUI
 		int midXOnScreen = (width - xSize) / 2;
 		int midYOnScreen = (height - ySize) / 2;
 		drawTexturedModalRect(midXOnScreen, midYOnScreen, 0, 0, xSize, ySize);
@@ -49,8 +49,8 @@ public class GuiCookstove extends GuiContainer
         if (tileentity.time_CookstoveCanKeepBurn > 0)
         {
             i = tileentity.getBurnTimeRemainingScaled(12);
-            //					    画面中的x位置		  画面中的y位置				 材质中的u	  画面中的宽度
-            //																		   材质中的v	    画面中的高度
+            //					    鐢婚潰涓殑x浣嶇疆		  鐢婚潰涓殑y浣嶇疆				 鏉愯川涓殑u	  鐢婚潰涓殑瀹藉害
+            //																		   鏉愯川涓殑v	    鐢婚潰涓殑楂樺害
             drawTexturedModalRect(midXOnScreen + 117, midYOnScreen + 18 + 12 - i, 176, 12 - i, 14, i + 2);
         }
 	}

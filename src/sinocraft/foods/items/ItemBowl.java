@@ -8,7 +8,7 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.Item;
 
 /**
- * 碗
+ * 纰\x841锟\xBD7
  * @author Liong
  *
  */
@@ -27,6 +27,6 @@ public class ItemBowl extends Item
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister i)
 	{
-		itemIcon = i.registerIcon("sinocraft:ItemBowl");
+		itemIcon = i.registerIcon("sinocraft:bowl");
 	}
 }

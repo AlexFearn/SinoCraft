@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 /**
- * 白菜
+ * 鐧�1�7�彍
  * @author Liong
  *
  */
@@ -24,18 +24,16 @@ public class ItemBenincasaPruriens extends Item
 		
 		setCreativeTab(SinoCraft.sct);
 		setUnlocalizedName("BenincasaPruriens");
-		func_111206_d("sinocraft:ItemBenincasaPruriens");
 	}
 	
 	@Override
-	public ItemStack onEaten(ItemStack itemstack, World world, EntityPlayer entityPlayer)
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister i)
 	{
-        if (!entityPlayer.capabilities.isCreativeMode)
-        	itemstack.stackSize--;
-		entityPlayer.getFoodStats().addStats(2, 0.0F);
-        world.playSoundAtEntity(entityPlayer, "random.burp", 0.5F, world.rand.nextFloat() * 0.1F + 0.9F);
-		return itemstack;
+		itemIcon = i.registerIcon("sinocraft:benincasa_pruriens");
 	}
+	
+	
 	
 	@Override
 	public int getMaxItemUseDuration(ItemStack itemstack)

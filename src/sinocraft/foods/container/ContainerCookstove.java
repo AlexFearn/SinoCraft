@@ -44,8 +44,8 @@ public class ContainerCookstove extends Container
 	}
 	
 	/**
-	 * 用来绑定玩家背包中的物品库
-	 * @param inventoryPlayer 玩家背包中的物品库 
+	 * 鐢ㄦ潵缁戝畾鐜╁鑳屽寘涓殑鐗╁搧搴\x93
+	 * @param inventoryPlayer 鐜╁鑳屽寘涓殑鐗╁搧搴\x93 
 	 */
     protected void bindPlayerInventory(InventoryPlayer inventoryPlayer)
     {

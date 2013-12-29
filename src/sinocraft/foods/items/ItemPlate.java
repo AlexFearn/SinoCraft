@@ -7,7 +7,7 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.Item;
 
 /**
- * 盘子
+ * 鐩樺瓙
  * @author Liong
  *
  */
@@ -26,6 +26,6 @@ public class ItemPlate extends Item
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister i)
 	{
-		itemIcon = i.registerIcon("sinocraft:ItemPlate");
+		itemIcon = i.registerIcon("sinocraft:plate");
 	}
 }

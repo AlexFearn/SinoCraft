@@ -10,7 +10,7 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 
 /**
- * 梅花木
+ * 姊呰姳鏈\x841锟\xBD7
  * @author Liong
  *
  */
@@ -26,8 +26,6 @@ public class BlockPrunusMumeWood extends Block
 		setCreativeTab(SinoCraft.sct);
 		setStepSound(soundWoodFootstep);
 		setUnlocalizedName("PrunusMumeWood");
-		func_111022_d("sinocraft:BlockPrunusMumeWood_UpDown");
-		func_111022_d("sinocraft:BlockPrunusMumeWood_Side");
 	}
 	
 	@Override
@@ -66,7 +64,7 @@ public class BlockPrunusMumeWood extends Block
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister i)
 	{
-		blockIcon = i.registerIcon("sinocraft:BlockPrunusMumeWood");
-		blockIcon_Top = i.registerIcon("sinocraft:BlockPrunusMumeWood_Top");
+		blockIcon = i.registerIcon("sinocraft:prunus_mume_wood_side");
+		blockIcon_Top = i.registerIcon("sinocraft:prunus_mume_wood_ud");
 	}
 }

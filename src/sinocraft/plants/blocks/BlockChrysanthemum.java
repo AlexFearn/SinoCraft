@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 
 /**
- * 菊花
+ * 鑿婅姳
  * @author Liong
  *
  */
@@ -22,6 +22,12 @@ public class BlockChrysanthemum extends SCFlower
 		
 		setCreativeTab(SinoCraft.sct);
 		setUnlocalizedName("Chrysanthemum");
-		func_111022_d("sinocraft:BlockChrysanthemum");
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister i)
+	{
+		blockIcon = i.registerIcon("sinocraft:chrysanthemum");
 	}
 }

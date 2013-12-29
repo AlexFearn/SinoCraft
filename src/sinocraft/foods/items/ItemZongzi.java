@@ -15,28 +15,21 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
 /**
- * 粽子
+ * 绮藉瓄1�7
  * @author Liong
  *
  */
 
-public class ItemZongzi extends ItemFood
+public class ItemZongzi extends Item
 {
 	public ItemZongzi(int Id)
 	{
-		super(Id, 8, 0.8F, false);
-		
+		super(Id);
 		setCreativeTab(SinoCraft.sct);
 		setUnlocalizedName("Zongzi");
-		func_111206_d("sinocraft:ItemZongzi");
 	}
 	
-	@Override
-	public ItemStack onEaten(ItemStack itemstack, World world, EntityPlayer entityplayer)
-	{
-		super.onEaten(itemstack, world, entityplayer);
-		return itemstack;
-	}
+	
 	
 	@Override
 	public int getMaxItemUseDuration(ItemStack itemstack)
@@ -48,6 +41,6 @@ public class ItemZongzi extends ItemFood
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister i)
 	{
-		itemIcon = i.registerIcon("sinocraft:ItemZongzi");
+		itemIcon = i.registerIcon("sinocraft:Zongzi");
 	}
 }

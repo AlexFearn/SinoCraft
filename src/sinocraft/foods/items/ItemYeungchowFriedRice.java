@@ -8,7 +8,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 
 /**
- * 扬州炒饭
+ * 鎵窞鐐掗キ
  * @author Liong
  *
  */
@@ -27,6 +27,6 @@ public class ItemYeungchowFriedRice extends ItemFood
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister i)
 	{
-		itemIcon = i.registerIcon("sinocraft:ItemYeungchowFriedRice");
+		itemIcon = i.registerIcon("sinocraft:yeungchow_fried_rice");
 	}
 }

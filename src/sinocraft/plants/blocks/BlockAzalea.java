@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 
 /**
- * 杜鹃
+ * 鏉滈箖
  * @author Liong
  *
  */
@@ -28,6 +28,6 @@ public class BlockAzalea extends SCFlower
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister i)
 	{
-		blockIcon = i.registerIcon("sinocraft:BlockAzalea");
+		blockIcon = i.registerIcon("sinocraft:azalea");
 	}
 }

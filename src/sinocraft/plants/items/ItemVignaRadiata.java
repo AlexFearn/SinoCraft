@@ -11,12 +11,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 /**
- * 绿豆
+ * 缁胯眴
  * @author Liong
  *
  */
-
-public class ItemVignaRadiata extends Item
+public class ItemVignaRadiata extends Item //鐩稿悓鐨勫姛鑳界敤ItemBlock灏卞彲浠ュ疄鐜般€\x82
 {
 	public ItemVignaRadiata(int Id)
 	{
@@ -24,7 +23,6 @@ public class ItemVignaRadiata extends Item
 		
 		setCreativeTab(SinoCraft.sct);
 		setUnlocalizedName("VignaRadiata");
-		func_111206_d("sinocraft:ItemVignaRadiata");
 	}
 	
 	@Override
@@ -36,5 +34,12 @@ public class ItemVignaRadiata extends Item
 		}
 		
 		return true;
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister i)
+	{
+		itemIcon = i.registerIcon("sinocraft:vigna_radiata");
 	}
 }

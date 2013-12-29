@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 /**
- * 叉烧
+ * 鍙夌儳
  * @author Liong
  *
  */
@@ -35,6 +35,6 @@ public class ItemCharSui extends ItemFood
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister i)
 	{
-		itemIcon = i.registerIcon("sinocraft:ItemCharSui");
+		itemIcon = i.registerIcon("sinocraft:char_sui");
 	}
 }

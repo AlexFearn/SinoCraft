@@ -23,6 +23,7 @@ public class BlockWolk extends Block
 		setUnlocalizedName("Wolk");
 		setCreativeTab(SinoCraft.sct);
 		setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.6F, 0.9375F);
+		
 	}              
 	
 	@Override
@@ -71,8 +72,8 @@ public class BlockWolk extends Block
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister i)
 	{
-		blockIcon = i.registerIcon("sinocraft:BlockWolk");  
-		blockIcon_Bottom = i.registerIcon("sinocraft:BlockWolk_Bottom");
-		blockIcon_Handle = i.registerIcon("sinocraft:BlockWolk_Handle");
+		blockIcon = i.registerIcon("sinocraft:wolk_side");  
+		blockIcon_Bottom = i.registerIcon("sinocraft:wolk_bottom");
+		blockIcon_Handle = i.registerIcon("sinocraft:wolk_handle");
 	}
 }

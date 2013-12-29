@@ -15,22 +15,22 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 
 /**
- * 作物架（暂时只用做豆类和黄瓜）
+ * 浣滅墿鏋讹紙鏆傛椂鍙敤鍋氳眴绫诲拰榛勭摐锛\x841\xA47
  * @author Liong
  *
  */
 
-// TODO 做出黄瓜、黄豆、绿豆、红豆的幼苗和茎状态
+// TODO 鍋氬嚭榛勭摐銆侀粍璞嗐\x841\xA47佺豢璞嗐\x841\xA47佺孩璞嗙殑骞艰嫍鍜岃寧鐘舵\x841\xA47\x841\xA47
 
 public class BlockBeanBracket extends Block
 {
 	Icon blockIcon_Normal;
-	Icon blockIcon_Stem;//苗
-	Icon blockIcon_GrownUp;//成熟
+	Icon blockIcon_Stem;//鑻\x841\xA47
+	Icon blockIcon_GrownUp;//鎴愮啛
 	
-	Icon blockIcon_VignaRadiata_Fruiting;//挂果绿豆苗
-	Icon blockIcon_VignaAngularis_Fruiting; //挂果红豆苗
-	Icon blockIcon_Cucumber_Fruiting;//挂果黄瓜苗
+	Icon blockIcon_VignaRadiata_Fruiting;//鎸傛灉缁胯眴鑻\x841\xA47
+	Icon blockIcon_VignaAngularis_Fruiting; //鎸傛灉绾㈣眴鑻\x841\xA47
+	Icon blockIcon_Cucumber_Fruiting;//鎸傛灉榛勭摐鑻\x841\xA47
 		
 	public BlockBeanBracket(int Id)
 	{
@@ -40,6 +40,7 @@ public class BlockBeanBracket extends Block
 		setTickRandomly(true);
 		setStepSound(soundGrassFootstep);
 		setUnlocalizedName("BeanBracket");
+	
 	}
 	
 	@Override
@@ -84,28 +85,28 @@ public class BlockBeanBracket extends Block
 		case 1: dropBlockAsItem_do(world, x, y, z, new ItemStack(this, 1, 0));
 				break;
 		case 2: dropBlockAsItem_do(world, x, y, z, new ItemStack(this, 1, 0));
-				dropBlockAsItem_do(world, x, y, z, new ItemStack(SCItems.itemVignaRadiata, 1, 0));
+				dropBlockAsItem_do(world, x, y, z, new ItemStack(SCItems.ItemVignaRadiata, 1, 0));
 				break;
 		case 3: dropBlockAsItem_do(world, x, y, z, new ItemStack(this, 1, 0));
-				dropBlockAsItem_do(world, x, y, z, new ItemStack(SCItems.itemVignaRadiata, world.rand.nextInt(3), 0));
+				dropBlockAsItem_do(world, x, y, z, new ItemStack(SCItems.ItemVignaRadiata, world.rand.nextInt(3), 0));
 				break;
 				
 		case 4: dropBlockAsItem_do(world, x, y, z, new ItemStack(this, 1, 0));
 				break;
 		case 5: dropBlockAsItem_do(world, x, y, z, new ItemStack(this, 1, 0));
-				dropBlockAsItem_do(world, x, y, z, new ItemStack(SCItems.itemVignaAngularis, 1, 0));
+				dropBlockAsItem_do(world, x, y, z, new ItemStack(SCItems.ItemVignaAngularis, 1, 0));
 				break;
 		case 6: dropBlockAsItem_do(world, x, y, z, new ItemStack(this, 1, 0));
-				dropBlockAsItem_do(world, x, y, z, new ItemStack(SCItems.itemVignaAngularis, world.rand.nextInt(3), 0));
+				dropBlockAsItem_do(world, x, y, z, new ItemStack(SCItems.ItemVignaAngularis, world.rand.nextInt(3), 0));
 				break;
 				
 		case 7: dropBlockAsItem_do(world, x, y, z, new ItemStack(this, 1, 0));
 				break;
 		case 8: dropBlockAsItem_do(world, x, y, z, new ItemStack(this, 1, 0));
-				dropBlockAsItem_do(world, x, y, z, new ItemStack(SCItems.itemCucumber, 1, 0));
+				dropBlockAsItem_do(world, x, y, z, new ItemStack(SCItems.ItemCucumber, 1, 0));
 				break;
 		case 9: dropBlockAsItem_do(world, x, y, z, new ItemStack(this, 1, 0));
-				dropBlockAsItem_do(world, x, y, z, new ItemStack(SCItems.itemCucumber, world.rand.nextInt(3), 0));
+				dropBlockAsItem_do(world, x, y, z, new ItemStack(SCItems.ItemCucumber, world.rand.nextInt(3), 0));
 				break;
 		default: break;
 		}
@@ -175,9 +176,9 @@ public class BlockBeanBracket extends Block
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister i)
 	{
-		blockIcon_Normal = i.registerIcon("SinoCraft:BlockBeanBracket_Normal");
-		blockIcon_Stem = i.registerIcon("SinoCraft:BlockBeanBracket_Germinant");
-		blockIcon_GrownUp = i.registerIcon("SinoCraft:BlockBeanBracket_Mature");
+		blockIcon_Normal = i.registerIcon("sinocraft:beanbracket_normal");
+		blockIcon_Stem = i.registerIcon("sinocraft:beanbracket_germinant");
+		blockIcon_GrownUp = i.registerIcon("sinocraft:beanbracket_mature");
 		
 		blockIcon_VignaRadiata_Fruiting = i.registerIcon("SinoCraft:BlockBeanBracket_VignaRadiata_Fruiting");
 		blockIcon_VignaAngularis_Fruiting = i.registerIcon("SinoCraft:BlockBeanBracket_VignaAngularis_Fruiting");

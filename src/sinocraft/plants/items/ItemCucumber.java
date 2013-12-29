@@ -12,11 +12,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 /**
- * 黄瓜
+ * 榛勭摐
  * @author Liong
  *
  */
-
 public class ItemCucumber extends Item
 {
 	public ItemCucumber(int Id)
@@ -25,15 +24,15 @@ public class ItemCucumber extends Item
 		
 		setCreativeTab(SinoCraft.sct);
 		setUnlocalizedName("Cucumber");
-		func_111206_d("sinocraft:ItemCucumber");
 	}
+	
 	
 	@Override
 	public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
 	{
 		if (world.getBlockId(x, y, z) == SCBlocks.blockBeanBracket.blockID)
-		{											   //↓Flag
-			world.setBlockMetadataWithNotify(x, y, z, 7, 2); //Flag 1代表方块更新，F2代表发送至客户端（总是），3代表不重新渲染，可以叠加
+		{											   //鈫揊lag
+			world.setBlockMetadataWithNotify(x, y, z, 7, 3); //Flag 1浠ｈ〃鏂瑰潡鏇存柊锛孎2浠ｈ〃鍙戦€佽嚦瀹㈡埛绔紙鎬绘槸锛夛紝3浠ｈ〃涓嶉噸鏂版覆鏌擄紝鍙互鍙犲姞
 		}
 		
 		return true;
@@ -43,6 +42,6 @@ public class ItemCucumber extends Item
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister i)
 	{
-		itemIcon = i.registerIcon("SinoCraft:ItemCucumber");
+		itemIcon = i.registerIcon("SinoCraft:cucumber");
 	}
 }

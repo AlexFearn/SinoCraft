@@ -20,7 +20,6 @@ public class BlockPrunusMumeSapling extends SCFlower
 		
 		setCreativeTab(SinoCraft.sct);
 		setUnlocalizedName("PrunusMumeSapling");
-		func_111022_d("sinocraft:BlockPrunusMumeSapling");
 	}
 	
 	@Override
@@ -48,6 +47,6 @@ public class BlockPrunusMumeSapling extends SCFlower
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister i)
 	{
-		blockIcon = i.registerIcon("sinocraft:BlockPrunusMumeSapling");
+		blockIcon = i.registerIcon("sinocraft:prunus_mume_sampling");
 	}
 }

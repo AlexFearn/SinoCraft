@@ -7,7 +7,7 @@ import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.Property;
 
 /**
- * MOD的config类 便于调整设置
+ * MOD鐨刢onfig绫\xBB 渚夸簬璋冩暣璁剧疆
  * 
  * @author HopeAsd
  * 

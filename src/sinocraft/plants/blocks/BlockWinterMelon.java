@@ -13,7 +13,7 @@ import sinocraft.core.register.SCBlocks;
 import sinocraft.core.register.SCItems;
 
 /**
- * 冬瓜
+ * 鍐摐
  * @author Liong
  *
  */
@@ -40,7 +40,7 @@ public class BlockWinterMelon extends SCCrop
 	@Override
 	public int idDropped(int metadata, Random random, int par3)
 	{
-		return SCItems.itemBenincasaPruriens.itemID;
+		return SCItems.ItemBenincasaPruriens.itemID;
 	}
 	
 	@Override

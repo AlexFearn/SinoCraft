@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.world.World;
 
 /**
- * 梅花枝
+ * 姊呰姳鏋\x841锟\xBD7
  * @author Liong
  *
  */
@@ -71,6 +71,6 @@ public class BlockPrunusMumeBranch extends Block
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister i)
 	{
-		blockIcon = i.registerIcon("sinocraft:BlockPrunusMumeBranch");
+		blockIcon = i.registerIcon("sinocraft:prunus_mume_branch");
 	}
 }

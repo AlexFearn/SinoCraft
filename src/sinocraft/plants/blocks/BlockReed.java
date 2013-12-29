@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 
 /**
- * 芦苇
+ * 鑺﹁媷
  * @author Liong
  *
  */
@@ -50,7 +50,7 @@ public class BlockReed extends SCFlower
 	@Override
 	public int idDropped(int par1, Random random, int par3)
 	{
-		return SCItems.itemReedLeaves.itemID;
+		return SCItems.ItemReedLeaves.itemID;
 	}	
 	
 	@Override
@@ -69,6 +69,6 @@ public class BlockReed extends SCFlower
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister i)
 	{
-		blockIcon = i.registerIcon("sinocraft:BlockReed");
+		blockIcon = i.registerIcon("sinocraft:reed");
 	}
 }

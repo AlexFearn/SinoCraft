@@ -1,5 +1,6 @@
 package sinocraft.core;
 
+import sinocraft.core.register.SCBlocks;
 import sinocraft.core.register.SCItems;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -17,6 +18,9 @@ public class SCCreativeTab extends CreativeTabs
 	@Override
 	public int getTabIconItemIndex()
 	{
-		return SCItems.itemReedLeaves.itemID;
+		return SCBlocks.blockPeony.blockID;
 	}
+	
+	
+	
 }

@@ -16,16 +16,18 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 
 /**
- * 月饼
+ * 鏈堥ゼ
  * @author Liong
  *
  */
 
 public class ItemMoonCake extends ItemFood
 {
-    public static final String[] MoonCakeType = new String[] {"Ham", "SweetBeanPaste", "FiveKernel", "LotusSeedPasteWithEggYolk", "LotusSeedPaste"};
+	enum EnumMoonCakeType {
+		Ham, SweetBeanPaste, FiveKernel, LotusSeedPasteWithEggYolk, LotusSeedPaste
+	}
 	
-    private Icon[] IconArray;
+    private Icon[] iconArray;
     
 	public ItemMoonCake(int Id)
 	{
@@ -39,11 +41,8 @@ public class ItemMoonCake extends ItemFood
 	@SideOnly(Side.CLIENT)
 	public void getSubItems(int itemID, CreativeTabs creativetabs, List list)
 	{
-		list.add(new ItemStack(itemID, 1, 0));
-		list.add(new ItemStack(itemID, 1, 1));
-		list.add(new ItemStack(itemID, 1, 2));
-		list.add(new ItemStack(itemID, 1, 3));
-		list.add(new ItemSeeds(itemID, 1, 4));
+		for(int i = 1; i < 5; i ++)
+			list.add(new ItemStack(itemID, 1, i));
 	}
 	
 	@Override
@@ -53,18 +52,28 @@ public class ItemMoonCake extends ItemFood
 	}
 	
 	@Override
-	public String getUnlocalizedName(ItemStack itemstack)
+	public String getUnlocalizedName(ItemStack stack)
 	{
-		return "item.ItemMoonCake." + MoonCakeType[itemstack.getItemDamage()];
+		return "Mooncake "+EnumMoonCakeType.values()[stack.getItemDamage()].toString();
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister i)
+	public void registerIcons(IconRegister ir)
 	{
-		IconArray = new Icon[MoonCakeType.length];
+		iconArray = new Icon[EnumMoonCakeType.values().length];
 		
-		for (int I = 0; I < MoonCakeType.length; I++)
-			IconArray[I] = i.registerIcon("sinocraft:ItemMoonCake" + "_" + MoonCakeType[I]);
+		for (int i = 0; i < EnumMoonCakeType.values().length; i++)
+			iconArray[i] = ir.registerIcon("sinocraft:mooncake" + "_" + i);
 	}
+	
+    @SideOnly(Side.CLIENT)
+
+    /**
+     * Gets an icon index based on an item's damage value
+     */
+    public Icon getIconFromDamage(int par1)
+    {
+        return iconArray[par1];
+    }
 }

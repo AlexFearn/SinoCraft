@@ -8,7 +8,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
 
 /**
- * SinoCraft所有花的父类
+ * SinoCraft鎵€鏈夎姳鐨勭埗绫\xBB
  * @author LIONG
  *
  */

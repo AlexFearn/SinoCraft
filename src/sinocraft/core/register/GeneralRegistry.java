@@ -9,19 +9,19 @@ import net.minecraftforge.common.Property;
 
 /**
  * 
- * 被注册类中标记的域必须为静态域。
+ * 琚敞鍐岀被涓爣璁扮殑鍩熷繀椤讳负闈欐€佸煙銆\x82
  */
 public class GeneralRegistry {
 
 	private static SCConfig config;
 
 	/**
-	 * 加载一个含有可设置参数的类。
+	 * 鍔犺浇涓€涓惈鏈夊彲璁剧疆鍙傛暟鐨勭被銆\x82
 	 * 
 	 * @param conf
-	 *            公用设置
+	 *            鍏敤璁剧疆
 	 * @param cl
-	 *            类，要注册的参数必须为Static
+	 *            绫伙紝瑕佹敞鍐岀殑鍙傛暟蹇呴』涓篠tatic
 	 */
 	public static void loadConfigurableClass(SCConfig conf, Class<?> cl) {
 		Property prop;

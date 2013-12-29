@@ -15,7 +15,7 @@ import sinocraft.core.register.SCBlocks;
 import sinocraft.core.register.SCItems;
 
 /**
- * 所有作物的父类
+ * 鎵€鏈変綔鐗╃殑鐖剁被
  * @author Liong
  *
  */

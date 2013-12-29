@@ -19,8 +19,8 @@ public class TileEntityCookstove extends TileEntity implements IInventory
 {
 	
 	boolean isActive;
-    public int time_CookstoveCanKeepBurn = 0; //炉子将会持续燃烧的时间，对应熔炉的furnaceBurnTime
-    public int time_FuelCanBurn = 0; //当前燃料能够维持炉子燃烧的时间，对应熔炉的currentItemBurnTime
+    public int time_CookstoveCanKeepBurn = 0; //鐐夊瓙灏嗕細鎸佺画鐕冪儳鐨勬椂闂达紝瀵瑰簲鐔旂倝鐨刦urnaceBurnTime
+    public int time_FuelCanBurn = 0; //褰撳墠鐕冩枡鑳藉缁存寔鐐夊瓙鐕冪儳鐨勬椂闂达紝瀵瑰簲鐔旂倝鐨刢urrentItemBurnTime
 	
 	private ItemStack[] itemstacks = new ItemStack[10];
 	

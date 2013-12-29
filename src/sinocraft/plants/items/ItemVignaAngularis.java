@@ -18,7 +18,6 @@ public class ItemVignaAngularis extends Item
 		
 		setCreativeTab(SinoCraft.sct);
 		setUnlocalizedName("VignaAngularis");
-		func_111206_d("sinocraft:ItemVignaAngularis");
 	}
 	
 	@Override
@@ -30,5 +29,12 @@ public class ItemVignaAngularis extends Item
 		}
 		
 		return true;
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister i)
+	{
+		itemIcon = i.registerIcon("sinocraft:vigna_angularis");
 	}
 }

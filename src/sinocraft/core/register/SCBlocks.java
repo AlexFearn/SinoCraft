@@ -29,9 +29,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.src.BaseMod;
 import net.minecraft.src.ModLoader;
 import net.minecraftforge.common.MinecraftForge;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 
 /**
- * MOD中的基础Block注册类
+ * MOD涓殑鍩虹Block娉ㄥ唽绫\x841\xA47
  * @author HopeAsd
  *
  */
@@ -47,11 +48,11 @@ public class SCBlocks
 	public static Block blockPrunusMumeWood;
 	public static Block blockBeanBracket;
 	public static Block blockGlutinousRice;
-	public static Block blockTeaBush;
+//	public static Block blockTeaBush;
 	public static Block blockPrunusMumeSapling;
 
 	public static Block blockWolk;
-	public static Block blockCookstoveIdle;
+//	public static Block blockCookstoveIdle;
 	public static Block blockCookstoveActive;
 		
 	public static int rendererBushID;
@@ -62,20 +63,43 @@ public class SCBlocks
 		try
 		{
 			blockPeony = new BlockPeony(config.getBlockID("blockPeony", 500));
+			LanguageRegistry.addName(blockPeony, "Peony");
+			
 			blockChrysanthemum = new BlockChrysanthemum(config.getBlockID("blockChrysanthemum",501));
+			LanguageRegistry.addName(blockChrysanthemum, "Chrysanthemum");
+			
 			blockPrunusMumeBranch = new BlockPrunusMumeBranch(config.getBlockID("blockPrunusMumeBranch",502));
+			LanguageRegistry.addName(blockPrunusMumeBranch, "PrunusMumeBranch");
+			
 			blockReed = new BlockReed (config.getBlockID("blockReed",503));
+			LanguageRegistry.addName(blockReed, "Reed");
+			
 			blockAzalea = new BlockAzalea(config.getBlockID("blockAzalea", 504));
+			LanguageRegistry.addName(blockAzalea, "Azalea");
 			
 			blockPrunusMumeWood = new BlockPrunusMumeWood(config.getBlockID("blockPrunusMumeWood", 505));
+			LanguageRegistry.addName(blockPrunusMumeWood, "PrunusMumeWood");
+			
 			blockPrunusMumeSapling = new BlockPrunusMumeSapling(config.getBlockID("blockPrunusMumeSapling", 506));
+			LanguageRegistry.addName(blockPrunusMumeSapling, "PrunusMumeSapling");
+			
 			blockBeanBracket = new BlockBeanBracket(config.getBlockID("blockBeanBracket", 507));
+			LanguageRegistry.addName(blockBeanBracket, "BeanBracket");
+			
 			blockGlutinousRice = new BlockGlutinousRice(config.getBlockID("blockGlutinousRice", 508));
-			blockTeaBush = new BlockTeaBush(config.getBlockID("blockTeaBush", 509));
+			LanguageRegistry.addName(blockGlutinousRice, "GlutinousRice");
+			
+//			blockTeaBush = new BlockTeaBush(config.getBlockID("blockTeaBush", 509));
+//			LanguageRegistry.addName(blockTeaBush, "TeaBush");
 			
 			blockWolk = new BlockWolk(config.getBlockID("blockWolk", 510));
-			blockCookstoveIdle = new BlockCookstove(config.getBlockID("blockCookstoIdle", 511), false);
+			LanguageRegistry.addName(blockWolk, "Wolk");
+			
+//			blockCookstoveIdle = new BlockCookstove(config.getBlockID("blockCookstoIdle", 511), false);
+//			LanguageRegistry.addName(blockCookstoveIdle, "CookstoveIdle");
+			
 			blockCookstoveActive = new BlockCookstove(config.getBlockID("blockCookstoveActive", 512), true);
+			LanguageRegistry.addName(blockCookstoveActive, "Cookstove");
 			
 			rendererBushID = config.getInteger("rendererBush", 80);
 			rendererWolkID = config.getInteger("rendererWolk", 81);
@@ -96,10 +120,10 @@ public class SCBlocks
 		ModLoader.registerBlock(blockPrunusMumeSapling);
 		ModLoader.registerBlock(blockBeanBracket);
 		ModLoader.registerBlock(blockGlutinousRice);
-		ModLoader.registerBlock(blockTeaBush);
+//		ModLoader.registerBlock(blockTeaBush);
 	
-		ModLoader.registerBlock(blockWolk);
-		ModLoader.registerBlock(blockCookstoveIdle);
+    	ModLoader.registerBlock(blockWolk);
+//		ModLoader.registerBlock(blockCookstoveIdle);
 		ModLoader.registerBlock(blockCookstoveActive);
 		
 		ModLoader.registerTileEntity(TileEntityCookstove.class, "TileEntityBlockCookstove");

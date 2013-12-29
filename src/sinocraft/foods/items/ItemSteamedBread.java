@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 /**
- * 馒头
+ * 棣掑ご
  * @author Liong
  *
  */
@@ -23,7 +23,6 @@ public class ItemSteamedBread extends ItemFood
 		
 		setCreativeTab(SinoCraft.sct);
 		setUnlocalizedName("SteamedBread");
-		func_111206_d("");
 	}
 	
 	@Override
@@ -35,6 +34,6 @@ public class ItemSteamedBread extends ItemFood
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister i)
 	{
-		itemIcon = i.registerIcon("sinocraft:ItemSteamedBread");
+		itemIcon = i.registerIcon("sinocraft:steamed_bread");
 	}
 }

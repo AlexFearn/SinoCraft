@@ -31,7 +31,7 @@ public class SCWorldGenerator implements IWorldGenerator
 							case 0: S_plain(random, chunkX, chunkZ, world, SCBlocks.blockPeony); break;
 							case 1: S_plain(random, chunkX, chunkZ, world, SCBlocks.blockChrysanthemum); break;
 							case 2: S_plain(random, chunkX, chunkZ, world, SCBlocks.blockAzalea); break;
-							case 3: S_plain(random, chunkX, chunkZ, world, SCBlocks.blockTeaBush); break;
+//							case 3: S_plain(random, chunkX, chunkZ, world, SCBlocks.blockTeaBush); break;
 							case 4: S_plain(random, chunkX, chunkZ, world, SCBlocks.blockReed); break;
 
 						}

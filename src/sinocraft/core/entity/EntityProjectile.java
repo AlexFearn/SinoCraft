@@ -45,7 +45,7 @@ public class EntityProjectile extends Entity implements IProjectile,
 
 	public EntityProjectile(World par1World) {
 		super(par1World);
-		// TODO 自动生成的构造函数存根
+		// TODO 鑷姩鐢熸垚鐨勬瀯閫犲嚱鏁板瓨鏍\xB9
 		this.xTile = -1;
 		this.yTile = -1;
 		this.zTile = -1;
@@ -64,7 +64,7 @@ public class EntityProjectile extends Entity implements IProjectile,
 
 	@Override
 	public Entity getThrower() {
-		// TODO 自动生成的方法存根
+		// TODO 鑷姩鐢熸垚鐨勬柟娉曞瓨鏍\xB9
 		return this.shootingEntity;
 	}
 
@@ -111,7 +111,7 @@ public class EntityProjectile extends Entity implements IProjectile,
 
 	@Override
 	protected void entityInit() {
-		// TODO 自动生成的方法存根
+		// TODO 鑷姩鐢熸垚鐨勬柟娉曞瓨鏍\xB9
 		if (canBeCritical()) {
 			this.dataWatcher.addObject(16, Byte.valueOf((byte) 0));
 		}
@@ -248,7 +248,7 @@ public class EntityProjectile extends Entity implements IProjectile,
 	}
 
 	private boolean aimRotation() {
-		// TODO 自动生成的方法存根
+		// TODO 鑷姩鐢熸垚鐨勬柟娉曞瓨鏍\xB9
 		return true;
 	}
 

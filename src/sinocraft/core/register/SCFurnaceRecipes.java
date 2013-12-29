@@ -1,7 +1,7 @@
 package sinocraft.core.register;
 
 /**
- * MOD中的熔炉合成表注册类
+ * MOD涓殑鐔旂倝鍚堟垚琛ㄦ敞鍐岀被
  * @author Liong
  *
  */

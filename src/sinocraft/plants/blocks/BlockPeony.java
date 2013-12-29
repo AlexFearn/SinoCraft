@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 
 /**
- * 牡丹
+ * 鐗�1�7�腹
  * @author Liong
  *
  */
@@ -28,6 +28,6 @@ public class BlockPeony extends SCFlower
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister i)
 	{
-		blockIcon = i.registerIcon("sinocraft:BlockPeony");
+		blockIcon = i.registerIcon("sinocraft:peony");
 	}
 }

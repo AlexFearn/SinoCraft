@@ -12,6 +12,7 @@ import sinocraft.core.register.SCFurnaceRecipes;
 import sinocraft.core.register.SCItems;
 import sinocraft.core.register.SCProperty;
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.Mod.PostInit;
@@ -26,16 +27,16 @@ import cpw.mods.fml.common.registry.GameRegistry;
 @Mod(modid = "SinoCraft", name = "SinoCraft", version = SinoCraft.VERSION)
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 /** 
- * MOD的主类
+ * MOD鐨勪富绫\xBB
  * @author HopeAsd, Liong
  */
 public class SinoCraft
 {
 	public static SCConfig config;
 	
-	public static final String VERSION = "1.0.0.0 pre";
+	public static final String VERSION = "1.0.0.0 dev";
 	
-	public static CreativeTabs sct = new SCCreativeTab("SC");
+	public static CreativeTabs sct = new SCCreativeTab("CC");
 
 	@Instance("SinoCraft")
 	public static SinoCraft instance;
@@ -43,7 +44,7 @@ public class SinoCraft
 	@SidedProxy(clientSide = "sinocraft.core.proxy.ClientProxy", serverSide = "sinocraft.core.proxy.ServerProxy")
 	public static ServerProxy proxy;
 
-	@PreInit
+	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) 
 	{
 		config = new SCConfig(event.getSuggestedConfigurationFile());
@@ -51,24 +52,24 @@ public class SinoCraft
 		proxy.preLoad(event);
 		
 		SCItems.load(config);
-		SCLog.info("no bug at preinit 1");
+		SCLog.info("No bug at preinit 1");
 		SCBlocks.load(config);
-		SCLog.info("no bug at preinit 2");
+		SCLog.info("No bug at preinit 2");
 	}
 
-	@Init
+	@EventHandler
 	public void init(FMLInitializationEvent event)
 	{
-		SCLog.info("no bug at init 1");
+		SCLog.info("No bug at init 1");
 		SCCraftingRecipes.load();
 		SCFurnaceRecipes.load();
 		SCProperty.loadProps(config);
-		SCLog.info("no bug at init 2");
+		SCLog.info("No bug at init 2");
 		proxy.load(event);
-		SCLog.info("no bug at init 3");
+		SCLog.info("No bug at init 3");
 	}
 
-	@PostInit
+	@EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
 		config.SaveConfig();

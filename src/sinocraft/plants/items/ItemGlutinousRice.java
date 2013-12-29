@@ -20,7 +20,6 @@ public class ItemGlutinousRice extends Item
 		
 		setUnlocalizedName("GlutinousRice");
 		setCreativeTab(SinoCraft.sct);
-		func_111206_d("sinocraft:ItemGlutinousRice");
 	}
 	
 	@Override
@@ -28,5 +27,12 @@ public class ItemGlutinousRice extends Item
 	{
 		world.setBlock(x, y + 1, z, SCBlocks.blockGlutinousRice.blockID, 0, 3);
 		return true;
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister i)
+	{
+		itemIcon = i.registerIcon("sinocraft:glutinous_rice");
 	}
 }

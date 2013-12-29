@@ -7,7 +7,7 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.Item;
 
 /**
- * 盐
+ * 鐩\x90
  * @author Liong
  *
  */
@@ -26,6 +26,6 @@ public class ItemSalt extends Item
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister i)
 	{
-		itemIcon = i.registerIcon("sinocraft:ItemSalt");
+		itemIcon = i.registerIcon("sinocraft:salt");
 	}
 }
