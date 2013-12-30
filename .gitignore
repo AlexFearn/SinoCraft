@@ -4,3 +4,7 @@
 *.jar
 *.war
 *.ear
+
+/minecraft/
+!/minecraft/sinocraft/
+!/minecraft/assets/sinocraft
