@@ -28,6 +28,8 @@ public class SCConfig {
 		config.load();
 	}
 
+	
+		
 	public void InitliazeConfig(File ConfigFile) {
 		if (this != null) {
 			return;
