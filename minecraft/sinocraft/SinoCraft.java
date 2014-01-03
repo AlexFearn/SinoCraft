@@ -10,6 +10,7 @@ import sinocraft.core.register.SCCraftingRecipes;
 import sinocraft.core.register.SCFurnaceRecipes;
 import sinocraft.core.register.SCItems;
 import sinocraft.core.register.SCProperty;
+import sinocraft.core.SCConfigControl;
 import net.minecraftforge.common.Configuration;
 
 import cpw.mods.fml.common.Mod;
@@ -25,13 +26,15 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.FMLRelaunchLog;
+import  java.lang.annotation.Annotation;
 
 import java.lang.reflect.Array;
+import java.lang.Package;
 
 @Mod(modid = "SinoCraft", name = "SinoCraft", version = "1.0.0.0 dev")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 /** 
- * MOD鐨勪富绫\xBB
+ * MOD
  * @author HopeAsd, Liong
  */
 public class SinoCraft
@@ -53,12 +56,24 @@ public class SinoCraft
 	public void preInit(FMLPreInitializationEvent event) 
 	{
 		config = new SCConfig(event.getSuggestedConfigurationFile());
-		config2 = new Configuration(event.getSuggestedConfigurationFile());
+
 		SCLog.EnableFileLog();
 		SCLog.log("INFO","hello!");
+		SCConfigControl.load(event.getSuggestedConfigurationFile());
+		SCConfigControl.save();
+		// Package pa = Package.getPackage("sinocraft");
+		// SCLog.log(pa.getImplementationTitle());
+		// SCLog.log(System.getProperty("java.class.path"));
+		// for (Annotation p: Package.getPackage("sinocraft"))
+		// {
+			// SCLog.log("INFO",""+p);
+		// }
 		// SCLog.log("INFO",""+(FMLRelaunchLog.log.getLogger().getHandlers()[0]).getClass());
 		// // SCLog.log("INFO",System.getProperty("user.dir"));
-		SCLog.log("INFO",SCLog.SinoCraftLogger.getName());
+		// for (String s:config2.getCategoryNames()) {
+		// 	SCLog.log("INFO",s);
+		// }
+		// SCLog.log("INFO",SCLog.SinoCraftLogger.getName());
 		// proxy.preLoad(event);
 		// SCItems.load(config);
 		// SCLog.info("No bug at preinit 1");
