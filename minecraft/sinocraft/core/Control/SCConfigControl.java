@@ -1,30 +1,37 @@
-package sinocraft.core;
+package sinocraft.core.Control;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.lang.reflect.Method;
 
+import java.lang.Package;
+
+import sinocraft.core.SCLog;
+import sinocraft.core.Annotation.SCConfigAnnotation;
 
 import net.minecraftforge.common.Configuration;
 
 public class SCConfigControl {
     public static Configuration SCConfiguration = null;
-    final static List<String> SCConfigClassList = new ArrayList<String>();
+    public static List<String> SCConfigClassList = new ArrayList<String>();
 
     public static void load(File loadFile) {
         if (!loadFile.exists()) {
             try {
-                SCLog.log("Try open SinoCraft.log");
+                SCLog.log("Try open sinocraft.log");
                 loadFile.createNewFile();
             } catch (Exception e) {
-                SCLog.log("WARNING", "Error when open SinoCraft.log");
+                SCLog.log("WARNING", "Error when open sinocraft.log");
                 return;
             }
         }
-        SCConfiguration = new Configuration(loadFile, false);
+        SCConfiguration = new Configuration(loadFile);
         /* 添加需要调取配置的方法列表 */
         SCConfigClassList.add("sinocraft.core.SCLog");
+        SCConfigClassList.add("sinocraft.core.Control.SCBlockControl");
+
+
 
         /*遍历注解了laod配置的方法*/
         Class<?> SCConfigLaodClass = null;
@@ -40,9 +47,9 @@ public class SCConfigControl {
             for (Method method : methods) {
                 if (method.isAnnotationPresent(SCConfigAnnotation.class)) {
                     SCConfigAnnotation annotation = method.getAnnotation(SCConfigAnnotation.class);
-                    if (annotation.Mold().equals("laod"))
+                    if (annotation.Mold().equals("load"))
                         try {
-                            SCLog.log("Try call " + method.getName());
+                            SCLog.log("Try call " + method.getName() + " in " + SCConfigClass);
                             method.invoke(null, SCConfiguration.getCategory(annotation.CategoryName()));
                         } catch (Exception e) {
                             SCLog.log("WARNING", "Error when call ConfigAnnotation in " + SCConfigClass  + " Method:" + method.toGenericString());
@@ -53,11 +60,10 @@ public class SCConfigControl {
         }
     }
     public static void save() {
-    	if (SCConfiguration == null)
-    	{
-    		SCLog.log("WARNING", "Error unfinished load ! in SCConfiguration");
-    		return;
-    	}
+        if (SCConfiguration == null) {
+            SCLog.log("WARNING", "Error unfinished load ! in SCConfiguration");
+            return;
+        }
 
         // /*遍历注解了save配置的方法*/
         Class<?> SCConfigLaodClass = null;
@@ -75,7 +81,7 @@ public class SCConfigControl {
                     SCConfigAnnotation annotation = method.getAnnotation(SCConfigAnnotation.class);
                     if (annotation.Mold().equals("save"))
                         try {
-                            SCLog.log("Try call " + method.getName());
+                            SCLog.log("Try call " + method.getName()  + " in " + SCConfigClass);
                             method.invoke(null);
                         } catch (Exception e) {
                             SCLog.log("WARNING", "Error when call ConfigAnnotation in " + SCConfigClass  + " Method:" + method.toGenericString());
@@ -84,7 +90,7 @@ public class SCConfigControl {
                 }
             }
         }
-    	SCConfiguration.save();
+        SCConfiguration.save();
     }
 
 }
