@@ -19,3 +19,4 @@ minecraft/fmlversion.properties
 minecraft/fml_marker.cfg
 minecraft/fml_at.cfg
 minecraft/deobfuscation_data-1.6.4.lzma
+*.sublime*

@@ -3,6 +3,7 @@ package sinocraft;
 import sinocraft.core.SCLog;
 import sinocraft.core.SCLoader;
 import sinocraft.core.Control.*;
+import sinocraft.core.SCLangRegister;
 
 import java.lang.ClassLoader;
 import java.net.URLClassLoader;
@@ -56,13 +57,15 @@ public class SinoCraft {
         // Class.forName("sinocraft.SCLog");
         SCConfigControl.load(event.getSuggestedConfigurationFile());
         // ModMetadata mmd = event.getModMetadata();
-        SCLog.log("INFO", "hello!");
+        SCLog.log("hello!");
+        SCLangRegister.load();
         try {
             SCLoader.load(event.getSourceFile());
         } catch (Exception e) {
             SCLog.log("WARNING", "Error ");
             // return;
         }
+        SCBlockControl.loadClass();
         //     File f = event.getSourceFile();
         //     URL url = f.toURI().toURL();
         //     SCLog.log("" + url);

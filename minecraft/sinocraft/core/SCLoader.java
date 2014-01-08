@@ -10,8 +10,8 @@ import java.util.Map;
 import java.util.Enumeration;
 
 public class SCLoader {
+    public static Map< String, List<String>> SCLoadClassLists = new HashMap<String, List<String>>();
     public static void load(File SCSourceFile) {
-        Map< String, List<String>> SCLoadClassLists = new HashMap<String, List<String>>();
         if (SCSourceFile.isDirectory()) {
             try {
                 SCLog.log("try open path :" + SCSourceFile + System.getProperty("file.separator") + "sinocraft" + System.getProperty("file.separator"));
@@ -47,7 +47,7 @@ public class SCLoader {
                                 List<String> SCLoadList = SCLoadClassLists.get(SCLoadPackage);
                                 if (SCLoadList == null) {
                                     SCLoadList = new ArrayList<String>();
-                                    SCLoadClassLists.put(SCLoadPackage,SCLoadList);
+                                    SCLoadClassLists.put(SCLoadPackage, SCLoadList);
                                 }
                                 SCLoadList.add(st.substring(0, st.lastIndexOf(".class")));
                             }
@@ -69,6 +69,8 @@ class SCPackageFilter implements FilenameFilter {
     public static List<String> SCLoadPackageList = new ArrayList<String>();
     static {
         SCLoadPackageList.add("blocks");
+        SCLoadPackageList.add("guis");
+        SCLoadPackageList.add("tiems");
     }
 
     @Override
