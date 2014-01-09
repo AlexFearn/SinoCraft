@@ -7,7 +7,8 @@ import sinocraft.core.SCLangRegister;
 
 import java.lang.ClassLoader;
 import java.net.URLClassLoader;
-// import java.lang.Package;
+import java.util.List;
+import java.util.Map;
 import java.util.Enumeration;
 import java.net.URL;
 import java.util.zip.*;
@@ -27,9 +28,11 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.relauncher.FMLRelaunchLog;
 import cpw.mods.fml.common.ModMetadata;
 import java.lang.annotation.Annotation;
+import cpw.mods.fml.common.Loader;
+import cpw.mods.fml.common.ModContainer;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 
-
-@Mod(modid = "SinoCraft", name = "SinoCraft", version = "1.0.0.0 dev")
+@Mod(modid = "SinoCraft", name = "SinoCraft", version = "0.0.2.1")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 /**
  * MOD
@@ -39,12 +42,12 @@ public class SinoCraft {
     // public static SCConfig config;
     // public static Configuration config2 ;
 
-    public static final String VERSION = "1.0.0.0 dev";
+    // public static final String VERSION = "1.0.0.0 dev";
 
     // public static CreativeTabs sct = new SCCreativeTab("CC");
 
-    @Instance("SinoCraft")
-    public static SinoCraft instance;
+    // @Instance("SinoCraft")
+    // public static SinoCraft instance;
 
     // @SidedProxy(clientSide = "sinocraft.core.proxy.ClientProxy", serverSide = "sinocraft.core.proxy.ServerProxy")
     // public static ServerProxy proxy;
@@ -66,7 +69,22 @@ public class SinoCraft {
             // return;
         }
         SCBlockControl.loadClass();
-        //     File f = event.getSourceFile();
+        SCLog.log("ok");
+        SCItemControl.loadClass();
+        // List<ModContainer> l = Loader.instance().getModList(); 
+
+        // for (ModContainer m :l) {
+        //     SCLog.log("" + m);
+        //     SCLog.log("" + m.getName());
+        //     if(m.getModId().equals("SinoCraft"))
+        //     {
+        //         SCLog.log("ok");
+        //         m.getMetadata().name = LanguageRegistry.instance().getStringLocalization("itemGroup.CC","en_US") ;
+        //     }
+        //     SCLog.log("" + m.getMetadata().name);
+        // }
+
+        // //     File f = event.getSourceFile();
         //     URL url = f.toURI().toURL();
         //     SCLog.log("" + url);
         //     String [] stlist;

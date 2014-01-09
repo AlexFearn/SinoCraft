@@ -1,0 +1,17 @@
+[
+{
+  "modid": "SinoCraft",
+  "name": "SinoCraft",
+  "description": "Lead you to savor the implication of Chinese civilization",
+  "mcversion": "1.6.4",
+  "version" : "0.0.2.1",
+  "url": "",
+  "updateUrl": "",
+  "authors": ["Ascendas Loong"],
+  "credits": "Created by Ascendas Loong",
+  "logoFile": "",
+  "screenshots": [],
+  "parent": "",
+  "dependencies": [""]
+}
+]

@@ -10,9 +10,9 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 @SCBlockAnnotation(DefaultID = 500,Name = "Peony")
 public class testBlock extends Block {
-    public testBlock(int id, Material material) {
+    public testBlock(int id, Material material) 
+    {
         super(id, material);
-        setUnlocalizedName("Peony"); 
     }
 
     @Override

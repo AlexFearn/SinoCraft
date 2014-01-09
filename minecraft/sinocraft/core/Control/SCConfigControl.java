@@ -19,7 +19,7 @@ public class SCConfigControl {
     public static void load(File loadFile) {
         if (!loadFile.exists()) {
             try {
-                SCLog.log("Try open sinocraft.log");
+                SCLog.log("open sinocraft.log");
                 loadFile.createNewFile();
             } catch (Exception e) {
                 SCLog.log("WARNING", "Error when open sinocraft.log");
@@ -30,14 +30,14 @@ public class SCConfigControl {
         /* 添加需要调取配置的方法列表 */
         SCConfigClassList.add("sinocraft.core.SCLog");
         SCConfigClassList.add("sinocraft.core.Control.SCBlockControl");
-
+        SCConfigClassList.add("sinocraft.core.Control.SCItemControl");
 
 
         /*遍历注解了laod配置的方法*/
         Class<?> SCConfigLaodClass = null;
         for (String SCConfigClass : SCConfigClassList) {
             try {
-                SCLog.log("Try getClass " + SCConfigClass);
+                SCLog.log("getClass :" + SCConfigClass);
                 SCConfigLaodClass = Class.forName(SCConfigClass);
             } catch (Exception e) {
                 SCLog.log("WARNING", "Error when getClass " + SCConfigClass + " in SCConfigControl!");
@@ -49,7 +49,7 @@ public class SCConfigControl {
                     SCConfigAnnotation annotation = method.getAnnotation(SCConfigAnnotation.class);
                     if (annotation.Mold().equals("load"))
                         try {
-                            SCLog.log("Try call " + method.getName() + " in " + SCConfigClass);
+                            SCLog.log("call " + method.getName() + " in " + SCConfigClass);
                             method.invoke(null, SCConfiguration.getCategory(annotation.CategoryName()));
                         } catch (Exception e) {
                             SCLog.log("WARNING", "Error when call ConfigAnnotation in " + SCConfigClass  + " Method:" + method.toGenericString());
@@ -69,7 +69,7 @@ public class SCConfigControl {
         Class<?> SCConfigLaodClass = null;
         for (String SCConfigClass : SCConfigClassList) {
             try {
-                SCLog.log("Try getClass " + SCConfigClass);
+                SCLog.log("getClass :" + SCConfigClass);
                 SCConfigLaodClass = Class.forName(SCConfigClass);
             } catch (Exception e) {
                 SCLog.log("WARNING", "Error when getClass " + SCConfigClass + " in SCConfigControl!");
@@ -81,7 +81,7 @@ public class SCConfigControl {
                     SCConfigAnnotation annotation = method.getAnnotation(SCConfigAnnotation.class);
                     if (annotation.Mold().equals("save"))
                         try {
-                            SCLog.log("Try call " + method.getName()  + " in " + SCConfigClass);
+                            SCLog.log("call " + method.getName()  + " in " + SCConfigClass);
                             method.invoke(null);
                         } catch (Exception e) {
                             SCLog.log("WARNING", "Error when call ConfigAnnotation in " + SCConfigClass  + " Method:" + method.toGenericString());

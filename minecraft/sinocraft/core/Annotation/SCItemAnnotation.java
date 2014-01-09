@@ -8,8 +8,7 @@ import java.lang.annotation.RetentionPolicy;
 
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface SCBlockAnnotation {
+public @interface SCItemAnnotation {
     int DefaultID();
     String Name();
-	String Material() default "";
 }
