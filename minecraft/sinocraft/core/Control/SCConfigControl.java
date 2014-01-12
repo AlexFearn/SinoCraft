@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 import java.lang.Package;
 
 import sinocraft.core.SCLog;
-import sinocraft.core.Annotation.SCConfigAnnotation;
+import sinocraft.core.Annotation.SCConfig;
 
 import net.minecraftforge.common.Configuration;
 
@@ -45,8 +45,8 @@ public class SCConfigControl {
             }
             Method[] methods = SCConfigLaodClass.getDeclaredMethods();
             for (Method method : methods) {
-                if (method.isAnnotationPresent(SCConfigAnnotation.class)) {
-                    SCConfigAnnotation annotation = method.getAnnotation(SCConfigAnnotation.class);
+                if (method.isAnnotationPresent(SCConfig.class)) {
+                    SCConfig annotation = method.getAnnotation(SCConfig.class);
                     if (annotation.Mold().equals("load"))
                         try {
                             SCLog.log("call " + method.getName() + " in " + SCConfigClass);
@@ -77,8 +77,8 @@ public class SCConfigControl {
             }
             Method[] methods = SCConfigLaodClass.getDeclaredMethods();
             for (Method method : methods) {
-                if (method.isAnnotationPresent(SCConfigAnnotation.class)) {
-                    SCConfigAnnotation annotation = method.getAnnotation(SCConfigAnnotation.class);
+                if (method.isAnnotationPresent(SCConfig.class)) {
+                    SCConfig annotation = method.getAnnotation(SCConfig.class);
                     if (annotation.Mold().equals("save"))
                         try {
                             SCLog.log("call " + method.getName()  + " in " + SCConfigClass);

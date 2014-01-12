@@ -9,7 +9,7 @@ import net.minecraftforge.common.ConfigCategory;
 import net.minecraftforge.common.Property;
 import cpw.mods.fml.relauncher.FMLRelaunchLog;
 import sinocraft.core.Control.SCConfigControl;
-import sinocraft.core.Annotation.SCConfigAnnotation;
+import sinocraft.core.Annotation.SCConfig;
 
 
 import static net.minecraftforge.common.Property.Type.BOOLEAN;
@@ -59,7 +59,7 @@ public class SCLog {
         FMLRelaunchLog.log("sinocraft", Level.SEVERE, message);
     }
 
-    @SCConfigAnnotation(Mold = "load", CategoryName = "debug")
+    @SCConfig(Mold = "load", CategoryName = "debug")
     public static void loadConfig(ConfigCategory confige) {
         Property logLevelProp = confige.get("log.Level");
         try {
@@ -92,7 +92,7 @@ public class SCLog {
         }
     }
 
-    @SCConfigAnnotation(Mold = "save", CategoryName = "debug")
+    @SCConfig(Mold = "save", CategoryName = "debug")
     public static void saveConfig() {
     }
 

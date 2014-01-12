@@ -70,7 +70,7 @@ class SCPackageFilter implements FilenameFilter {
     static {
         SCLoadPackageList.add("blocks");
         SCLoadPackageList.add("guis");
-        SCLoadPackageList.add("tiems");
+        SCLoadPackageList.add("items");
     }
 
     @Override

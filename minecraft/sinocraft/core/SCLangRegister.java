@@ -10,11 +10,11 @@ import java.net.URL;
 
 public class SCLangRegister {
     public static Set<String> languages = new HashSet<String>();
-    public static URL langURL ;
+    // public static URL langURL ;
 
     static {
         languages.add("zh_CN");
-        languages.add("en_US");
+        // languages.add("en_US");
     }
 
     public static void load() {
