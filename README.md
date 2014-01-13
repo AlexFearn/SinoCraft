@@ -1,4 +1,4 @@
 SinoCraft
 =========
 
-龙腾东方：中华文化 MOD 
+Minecraft mod that focuses on traditional Chinese culture
