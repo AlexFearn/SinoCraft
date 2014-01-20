@@ -38,14 +38,14 @@ public class SCLog {
     }
 
     public static void log(Throwable ex, String format , Object... data) {
-        log(ex, Level.INFO, format, data);
+        log(Level.INFO, ex, format, data);
     }
 
-    public static void log(String level, Throwable ex,  String format, Object... data) {
+    public static void log(String level, Throwable ex, String format, Object... data){
         log(Level.toLevel(level, Level.INFO), ex, format, data);
     }
 
-    public static void log(Level level, Throwable ex, String format, Object... data) {
+    public static void log(Level level, Throwable ex,  String format, Object... data) {
         if (!configured) {
             setLogger();
         }
@@ -56,8 +56,8 @@ public class SCLog {
         log(format, data);
     }
 
-    public static void severe(String format , Object... data) {
-        log(Level.SEVERE, format, data);
+    public static void error(String format , Object... data) {
+        log(Level.ERROR, format, data);
     }
 
 }

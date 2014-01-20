@@ -1,7 +1,7 @@
 [
 {
   "modid": "SinoCraft",
-  "name": "SinoCraft (Chinese Civilization)",
+  "name": "sinofraft",
   "description": "Example placeholder mod.",
   "version": "${version}",
   "mcversion": "${mcversion}",
